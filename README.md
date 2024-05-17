@@ -1,8 +1,18 @@
-# React + Vite
+[![Job-finder.png](https://i.postimg.cc/Fzv0m69J/Job-finder.png)](https://postimg.cc/zbdyF0HJ)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Job Finder
 
-Currently, two official plugins are available:
+**Job Finder** adalah sebuah platform yang membantu pencari kerja menemukan lowongan pekerjaan yang sesuai dengan kualifikasi dan preferensi mereka. Proyek ini bertujuan untuk menyediakan akses mudah ke berbagai lowongan pekerjaan dari berbagai sumber.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+
+**Client:** React, Redux, TailwindCSS, Next UI
+
+**Server:** Laravel, MySQL
+
+## Authors
+
+- [@Azzaxy](https://github.com/azzaxy1)
+- [@Anuraaaa](https://github.com/Anuraaaa)
+- [@Marcel](https://github.com/)
+
