@@ -2,6 +2,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./views/Auth/pages/LoginPage";
+import LoginForm from "./views/Auth/components/LoginForm";
 
 const App = () => {
   return (

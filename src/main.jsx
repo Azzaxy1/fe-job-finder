@@ -7,12 +7,12 @@ import { NextUIProvider } from "@nextui-org/react";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <NextUIProvider>
+  <NextUIProvider>
+    <BrowserRouter>
+      <React.StrictMode>
         <App />
-      </NextUIProvider>
-    </React.StrictMode>
-  </BrowserRouter>
+      </React.StrictMode>
+    </BrowserRouter>
+  </NextUIProvider>
 );
 
