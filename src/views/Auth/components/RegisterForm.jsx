@@ -3,18 +3,33 @@ import React from "react";
 import { Button, Input } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   return (
     <section className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
         <form className="px-8  bg-white w-[380px] lg:w-[460px]">
           <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-primary">
-            Masuk
+            Daftar Akun
           </h1>
-          <p className="mb-2 text-sm">
-            Selamat datang silahkan masukan email dan kata sandi anda
-          </p>
-          <div className="mb-4">
+          <p className="mb-2 text-sm">Silahkan daftarkan akun anda</p>
+          <div className="mb-2">
+            <label
+              htmlFor="name"
+              className="block mb-2 text-[#3C3C3C] text-sm font-normal leading-4 lg:text-sm"
+            >
+              Name
+            </label>
+            <Input
+              type="text"
+              id="name"
+              variant="bordered"
+              size="md"
+              placeholder="Masukan Nama"
+              className="w-full"
+              autoComplete="off"
+            />
+          </div>
+          <div className="mb-2">
             <label
               htmlFor="email"
               className="block mb-2 text-[#3C3C3C] text-sm font-normal leading-4 lg:text-sm"
@@ -31,21 +46,13 @@ const LoginForm = () => {
               autoComplete="off"
             />
           </div>
-          <div className="mb-8">
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="password"
-                className="block mb-2 text-[#3C3C3C] text-sm font-normal leading-4 lg:text-sm"
-              >
-                Password
-              </label>
-              <Link
-                to="/reset-password"
-                className="text-sm font-medium lg:text-base hover:underline text-primary"
-              >
-                Lupa Kata Sandi
-              </Link>
-            </div>
+          <div className="mb-5">
+            <label
+              htmlFor="password"
+              className="block mb-2 text-[#3C3C3C] text-sm font-normal leading-4 lg:text-sm"
+            >
+              Password
+            </label>
             <Input
               type="password"
               variant="bordered"
@@ -58,21 +65,21 @@ const LoginForm = () => {
             <span className="text-sm text-red-500 lg:text-base"></span>
           </div>
           <Button
-            size="md"
             variant="solid"
+            size="md"
             className="w-full text-white bg-primary"
           >
-            Masuk
+            Daftar
           </Button>
         </form>
         <div className="mt-6 text-center">
           <span className="text-sm font-normal text-center lg:text-base">
-            Belum punya akun?&nbsp;
+            Sudah punya akun?&nbsp;
             <Link
-              to="/register"
+              to="/login"
               className="font-bold duration-75 text-primary hover:underline"
             >
-              Daftar di sini
+              Masuk di sini
             </Link>
           </span>
         </div>
@@ -81,4 +88,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

@@ -2,12 +2,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./views/Auth/pages/LoginPage";
-import LoginForm from "./views/Auth/components/LoginForm";
+import RegisterPage from "./views/Auth/pages/RegisterPage";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
     </Routes>
   );
 };
