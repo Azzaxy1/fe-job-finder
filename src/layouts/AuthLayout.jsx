@@ -21,7 +21,7 @@ const AuthLayout = ({ children, type }) => {
 
   return (
     <section className="lg:grid lg:min-h-screen lg:grid-cols-12">
-      <aside className="items-center justify-center hidden h-24 md:flex bg-primary lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
+      <aside className="items-center justify-center hidden h-24 md:flex bg-blue lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
         <img
           alt="auth image"
           src={authImage}

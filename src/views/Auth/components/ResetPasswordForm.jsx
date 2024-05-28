@@ -7,7 +7,7 @@ const ResetPasswordForm = () => {
     <section className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
         <form className="px-8 py-8 bg-white w-[380px] lg:w-[460px]">
-          <h1 className="mb-3 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-primary">
+          <h1 className="mb-3 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
             Reset Password
           </h1>
           <div className="mb-2">
@@ -47,7 +47,7 @@ const ResetPasswordForm = () => {
           <Button
             size="md"
             variant="solid"
-            className="w-full text-white bg-primary"
+            className="w-full text-white bg-blue"
           >
             Simpan
           </Button>

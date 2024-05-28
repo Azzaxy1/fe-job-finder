@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const { nextui } = require("@nextui-org/react");
 
 /** @type {import('tailwindcss').Config} */
@@ -10,7 +11,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1E63AE",
+        blue: {
+          DEFAULT: "#1E63AE",
+          hover: "#1C5CBF",
+        },
         secondary: "#f97316",
       },
       fontSize: {

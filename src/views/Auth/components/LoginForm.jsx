@@ -8,7 +8,7 @@ const LoginForm = () => {
     <section className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
         <form className="px-8  bg-white w-[380px] lg:w-[460px]">
-          <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-primary">
+          <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
             Masuk
           </h1>
           <p className="mb-2 text-sm">
@@ -41,7 +41,7 @@ const LoginForm = () => {
               </label>
               <Link
                 to="/reset-password"
-                className="text-sm font-medium lg:text-base hover:underline text-primary"
+                className="text-sm font-medium lg:text-base hover:underline text-blue"
               >
                 Lupa Kata Sandi
               </Link>
@@ -60,7 +60,7 @@ const LoginForm = () => {
           <Button
             size="md"
             variant="solid"
-            className="w-full text-white bg-primary"
+            className="w-full text-white bg-blue"
           >
             Masuk
           </Button>
@@ -70,7 +70,7 @@ const LoginForm = () => {
             Belum punya akun?&nbsp;
             <Link
               to="/register"
-              className="font-bold duration-75 text-primary hover:underline"
+              className="font-bold duration-75 text-blue hover:underline"
             >
               Daftar di sini
             </Link>
