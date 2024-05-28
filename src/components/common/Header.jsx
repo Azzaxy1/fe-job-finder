@@ -32,7 +32,7 @@ const Header = () => {
     <Navbar
       onMenuOpenChange={SetIsMenuOpen}
       isBordered
-      className="shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] py-1"
+      className="shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]"
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -45,12 +45,11 @@ const Header = () => {
           </Link>
         </NavbarBrand>
       </NavbarContent>
-
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
         <NavbarItem className="sm:flex sm:gap-3">
           {menuItems.map((item) => (
             <Link
-              className="font-medium hover:text-blue-hover hover:underline hover:underline-offset-8"
+              className="font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8"
               to={pathMenu[menuItems.indexOf(item)]}
               key={item}
             >
@@ -65,7 +64,8 @@ const Header = () => {
             <NavbarItem>
               <Button
                 radius="sm"
-                className="text-white bg-blue hover:bg-blue-hover"
+                variant="outline"
+                className="border-2 border-blue hover:text-white hover:bg-blue"
               >
                 <Link to="/login">Masuk</Link>
               </Button>
@@ -107,7 +107,9 @@ const Header = () => {
                 <p className="font-semibold">Masuk sebagai</p>
                 <p className="font-semibold">John Doe</p>
               </DropdownItem>
-              <DropdownItem key="profile">My Profile</DropdownItem>
+              <DropdownItem key="profile" className="text-fontColor">
+                My Profile
+              </DropdownItem>
               <DropdownItem key="logout" color="danger" className="text-danger">
                 Logout
               </DropdownItem>
@@ -119,7 +121,7 @@ const Header = () => {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              className="w-full font-medium hover:text-blue-hover hover:underline hover:underline-offset-8"
+              className="w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8"
               to={pathMenu[menuItems.indexOf(item)]}
             >
               {item}

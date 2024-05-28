@@ -15,7 +15,9 @@ export default {
           DEFAULT: "#1E63AE",
           hover: "#1C5CBF",
         },
-        secondary: "#f97316",
+        fontColor: {
+          DEFAULT: "#3C3C3C",
+        },
       },
       fontSize: {
         mobile: "14px",

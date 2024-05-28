@@ -5,14 +5,17 @@ import "@/styles/index.css";
 import "@fontsource/poppins";
 import { NextUIProvider } from "@nextui-org/react";
 import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <NextUIProvider>
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
-  </NextUIProvider>
+  <HelmetProvider>
+    <NextUIProvider>
+      <BrowserRouter>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </BrowserRouter>
+    </NextUIProvider>
+  </HelmetProvider>
 );
 
