@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "./src/App.jsx";
 import "@/styles/index.css";
 import "@fontsource/poppins";
 import { NextUIProvider } from "@nextui-org/react";
