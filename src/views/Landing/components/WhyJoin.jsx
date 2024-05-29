@@ -40,10 +40,10 @@ const WhyJoin = () => {
   return (
     <section className="flex flex-col py-12 items-center gap-10 px-10 md:px-4">
       <header className="text-2xl text-center font-semibold sm:text-3xl   text-fontColor">
-        <h1>
+        <h2>
           Kenapa mencari pekerjaan di{" "}
           <span className="text-blue">JobFinder</span>?
-        </h1>
+        </h2>
       </header>
       <article className="flex flex-col justify-center md:flex-row md:flex-wrap  gap-4">
         {cardList.map((card) => (
