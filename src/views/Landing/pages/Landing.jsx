@@ -6,6 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout";
 import Hero from "../components/Hero";
 import WhyJoin from "../components/WhyJoin";
 import CompanyList from "../components/CompanyList";
+import Testimony from "../components/Testimony";
 const Landing = () => {
   return (
     <>
@@ -17,6 +18,8 @@ const Landing = () => {
           <Hero />
           <WhyJoin />
           <CompanyList />
+          <Testimony />
+          <div className="h-[1000px]"></div>
         </main>
       </BaseLayout>
     </>

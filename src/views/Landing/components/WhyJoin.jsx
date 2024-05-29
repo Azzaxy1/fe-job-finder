@@ -39,7 +39,7 @@ const WhyJoin = () => {
 
   return (
     <section className="flex flex-col py-12 items-center gap-10 px-10 md:px-4">
-      <header className="text-2xl text-center font-semibold sm:text-3xl   text-fontColor">
+      <header className="text-2xl text-center font-semibold sm:text-3xl text-fontColor">
         <h2>
           Kenapa mencari pekerjaan di{" "}
           <span className="text-blue">JobFinder</span>?
