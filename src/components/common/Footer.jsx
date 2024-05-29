@@ -17,11 +17,11 @@ const Footer = () => {
             width={80}
             className="object-cover"
           />
-          <p>Situs Lowongan Pekerjaan</p>
+          <p className="text-base md:text-xl">Situs Lowongan Pekerjaan</p>
         </div>
         <div className="text-white">
-          <h2 className="text-xl font-semibold">Navigasi</h2>
-          <ul>
+          <h2 className="text-lg md:text-xl font-semibold">Navigasi</h2>
+          <ul className="text-base">
             <li>
               <Link to="/">Beranda</Link>
             </li>
@@ -34,8 +34,8 @@ const Footer = () => {
           </ul>
         </div>
         <div className="text-white">
-          <h2 className="text-xl font-semibold">Our Team</h2>
-          <ul>
+          <h2 className="text-lg md:text-xl font-semibold">Our Team</h2>
+          <ul className="text-base">
             <li>Abdurrohman Azis</li>
             <li>Muhammad Anwar Fauzan</li>
             <li>Marcell Virgiano Hernand De Ro</li>

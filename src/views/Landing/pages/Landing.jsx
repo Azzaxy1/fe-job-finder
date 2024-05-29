@@ -2,6 +2,7 @@
 import React from "react";
 import BaseLayout from "@/layouts/BaseLayout";
 import { Helmet } from "react-helmet-async";
+import Hero from "../components/Hero";
 
 const Landing = () => {
   return (
@@ -10,7 +11,9 @@ const Landing = () => {
         <title>Job Finder | Situs Lowongan Pekerjaan</title>
       </Helmet>
       <BaseLayout>
-        <main className="min-h-screen ">Main Content</main>
+        <main className="min-h-screen">
+          <Hero />
+        </main>
       </BaseLayout>
     </>
   );

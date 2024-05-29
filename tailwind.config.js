@@ -24,6 +24,11 @@ export default {
         tablet: "16px",
         desktop: "18px",
       },
+      screens: {
+        tablet: "640px",
+        laptop: "1024px",
+        desktop: "1280px",
+      },
     },
   },
   darkMode: "class",
