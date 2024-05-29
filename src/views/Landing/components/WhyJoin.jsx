@@ -47,7 +47,11 @@ const WhyJoin = () => {
       </header>
       <article className="flex flex-col justify-center md:flex-row md:flex-wrap  gap-4">
         {cardList.map((card) => (
-          <Card key={card.id} className="md:max-w-72 2xl:max-w-80  py-2">
+          <Card
+            shadow="sm"
+            key={card.id}
+            className="md:max-w-72 2xl:max-w-80  py-2"
+          >
             <CardHeader className="flex justify-center">
               <Image src={card.img} alt={card.title} />
             </CardHeader>
