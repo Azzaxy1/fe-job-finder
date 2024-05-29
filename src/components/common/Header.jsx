@@ -16,13 +16,14 @@ import {
   NavbarMenuToggle,
   User,
 } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Logo from "@/assets/logo-blue.svg";
 
 const Header = () => {
   const [isMenuOpen, SetIsMenuOpen] = useState(false);
   const [token, setToken] = useState(false);
+  const location = useLocation();
 
   const menuItems = ["Beranda", "Lowongan", "Tips Loker"];
 
@@ -47,10 +48,12 @@ const Header = () => {
       </NavbarContent>
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
         <NavbarItem className="sm:flex sm:gap-3">
-          {menuItems.map((item) => (
+          {menuItems.map((item, index) => (
             <Link
-              className="font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8"
-              to={pathMenu[menuItems.indexOf(item)]}
+              className={`font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
+                location.pathname === pathMenu[index] && "text-blue-hover"
+              }`}
+              to={pathMenu[index]}
               key={item}
             >
               {item}
@@ -121,8 +124,10 @@ const Header = () => {
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              className="w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8"
-              to={pathMenu[menuItems.indexOf(item)]}
+              className={`w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
+                location.pathname === pathMenu[index] && "text-blue-hover"
+              }`}
+              to={pathMenu[index]}
             >
               {item}
             </Link>
