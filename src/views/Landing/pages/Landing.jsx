@@ -7,6 +7,7 @@ import Hero from "../components/Hero";
 import WhyJoin from "../components/WhyJoin";
 import CompanyList from "../components/CompanyList";
 import Testimony from "../components/Testimony";
+import Faq from "../components/Faq";
 const Landing = () => {
   return (
     <>
@@ -14,12 +15,12 @@ const Landing = () => {
         <title>Job Finder | Situs Lowongan Pekerjaan</title>
       </Helmet>
       <BaseLayout>
-        <main className="min-h-screen">
+        <main>
           <Hero />
           <WhyJoin />
           <CompanyList />
           <Testimony />
-          <div className="h-[1000px]"></div>
+          <Faq />
         </main>
       </BaseLayout>
     </>

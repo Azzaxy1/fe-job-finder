@@ -32,10 +32,10 @@ const Testimony = () => {
   ];
 
   return (
-    <section className="py-12  bg-blue text-white">
-      <header className="flex text-center flex-col justify-center  ">
-        <h2 className="text-2xl sm:text-3xl font-medium">Apa kata mereka</h2>
-        <p className="text-2xl sm:text-3xl font-medium">Tentang Job Finder</p>
+    <section className="py-12 text-white bg-blue">
+      <header className="flex flex-col justify-center text-center ">
+        <h2 className="text-2xl font-medium sm:text-3xl">Apa kata mereka</h2>
+        <p className="text-2xl font-medium sm:text-3xl">Tentang Job Finder</p>
       </header>
       <article className="pt-10">
         <Carousel
@@ -51,21 +51,21 @@ const Testimony = () => {
               key={testimony.id}
               className="flex w-[70%] flex-col sm:flex-row mx-auto justify-center items-center gap-10 md:gap-12 text-left"
             >
-              <div className="flex  justify-center items-center">
+              <div className="flex items-center justify-center">
                 <Image
                   radius="full"
                   src={testimony.image}
                   alt={testimony.name}
                 />
               </div>
-              <div className="flex flex-col  gap-1">
+              <div className="flex flex-col gap-1">
                 <p className="text-sm sm:text-base md:text-lg ">
                   {testimony.message}
                 </p>
-                <p className="text-sm sm:text-lg pt-3  md:text-xl font-medium">
+                <p className="pt-3 text-sm font-medium sm:text-lg md:text-xl">
                   {testimony.name}
                 </p>
-                <p className="text-xs sm:text-sm md:text-base  font-light">
+                <p className="text-xs font-light sm:text-sm md:text-base">
                   {testimony.title}
                 </p>
               </div>

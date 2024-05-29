@@ -65,7 +65,7 @@ const Header = () => {
               <Button
                 radius="sm"
                 variant="outline"
-                className="border-2 border-blue hover:text-white hover:bg-blue"
+                className="border border-blue hover:text-white hover:bg-blue"
               >
                 <Link to="/login">Masuk</Link>
               </Button>
@@ -95,11 +95,11 @@ const Header = () => {
                 as="button"
                 avatarProps={{
                   isBordered: true,
-                  src: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+                  src: "https://i.pravatar.cc/300",
                 }}
                 className="transition-transform"
-                description="@tonyreichert"
-                name="Tony Reichert"
+                description="johndoe@example.com"
+                name="John Doe"
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Action" variant="flat">
@@ -108,10 +108,10 @@ const Header = () => {
                 <p className="font-semibold">John Doe</p>
               </DropdownItem>
               <DropdownItem key="profile" className="text-fontColor">
-                My Profile
+                <Link to="/profile">My Profile</Link>
               </DropdownItem>
               <DropdownItem key="logout" color="danger" className="text-danger">
-                Logout
+                <Link to="/login">Logout</Link>
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
