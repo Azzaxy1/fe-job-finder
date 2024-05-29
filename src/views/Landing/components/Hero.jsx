@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import { Autocomplete, Button, Input } from "@nextui-org/react";
-import { IoLocationOutline } from "react-icons/io5";
-import { IoIosSearch } from "react-icons/io";
+import { Button } from "@nextui-org/react";
 
 import HeroImage from "@/assets/landing/hero.svg";
 import Shape from "@/assets/landing/shape.svg";
+import SearchJobs from "@/components/common/SearchJobs";
+import SearchLocation from "@/components/common/SearchLocation";
 
 const Hero = () => {
   return (
@@ -19,18 +19,8 @@ const Hero = () => {
           Temukan pekerjaan yang akan Anda sukai.
         </p>
         <div className="flex flex-col gap-4 md:flex-row">
-          <Input
-            variant="bordered"
-            placeholder="Cari pekerjaan"
-            className="w-full border border-gray-400 rounded-xl"
-            startContent={<IoIosSearch className="text-xl" />}
-          />
-          <Autocomplete
-            variant="bordered"
-            placeholder="Lokasi"
-            className="w-full border border-gray-400 rounded-xl "
-            startContent={<IoLocationOutline className="text-2xl" />}
-          />
+          <SearchJobs />
+          <SearchLocation />
           <Button radius="sm" className="text-white bg-blue">
             Cari
           </Button>

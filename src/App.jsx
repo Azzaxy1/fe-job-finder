@@ -6,6 +6,7 @@ import RegisterPage from "@/views/Auth/pages/RegisterPage";
 import ResetPasswordPage from "@/views/Auth/pages/ResetPasswordPage";
 import SetPasswordPage from "@/views/Auth/pages/SetPasswordPage";
 import Landing from "@/views/Landing/pages/Landing";
+import SearchLokerPage from "./views/Worker/pages/SearchLokerPage";
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
       <Route path="register" element={<RegisterPage />} />
       <Route path="reset-password" element={<SetPasswordPage />} />
       <Route path="set-password" element={<ResetPasswordPage />} />
+
+      <Route path="jobs" element={<SearchLokerPage />} />
     </Routes>
   );
 };
