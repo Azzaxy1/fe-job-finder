@@ -3,6 +3,7 @@ import React from "react";
 import BaseLayout from "@/layouts/BaseLayout";
 import { Helmet } from "react-helmet-async";
 import Hero from "../components/Hero";
+import WhyJoin from "../components/WhyJoin";
 
 const Landing = () => {
   return (
@@ -13,6 +14,7 @@ const Landing = () => {
       <BaseLayout>
         <main className="min-h-screen">
           <Hero />
+          <WhyJoin />
         </main>
       </BaseLayout>
     </>

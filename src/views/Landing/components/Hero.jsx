@@ -9,9 +9,9 @@ import Shape from "@/assets/landing/shape.svg";
 
 const Hero = () => {
   return (
-    <section className="relative grid py-6 md:py-0 bg-[#F2F7FD] items-center min-h-screen grid-cols-1 gap-4 px-10 border-2 place-items-center lg:grid-cols-2">
+    <section className="relative grid py-6 md:py-0 bg-[#F2F7FD] items-center min-h-screen grid-cols-1 gap-4 px-10 lg:px-10 2xl:px-72 border-2 place-items-center lg:grid-cols-2">
       <article className="flex flex-col gap-4">
-        <h1 className="text-2xl font-bold md:text-4xl 2xl:text-5xl text-fontColor">
+        <h1 className="text-2xl font-semibold md:text-4xl 2xl:text-5xl text-fontColor">
           Temukan pekerjaan impianmu dengan{" "}
           <span className="text-blue">Job Finder</span>
         </h1>
