@@ -31,6 +31,15 @@ const Testimony = () => {
     },
   ];
 
+  const arrowStyles = {
+    position: "absolute",
+    zIndex: 2,
+    top: "calc(50% - 15px)",
+    width: 30,
+    height: 30,
+    cursor: "pointer",
+  };
+
   return (
     <section className="py-12 text-white bg-blue">
       <header className="flex flex-col justify-center text-center ">
@@ -45,6 +54,30 @@ const Testimony = () => {
           showIndicators={false}
           infiniteLoop
           useKeyboardArrows={true}
+          renderArrowPrev={(onClickHandler, hasPrev, label) =>
+            hasPrev && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                style={{ ...arrowStyles, left: 15 }}
+              >
+                ❮
+              </button>
+            )
+          }
+          renderArrowNext={(onClickHandler, hasNext, label) =>
+            hasNext && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                style={{ ...arrowStyles, right: 15 }}
+              >
+                ❯
+              </button>
+            )
+          }
         >
           {testimonyList.map((testimony) => (
             <div
