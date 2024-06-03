@@ -11,19 +11,24 @@ import Dashboard from "./views/Hire/pages/Dashboard";
 import ManageJobs from "./views/Hire/pages/ManageJobs";
 import HireProfile from "./views/Hire/pages/HireProfile";
 import NoteFoundPage from "./views/Error/pages/NoteFoundPage";
+import TipsPage from "./views/Tips/page/TipsPage";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
+      <Route path="/">
+        <Route index element={<Landing />} />
+        <Route path="jobs" element={<SearchLokerPage />} />
+        <Route path="tips" element={<TipsPage />} />
+      </Route>
 
+      {/* Auth */}
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
       <Route path="reset-password" element={<SetPasswordPage />} />
       <Route path="set-password" element={<ResetPasswordPage />} />
 
-      <Route path="jobs" element={<SearchLokerPage />} />
-
+      {/* Hire */}
       <Route path="hire-dashboard" element={<Dashboard />} />
       <Route path="manage-jobs" element={<ManageJobs />} />
       <Route path="hire-profile" element={<HireProfile />} />
