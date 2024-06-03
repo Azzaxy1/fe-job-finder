@@ -7,6 +7,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { NextUIProvider } from "@nextui-org/react";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HelmetProvider>
@@ -14,6 +15,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <React.StrictMode>
           <App />
+          <Toaster
+            position="bottom-right"
+            toastOptions={{ style: { fontSize: "18px", fontWeight: "500" } }}
+            reverseOrder={false}
+          />
         </React.StrictMode>
       </BrowserRouter>
     </NextUIProvider>

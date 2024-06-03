@@ -97,12 +97,12 @@ const ListLoker = () => {
   ];
 
   return (
-    <section className="flex flex-col gap-4 ">
+    <>
       {listLoker.map((loker, index) => (
-        <>
+        <section key={index} className="flex flex-col pb-3">
           <Card
-            key={index}
             shadow="sm"
+            radius="sm"
             isPressable
             onPress={() => console.log("Pressed")}
           >
@@ -116,10 +116,10 @@ const ListLoker = () => {
                 />
               </CardBody>
               <CardFooter className="flex flex-col items-start justify-start w-[600px]  text-small">
-                <p className="text-base font-medium">{loker.title}</p>
-                <p className="text-sm text-blue ">{loker.company}</p>
+                <h2 className="text-base font-medium">{loker.title}</h2>
+                <h4 className="text-sm text-blue ">{loker.company}</h4>
                 <p className="text-sm text-[#16a34a]">{loker.salary}</p>
-                <p>{loker.location}</p>
+                <p className="text-sm ">{loker.location}</p>
               </CardFooter>
             </div>
             <p className="text-sm py-2 border-t-2 text-[#6b7280]  px-5 w-full flex justify-end items-center gap-2">
@@ -127,9 +127,9 @@ const ListLoker = () => {
               {loker.date}
             </p>
           </Card>
-        </>
+        </section>
       ))}
-    </section>
+    </>
   );
 };
 
