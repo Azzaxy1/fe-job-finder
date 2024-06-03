@@ -7,6 +7,9 @@ import ResetPasswordPage from "@/views/Auth/pages/ResetPasswordPage";
 import SetPasswordPage from "@/views/Auth/pages/SetPasswordPage";
 import Landing from "@/views/Landing/pages/Landing";
 import SearchLokerPage from "./views/Worker/pages/SearchLokerPage";
+import Dashboard from "./views/Hire/pages/Dashboard";
+import ManageJobs from "./views/Hire/pages/ManageJobs";
+import HireProfile from "./views/Hire/pages/HireProfile";
 
 const App = () => {
   return (
@@ -19,6 +22,10 @@ const App = () => {
       <Route path="set-password" element={<ResetPasswordPage />} />
 
       <Route path="jobs" element={<SearchLokerPage />} />
+
+      <Route path="hire-dashboard" element={<Dashboard />} />
+      <Route path="manage-jobs" element={<ManageJobs />} />
+      <Route path="hire-profile" element={<HireProfile />} />
     </Routes>
   );
 };
