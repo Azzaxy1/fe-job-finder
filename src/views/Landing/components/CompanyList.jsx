@@ -39,30 +39,30 @@ const CompanyList = () => {
   ];
 
   return (
-    <section className="flex flex-col py-12 items-center gap-10 px-10 lg:px-10 2xl:px-72">
-      <header className="flex text-center flex-col justify-center gap-2 text-fontColor">
-        <h2 className="text-lg  sm:text-xl font-semibold">
+    <section className="flex flex-col items-center gap-10 px-10 py-12 lg:px-10 2xl:px-72">
+      <header className="flex flex-col justify-center gap-2 text-center text-fontColor">
+        <h2 className="text-lg font-semibold sm:text-xl">
           Mudah Mendapatkan Lowongan
         </h2>
-        <p className="text-2xl sm:text-3xl font-semibold">
+        <p className="text-2xl font-semibold sm:text-3xl">
           <span className="text-blue">500+</span> Perusahaan Menanti Anda
         </p>
       </header>
-      <article className="flex items-center  justify-center flex-row flex-wrap gap-4">
+      <article className="flex flex-row flex-wrap items-center justify-center gap-4">
         {companies.map((company, index) => (
           <Card
             radius="none"
             key={index}
-            className="max-w-24 md:max-w-72 2xl:max-w-80 py-2"
+            className="py-2 max-w-24 md:max-w-72 2xl:max-w-80"
             shadow="none"
           >
-            <CardBody className="overflow-visible py-2 text-center">
+            <CardBody className="py-2 overflow-visible text-center">
               <Image radius="none" src={company} alt={`Company ${index + 1}`} />
             </CardBody>
           </Card>
         ))}
       </article>
-      <Button className="text-white bg-blue font-semibold">
+      <Button className="font-semibold text-white bg-blue">
         <Link to="/login">Ayo Mulai Sekarang</Link>
       </Button>
     </section>
