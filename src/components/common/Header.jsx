@@ -51,7 +51,7 @@ const Header = () => {
           {menuItems.map((item, index) => (
             <Link
               className={`font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] && "text-blue-hover"
+                location.pathname === pathMenu[index] && "text-blue-700 "
               }`}
               to={pathMenu[index]}
               key={item}
@@ -125,7 +125,7 @@ const Header = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={`w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] && "text-blue-hover"
+                location.pathname === pathMenu[index] && "text-blue-700"
               }`}
               to={pathMenu[index]}
             >
