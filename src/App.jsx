@@ -12,6 +12,7 @@ import ManageJobs from "./views/Hire/pages/ManageJobs";
 import HireProfile from "./views/Hire/pages/HireProfile";
 import NoteFoundPage from "./views/Error/pages/NoteFoundPage";
 import TipsPage from "./views/Tips/page/TipsPage";
+import DetailTips from "./views/Tips/page/DetailTips";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route index element={<Landing />} />
         <Route path="jobs" element={<SearchLokerPage />} />
         <Route path="tips" element={<TipsPage />} />
+        <Route path="tips/:id" element={<DetailTips />} />
       </Route>
 
       {/* Auth */}

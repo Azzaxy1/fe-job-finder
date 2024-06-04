@@ -42,9 +42,29 @@ const DetailLoker = () => {
       id: 1,
       name: "Abdurrohman Azis",
       email: "abdurrohman.azis@example.com",
-      phone: "081234567890",
     },
   ];
+
+  /* const = data [
+    company : [
+      id:
+      name:
+      image:
+      address:
+      description:
+      jobs : [
+        {
+          title:
+          company:
+          salary:
+          location:
+          type:
+          description: > React Quill
+          requirements:
+          date:
+        }
+    ]
+  */
 
   const jobs = [
     {

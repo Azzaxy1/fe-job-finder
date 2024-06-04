@@ -22,7 +22,7 @@ import Logo from "@/assets/logo-blue.svg";
 
 const Header = () => {
   const [isMenuOpen, SetIsMenuOpen] = useState(false);
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(true);
   const location = useLocation();
 
   const menuItems = ["Beranda", "Lowongan", "Tips Loker"];
@@ -51,7 +51,8 @@ const Header = () => {
           {menuItems.map((item, index) => (
             <Link
               className={`font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] && "text-blue-700 "
+                location.pathname === pathMenu[index] &&
+                "text-blue-600 font-bold"
               }`}
               to={pathMenu[index]}
               key={item}
@@ -125,7 +126,7 @@ const Header = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={`w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] && "text-blue-700"
+                location.pathname === pathMenu[index] && "text-blue-600"
               }`}
               to={pathMenu[index]}
             >

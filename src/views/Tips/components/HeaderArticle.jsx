@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 const HeaderArticle = () => {
   return (
     <section>
-      <div className="flex px-28 items-center justify-start h-40 bg-cover bg-fixed bg-no-repeat bg-bottom bg-[url('@/assets/header-tips.jpg')] -z-10">
+      <div className="flex px-28 2xl:px-72 items-center justify-start h-40 bg-cover bg-fixed bg-no-repeat bg-bottom bg-[url('@/assets/header-tips.jpg')] -z-10">
         <div className="flex flex-col w-full gap-2 text-white ">
           <div className="pb-2 border-b border-white">
             <h2 className="text-3xl font-semibold text-white">Tips Loker</h2>
           </div>
           <Breadcrumbs
             variant="solid"
-            underline="focus"
+            underline="hover"
             color="primary"
             className="flex flex-col text-white"
           >
