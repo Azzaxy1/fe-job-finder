@@ -43,7 +43,11 @@ const AuthLayout = ({ children, type }) => {
             className="object-cover w-[80px] me-4 lg:w-[380px]"
           />
         </aside>
-        <div className="flex flex-col items-center justify-center px-8 py-8 bg-white lg:py-0 lg:order-first lg:col-span-5 xl:col-span-6">
+        <div
+          className={`flex flex-col items-center justify-center px-8 py-8 bg-white lg:py-0 lg:order-first lg:col-span-5 xl:col-span-6 ${
+            type === "register" && "mt-8"
+          }`}
+        >
           {type === "login" ? (
             <Link to="/">
               <img
@@ -67,7 +71,7 @@ const AuthLayout = ({ children, type }) => {
 };
 
 AuthLayout.propTypes = {
-  type: PropTypes.oneOf(["login", "register"]),
+  type: PropTypes.oneOf(["login", "register", "set-password", "reset"]),
   children: PropTypes.node,
 };
 
