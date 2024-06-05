@@ -2,8 +2,8 @@
 import React from "react";
 import BaseLayout from "@/layouts/BaseLayout";
 import { Helmet } from "react-helmet-async";
-import HeaderArticle from "../components/HeaderArticle";
 import ListArticle from "../components/ListArticle";
+import BreadcrumbsHeader from "@/components/common/BreadcrumbsHeader";
 
 const TipsPage = () => {
   return (
@@ -12,7 +12,7 @@ const TipsPage = () => {
         <title>Tips Loker | Job Finder</title>
       </Helmet>
       <BaseLayout>
-        <HeaderArticle />
+        <BreadcrumbsHeader />
         <ListArticle />
       </BaseLayout>
     </>
