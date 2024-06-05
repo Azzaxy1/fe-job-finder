@@ -107,14 +107,23 @@ const Header = () => {
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Action" variant="flat">
-              <DropdownItem key="user" className="gap-2 h-14">
+              <DropdownItem key="user" textValue="user" className="gap-2 h-14">
                 <p className="font-semibold">Masuk sebagai</p>
                 <p className="font-semibold">John Doe</p>
               </DropdownItem>
-              <DropdownItem key="profile" className="text-fontColor">
+              <DropdownItem
+                key="profile"
+                textValue="profile"
+                className="text-fontColor"
+              >
                 <Link to="/profile">My Profile</Link>
               </DropdownItem>
-              <DropdownItem key="logout" color="danger" className="text-danger">
+              <DropdownItem
+                key="logout"
+                textValue="logout"
+                color="danger"
+                className="text-danger"
+              >
                 <Link to="/login">Logout</Link>
               </DropdownItem>
             </DropdownMenu>
