@@ -4,7 +4,7 @@ import SearchJobs from "@/components/common/SearchJobs";
 import SearchLocation from "@/components/common/SearchLocation";
 import { Button } from "@nextui-org/react";
 
-const HeaderLoker = () => {
+const SearchLoker = () => {
   return (
     <div className="flex flex-col max-w-3xl gap-4">
       <h2 className="text-lg font-semibold sm:text-xl">
@@ -21,4 +21,4 @@ const HeaderLoker = () => {
   );
 };
 
-export default HeaderLoker;
+export default SearchLoker;
