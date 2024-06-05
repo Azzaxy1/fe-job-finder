@@ -26,7 +26,7 @@ const SetPasswordForm = () => {
               id="email"
               variant="bordered"
               size="md"
-              placeholder="Masukan Email"
+              placeholder="john.doe@example.com"
               className="w-full"
               autoComplete="off"
             />
