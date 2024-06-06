@@ -17,7 +17,7 @@ const BreadcrumbsHeader = () => {
     >
       <div className="flex flex-col w-full gap-2 text-white ">
         <div className="pb-2 border-b border-white">
-          <h2 className="text-3xl font-semibold text-white">
+          <h2 className="text-2xl font-semibold text-white sm:text-3xl">
             {pathname === "jobs" ? "Cari Lowongan" : "Tips Loker"}
           </h2>
         </div>

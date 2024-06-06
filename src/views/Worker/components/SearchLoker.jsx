@@ -13,7 +13,7 @@ const SearchLoker = () => {
         <h2 className="text-lg font-semibold sm:text-xl">
           Cari Lowongan Pekerjaan
         </h2>
-        <div className="flex flex-col gap-4 md:flex-row">
+        <div className="flex flex-col gap-4 pe-12 md:pe-0 md:flex-row">
           <SearchJobs />
           <SearchLocation />
           <Button radius="sm" className="text-white bg-blue">
