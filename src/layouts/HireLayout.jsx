@@ -5,6 +5,8 @@ import { IoMenu, IoClose } from "react-icons/io5";
 import PropTypes from "prop-types";
 import { Image } from "@nextui-org/react";
 import { Helmet } from "react-helmet-async";
+import { IoHomeSharp } from "react-icons/io5";
+import { MdOutlineWork } from "react-icons/md";
 
 import Logo from "@/assets/logo-white.svg";
 import WelcomeBanner from "@/views/Hire/components/WelcomeBanner";
@@ -72,7 +74,10 @@ const HireLayout = ({ children }) => {
                     location.pathname === "/hire-dashboard" && "bg-[#0284c7]"
                   }`}
                 >
-                  <span className="text-xl font-medium ms-3">Dashboard</span>
+                  <span className="flex items-center gap-2 text-xl font-medium ms-3">
+                    <IoHomeSharp />
+                    Dashboard
+                  </span>
                 </Link>
               </li>
               <li>
@@ -82,7 +87,8 @@ const HireLayout = ({ children }) => {
                     location.pathname === "/manage-jobs" && "bg-[#0284c7]"
                   }`}
                 >
-                  <span className="text-xl font-medium ms-3">
+                  <span className="flex items-center gap-2 text-xl font-medium ms-3">
+                    <MdOutlineWork />
                     Lowongan Pekerjaan
                   </span>
                 </Link>
