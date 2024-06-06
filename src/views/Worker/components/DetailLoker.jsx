@@ -18,18 +18,14 @@ import { FaRegBookmark } from "react-icons/fa6";
 
 import Company1 from "@/assets/landing/company/company1.svg";
 import toast from "react-hot-toast";
+import AboutCompany from "./AboutCompany";
 
 const DetailLoker = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [cvSelected, setCvSelected] = useState(false);
 
   const handleFileChange = (e) => {
-    if (e.target.files.length > 0) {
-      // Jika file telah dipilih
-      setCvSelected(true);
-    } else {
-      setCvSelected(false);
-    }
+    e.target.files.length > 0 ? setCvSelected(true) : setCvSelected(false);
   };
 
   const handleApply = () => {
@@ -72,9 +68,11 @@ const DetailLoker = () => {
       company: {
         id: 1,
         name: "PT. ABC",
+        industry: "Technology",
         image: Company1,
         address: "Jl. ABC No. 123, Jakarta",
-        description: "Perusahaan yang bergerak di bidang teknologi informasi.",
+        description:
+          "Perusahaan yang bergerak di bidang teknologi informasi. Dan sudah beroperasi selama 10 tahun. Sudah berpengalaman dalam bidang tersebut.",
       },
       job: {
         id: 1,
@@ -126,7 +124,7 @@ const DetailLoker = () => {
   return (
     <>
       {data.map((data, index) => (
-        <section key={index} className="w-full pl-4">
+        <section key={index} className="flex flex-col w-full gap-4 pl-4">
           <Card radius="sm" className="w-full px-3 pt-2">
             <CardHeader className="flex items-center gap-6">
               <div>
@@ -317,12 +315,11 @@ const DetailLoker = () => {
                 </ul>
               </div>
             </CardBody>
-            <CardFooter className="flex">
-              <h2 className="text-lg font-semibold text-blue">
-                Tentang Perusahaan
-              </h2>
+            <CardFooter>
+              <p className="text-sm text-gray-600">{data.job.date}</p>
             </CardFooter>
           </Card>
+          <AboutCompany company={data.company} />
         </section>
       ))}
     </>
