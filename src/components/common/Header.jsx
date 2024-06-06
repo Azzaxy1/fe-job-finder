@@ -80,7 +80,7 @@ const Header = () => {
             </NavbarItem>
           </div>
         ) : (
-          <DropdownProfile />
+          <DropdownProfile type="user" />
         )}
       </NavbarContent>
       <NavbarMenu className="flex items-center justify-center">
