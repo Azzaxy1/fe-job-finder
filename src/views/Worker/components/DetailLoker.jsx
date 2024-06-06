@@ -126,8 +126,8 @@ const DetailLoker = () => {
       {data.map((data, index) => (
         <section key={index} className="flex flex-col w-full gap-4 pl-4">
           <Card radius="sm" className="w-full px-3 pt-2">
-            <CardHeader className="flex items-center gap-6">
-              <div>
+            <CardHeader className="flex flex-col items-center gap-6 md:justify-center md:flex-row">
+              <div className="me-auto">
                 <Image
                   src={Company1}
                   alt="image"
@@ -135,7 +135,7 @@ const DetailLoker = () => {
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col me-auto md:-ml-28">
                 <h2 className="text-base font-medium sm:text-lg">
                   {data.job.title}
                 </h2>
@@ -149,7 +149,7 @@ const DetailLoker = () => {
                   {data.job.location} - {data.job.type}
                 </p>
               </div>
-              <div className="flex flex-col gap-2 ml-auto">
+              <div className="flex flex-row gap-2 mx-auto md:mx-0 md:flex-col md:ml-auto">
                 <Button
                   variant="bordered"
                   className="font-semibold border-blue text-blue hover:bg-blue hover:text-white"
