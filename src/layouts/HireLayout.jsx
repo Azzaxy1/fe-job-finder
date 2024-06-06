@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import Logo from "@/assets/logo-white.svg";
 import { Image } from "@nextui-org/react";
 import { Helmet } from "react-helmet-async";
+import WelcomeBanner from "@/views/Hire/components/WelcomeBanner";
 
 const HireLayout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,7 +78,7 @@ const HireLayout = ({ children }) => {
                 <Link
                   to="/manage-jobs"
                   className={`flex items-center justify-center p-2 text-white hover:bg-[#0284c7] group ${
-                    location.pathname === "/hire-lowongan" && "bg-[#090b0c]"
+                    location.pathname === "/manage-jobs" && "bg-[#0284c7]"
                   }`}
                 >
                   <span className="text-xl font-medium ms-3">
@@ -85,32 +86,20 @@ const HireLayout = ({ children }) => {
                   </span>
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/hire-profile"
-                  className={`flex items-center justify-center p-2 text-white hover:bg-[#0284c7] group ${
-                    location.pathname === "/hire-profil" && "bg-[#0284c7]"
-                  }`}
-                >
-                  <span className="text-xl font-medium ms-3">Profile</span>
-                </Link>
-              </li>
-              <li>
-                <button className="w-full p-2 text-xl font-medium text-white hover:bg-[#0284c7] ps-5 whitespace-nowrap">
-                  Keluar
-                </button>
-              </li>
             </ul>
           </div>
         </aside>
         {/* Content */}
         <div className=" sm:ml-64">
-          <div className="flex flex-col items-center justify-start py-5 px-14 bg-[#EBF3FC] lg:flex-row">
+          <div className="flex flex-col items-center justify-start py-5 bg-white px-14 lg:flex-row">
             <h2 className="text-xl font-semibold lg:text-2xl text-blue">
               Hi, Perusahaan!
             </h2>
           </div>
-          <div className="flex justify-center py-14 px-14">{children}</div>
+          <div className="px-10 py-5 bg-[#f1f5f9] min-h-screen">
+            <WelcomeBanner />
+            <div className="flex justify-center py-14 px-14">{children}</div>
+          </div>
         </div>
       </main>
     </>
