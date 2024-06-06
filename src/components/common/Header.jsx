@@ -2,10 +2,6 @@
 import React, { useState } from "react";
 import {
   Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
   Image,
   Navbar,
   NavbarBrand,
@@ -14,11 +10,11 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-  User,
 } from "@nextui-org/react";
 import { Link, useLocation } from "react-router-dom";
 
 import Logo from "@/assets/logo-blue.svg";
+import DropdownProfile from "./DropdownProfile";
 
 const Header = () => {
   const [isMenuOpen, SetIsMenuOpen] = useState(false);
@@ -84,50 +80,7 @@ const Header = () => {
             </NavbarItem>
           </div>
         ) : (
-          <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-              {/* <Avatar
-                src="https://i.pravatar.cc/300"
-                isBordered
-                as="button"
-                className="transition-transform border-blue"
-                color="secondary"
-                name="John Doe"
-                size="sm"
-              /> */}
-              <User
-                as="button"
-                avatarProps={{
-                  isBordered: true,
-                  src: "https://i.pravatar.cc/300",
-                }}
-                className="transition-transform"
-                description="johndoe@example.com"
-                name="John Doe"
-              />
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Profile Action" variant="flat">
-              <DropdownItem key="user" textValue="user" className="gap-2 h-14">
-                <p className="font-semibold">Masuk sebagai</p>
-                <p className="font-semibold">John Doe</p>
-              </DropdownItem>
-              <DropdownItem
-                key="profile"
-                textValue="profile"
-                className="text-fontColor"
-              >
-                <Link to="/profile">My Profile</Link>
-              </DropdownItem>
-              <DropdownItem
-                key="logout"
-                textValue="logout"
-                color="danger"
-                className="text-danger"
-              >
-                <Link to="/login">Logout</Link>
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+          <DropdownProfile />
         )}
       </NavbarContent>
       <NavbarMenu className="flex items-center justify-center">

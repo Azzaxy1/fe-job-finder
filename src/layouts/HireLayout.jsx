@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IoMenu, IoClose } from "react-icons/io5";
 import PropTypes from "prop-types";
-
-import Logo from "@/assets/logo-white.svg";
 import { Image } from "@nextui-org/react";
 import { Helmet } from "react-helmet-async";
+
+import Logo from "@/assets/logo-white.svg";
 import WelcomeBanner from "@/views/Hire/components/WelcomeBanner";
+// import ImageCompany from "@/assets/landing/company/company1.svg";
 
 const HireLayout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -91,11 +92,7 @@ const HireLayout = ({ children }) => {
         </aside>
         {/* Content */}
         <div className=" sm:ml-64">
-          <div className="flex flex-col items-center justify-start py-5 bg-white px-14 lg:flex-row">
-            <h2 className="text-xl font-semibold lg:text-2xl text-blue">
-              Hi, Perusahaan!
-            </h2>
-          </div>
+          <div className="flex flex-col items-center justify-end py-5 bg-white px-14 lg:flex-row"></div>
           <div className="px-10 py-5 bg-[#f1f5f9] min-h-screen">
             <WelcomeBanner />
             <div className="flex justify-center py-14 px-14">{children}</div>
