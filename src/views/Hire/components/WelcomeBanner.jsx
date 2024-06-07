@@ -3,7 +3,7 @@ import React from "react";
 
 function WelcomeBanner() {
   return (
-    <div className="relative p-4 mb-8 overflow-hidden bg-indigo-200 rounded-sm dark:bg-indigo-500 sm:p-6">
+    <div className="relative p-4 mb-8 overflow-hidden rounded-sm bg-blue sm:p-6">
       {/* Background illustration */}
       <div
         className="absolute top-0 right-0 hidden mr-16 -mt-4 pointer-events-none xl:block"
@@ -69,11 +69,11 @@ function WelcomeBanner() {
 
       {/* Content */}
       <div className="relative">
-        <h1 className="mb-1 text-2xl font-bold md:text-3xl text-slate-800 dark:text-slate-100">
-          Selamat Datang, Acme Inc. 👋
+        <h1 className="mb-1 text-2xl font-bold text-white md:text-3xl ">
+          Selamat Datang, Hangry Indonesia. 👋
         </h1>
-        <p className="dark:text-indigo-200">
-          Inilah yang terjadi dengan proyek Anda hari ini:
+        <p className="text-white">
+          Inilah yang terjadi dengan Informasi Perusahaan Anda hari ini:
         </p>
       </div>
     </div>
