@@ -1,11 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import HireLayout from "@/layouts/HireLayout";
+import TableJobs from "../components/TableJobs";
 
 const ManageJobs = () => {
   return (
     <HireLayout>
-      <h2>Manage Jobs</h2>
+      <TableJobs />
     </HireLayout>
   );
 };
