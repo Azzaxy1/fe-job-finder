@@ -34,28 +34,12 @@ const ChartUser = () => {
       },
     ],
   };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: "Total Pelamar",
-      },
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  };
-
   const totalPelamar = data.datasets[0].data.reduce((a, b) => a + b, 0);
 
   return (
     <section className="flex flex-col gap-4">
-      <Bar data={data} options={options} />
-      <p>
+      <Bar data={data} />
+      <p className="text-sm sm:text-base">
         Total pelamar sekarang adalah :{" "}
         <span className="font-bold text-blue">{totalPelamar}</span>
       </p>

@@ -37,25 +37,12 @@ const ChartLoker = () => {
     ],
   };
 
-  const options = {
-    responsive: true,
-    title: {
-      display: true,
-      text: "Total Loker",
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-      },
-    },
-  };
-
   const totalLoker = data.datasets[0].data.reduce((a, b) => a + b, 0);
 
   return (
     <section className="flex flex-col gap-4">
-      <Line data={data} options={options} />
-      <p>
+      <Line data={data} />
+      <p className="text-sm sm:text-base">
         Total loker sekarang adalah :{" "}
         <span className="font-bold text-blue">{totalLoker}</span>
       </p>
