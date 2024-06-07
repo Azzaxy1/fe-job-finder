@@ -27,7 +27,7 @@ const DropdownProfile = ({ type }) => {
               name="PT.ABC"
               size="md"
             />
-            <p>PT. BRI Indonesia</p>
+            <p>Hangry Indonesia</p>
           </div>
         ) : (
           <User
@@ -49,7 +49,7 @@ const DropdownProfile = ({ type }) => {
         <DropdownItem key="user" textValue="user" className="gap-2 text-black">
           <p className="font-semibold">Masuk sebagai</p>
           <p className="font-semibold">
-            {type === "user" ? "John Doe" : "PT. BRI Indonesia"}
+            {type === "user" ? "John Doe" : "Hangry Indonesia"}
           </p>
         </DropdownItem>
         <DropdownItem

@@ -103,7 +103,7 @@ const HireLayout = ({ children }) => {
           </div>
           <div className="px-10 py-5 bg-[#f1f5f9] min-h-screen">
             <WelcomeBanner />
-            <div className="flex justify-center py-14 px-14">{children}</div>
+            <div className="flex justify-center">{children}</div>
           </div>
         </div>
       </main>

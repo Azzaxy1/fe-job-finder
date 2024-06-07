@@ -11,9 +11,13 @@ import {
   Input,
 } from "@nextui-org/react";
 import PropTypes from "prop-types";
+import ImgCompany from "@/assets/landing/company/company4.svg";
 
 const ProfileInput = ({ type }) => {
   const [cvSelected, setCvSelected] = useState(false);
+  const [profileImage, setProfileImage] = useState(
+    type === "hire" ? ImgCompany : "https://i.pravatar.cc/300"
+  );
   const { quillRef } = useQuill();
 
   const inputProfile = [
@@ -55,12 +59,27 @@ const ProfileInput = ({ type }) => {
     },
   ];
 
-  const handleFileChange = () => {
+  const handleCVChange = () => {
     setCvSelected(!cvSelected);
   };
 
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
-    <section className="flex flex-col my-10 md:px-32 2xl:px-72">
+    <section
+      className={`flex flex-col my-10 ${
+        type === "hire" ? "max-w-6xl " : "md:px-32 2xl:px-72 "
+      }}`}
+    >
       <Card radius="sm" className="px-8 py-10 h-[850px]">
         <CardHeader>
           <h2 className="text-xl font-semibold">
@@ -68,7 +87,20 @@ const ProfileInput = ({ type }) => {
           </h2>
         </CardHeader>
         <CardBody className="flex flex-col min-h-[600px] gap-10 md:flex-row ">
-          <Image src="https://i.pravatar.cc/300" />
+          <div className="relative cursor-pointer w-fit">
+            <Image
+              radius={type === "hire" ? "none" : "sm"}
+              src={profileImage}
+              alt="Profile"
+              className="relative cursor-pointer"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              className="absolute inset-0 bottom-0 z-50 w-full h-full opacity-0 cursor-pointer"
+              onChange={handleImageChange}
+            />
+          </div>
           <article className="h-fit">
             <div className="flex flex-col mb-2">
               {inputProfile.map((input) => (
@@ -85,24 +117,26 @@ const ProfileInput = ({ type }) => {
                 </div>
               ))}
             </div>
-            <div className="relative mb-2">
-              <input
-                type="file"
-                name="cv"
-                id="cv"
-                className="absolute inset-0 bottom-0 z-50 w-full h-full opacity-0 cursor-pointer"
-                onChange={handleFileChange}
-              />
-              {cvSelected ? (
-                <div className="px-4 py-2 text-sm text-center text-white bg-green-500 rounded cursor-pointer">
-                  CV telah dipilih
-                </div>
-              ) : (
-                <div className="px-4 py-2 text-sm text-center text-white rounded cursor-pointer bg-blue">
-                  Upload CV
-                </div>
-              )}
-            </div>
+            {type === "user" && (
+              <div className="relative mb-2">
+                <input
+                  type="file"
+                  name="cv"
+                  id="cv"
+                  className="absolute inset-0 bottom-0 z-50 w-full h-full opacity-0 cursor-pointer"
+                  onChange={handleCVChange}
+                />
+                {cvSelected ? (
+                  <div className="px-4 py-2 text-sm text-center text-white bg-green-500 rounded cursor-pointer">
+                    CV telah dipilih
+                  </div>
+                ) : (
+                  <div className="px-4 py-2 text-sm text-center text-white rounded cursor-pointer bg-blue">
+                    Upload CV
+                  </div>
+                )}
+              </div>
+            )}
             <label htmlFor="description">Tambahkan Deskripsi</label>
             <div
               style={{ height: 200 }}

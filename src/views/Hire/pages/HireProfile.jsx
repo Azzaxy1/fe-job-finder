@@ -1,12 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import HireLayout from "@/layouts/HireLayout";
+import ProfileInput from "@/components/common/ProfileInput";
+import { Helmet } from "react-helmet-async";
 
 const HireProfile = () => {
   return (
-    <HireLayout>
-      <h2>HireProfile</h2>
-    </HireLayout>
+    <>
+      <Helmet>
+        <title>Hire Profile | Job Finder</title>
+      </Helmet>
+      <HireLayout>
+        <ProfileInput type="hire" />
+      </HireLayout>
+    </>
   );
 };
 
