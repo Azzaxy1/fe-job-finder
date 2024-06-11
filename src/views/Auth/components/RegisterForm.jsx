@@ -2,11 +2,24 @@ import React, { useState } from 'react'
 import { Button, Input } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { registerSchema } from '../validation'
 
 const RegisterForm = () => {
   const [role, setRole] = useState('User')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isConfirmVisible, setIsConfirmVisible] = useState(false)
+
+  const {
+    register,
+    setValue,
+    trigger,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(registerSchema)
+  })
 
   const handleRole = () => {
     role === 'User' ? setRole('Perusahaan') : setRole('User')
@@ -20,10 +33,20 @@ const RegisterForm = () => {
     setIsConfirmVisible(!isConfirmVisible)
   }
 
+  const handleConfrimPasswordChange = (e) => {
+    setValue('confirmPassword', e.target.value)
+
+    trigger('confirmPassword')
+  }
+
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
   return (
     <section className="flex items-center justify-center px-8 pb-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
-        <form className="px-8  bg-white w-[380px] lg:w-[460px]">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-8  bg-white w-[380px] lg:w-[460px]">
           <div className="pt-4 text-sm text-center">
             Daftar sebagai :{' '}
             <Button
@@ -51,6 +74,7 @@ const RegisterForm = () => {
               Name
             </label>
             <Input
+              {...register('name')}
               type="text"
               id="name"
               variant="bordered"
@@ -59,6 +83,7 @@ const RegisterForm = () => {
               className="w-full placeholder-opacity-25"
               autoComplete="off"
             />
+            <p className='text-sm text-red-500 2xl:text-base'>{errors.name?.message}</p>
           </div>
           <div className="flex flex-row gap-2 mb-2">
             <div>
@@ -69,6 +94,7 @@ const RegisterForm = () => {
                 Email
               </label>
               <Input
+                {...register('email')}
                 type="text"
                 id="email"
                 variant="bordered"
@@ -77,6 +103,8 @@ const RegisterForm = () => {
                 className="w-full"
                 autoComplete="off"
               />
+            <p className='text-sm text-red-500 2xl:text-base'>{errors.email?.message}</p>
+
             </div>
             <div>
               <label
@@ -86,6 +114,7 @@ const RegisterForm = () => {
                 No Hp
               </label>
               <Input
+                {...register('phone')}
                 type="text"
                 id="phone"
                 variant="bordered"
@@ -94,6 +123,7 @@ const RegisterForm = () => {
                 className="w-full"
                 autoComplete="off"
               />
+            <p className='text-sm text-red-500 2xl:text-base'>{errors.phone?.message}</p>
             </div>
           </div>
           <div className="mb-2">
@@ -104,6 +134,7 @@ const RegisterForm = () => {
               Password
             </label>
             <Input
+              {...register('password')}
               type={isPasswordVisible ? 'text' : 'password'}
               variant="bordered"
               name="password"
@@ -121,7 +152,9 @@ const RegisterForm = () => {
                 </button>
               }
             />
-            <span className="text-sm text-red-500 lg:text-base"></span>
+            <span className="text-sm text-red-500 lg:text-base">
+              {errors.password?.message}
+            </span>
           </div>
           <div className="mb-5">
             <label
@@ -131,6 +164,8 @@ const RegisterForm = () => {
               Konfirmasi Password
             </label>
             <Input
+              {...register('confirmPassword')}
+              onChange={handleConfrimPasswordChange}
               type={isConfirmVisible ? 'text' : 'password'}
               variant="bordered"
               name="confirm-password"
@@ -148,9 +183,12 @@ const RegisterForm = () => {
                 </button>
               }
             />
-            <span className="text-sm text-red-500 lg:text-base"></span>
+            <span className="text-sm text-red-500 lg:text-base">
+              {errors.confirmPassword?.message}
+            </span>
           </div>
           <Button
+            type='submit'
             variant="solid"
             size="md"
             className="w-full text-white bg-blue"
