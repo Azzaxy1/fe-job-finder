@@ -79,7 +79,12 @@ const ProfileInput = ({ type }) => {
         type === 'hire' ? 'w-full ' : 'md:px-32 2xl:px-72 '
       }}`}
     >
-      <Card radius="sm" className="px-8 py-10 h-[850px]">
+      {type === 'hire' && (
+        <div className='-mt-10'>
+        <h2 className="pb-5 text-xl font-semibold">Profile Hire</h2>
+        </div>
+      )}
+      <Card radius="sm" className="px-8 py-5 h-[850px]">
         <CardHeader>
           <h2 className="text-xl font-semibold">
             Ubah Profil Anda sebagai {type === 'hire' ? 'Hire' : 'User'}
