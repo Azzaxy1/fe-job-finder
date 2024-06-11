@@ -30,14 +30,14 @@ const Hero = () => {
           src={Shape}
           alt="shape"
           width={300}
-          className="absolute bottom-0 right-0 w-[300px] sm:w-[330px] md:w-[380px] lg:w-[500px] 2xl:w-[630px]"
+          className="absolute bottom-0 right-0 w-[230px] sm:w-[330px] md:w-[380px] lg:w-[500px] 2xl:w-[630px]"
         />
         <div className="flex items-end justify-end w-full ">
           <img
             src={HeroImage}
             alt="hero"
             width={280}
-            className="absolute bottom-0 right-0 z-10 md:w-[330px] lg:w-[380px] 2xl:w-[550px]"
+            className="absolute bottom-0 right-0 z-10 w-[230px] md:w-[330px] lg:w-[380px] 2xl:w-[550px]"
           />
         </div>
       </article>

@@ -7,7 +7,7 @@ import WhyJoin from '../components/WhyJoin'
 import CompanyList from '../components/CompanyList'
 import Testimony from '../components/Testimony'
 import Faq from '../components/Faq'
-import SkeletonPreview from '@/components/common/Skeleton'
+import SkeletonPreview from '@/components/common/SkeletonType'
 import { motion, useScroll, useSpring } from 'framer-motion'
 const Hero = lazy(() =>
   new Promise((resolve) => setTimeout(resolve, 2000)).then(() =>

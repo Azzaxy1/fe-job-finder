@@ -19,7 +19,7 @@ import Company1 from '@/assets/landing/company/company1.svg'
 import toast from 'react-hot-toast'
 import AboutCompany from './AboutCompany'
 
-const DetailLoker = () => {
+const DetailJob = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const [cvSelected, setCvSelected] = useState(false)
 
@@ -327,4 +327,4 @@ const DetailLoker = () => {
   )
 }
 
-export default DetailLoker
+export default DetailJob

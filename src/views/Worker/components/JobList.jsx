@@ -1,6 +1,4 @@
-import React from 'react'
-import { Card, CardBody, CardFooter, Image } from '@nextui-org/react'
-import { MdOutlineWatchLater } from 'react-icons/md'
+import React, { Suspense, lazy } from 'react'
 
 import Company1 from '@/assets/landing/company/company1.svg'
 import Company2 from '@/assets/landing/company/company2.svg'
@@ -10,8 +8,14 @@ import Company5 from '@/assets/landing/company/company5.svg'
 import Company6 from '@/assets/landing/company/company6.svg'
 import Company7 from '@/assets/landing/company/company7.svg'
 import Company8 from '@/assets/landing/company/company8.svg'
+import SkeletonPreview from '@/components/ui/SkeletonPreview'
+const JobItem = lazy(() =>
+  new Promise((resolve) => setTimeout(resolve, 2000)).then(() =>
+    import('./JobItem')
+  )
+)
 
-const ListLoker = () => {
+const JobList = () => {
   const listLoker = [
     {
       id: 1,
@@ -117,39 +121,13 @@ const ListLoker = () => {
 
   return (
     <>
+    <Suspense fallback={<SkeletonPreview/>}>
       {listLoker.map((loker, index) => (
-        <section key={index} className="flex flex-col pb-3">
-          <Card
-            shadow="sm"
-            radius="sm"
-            isPressable
-            onPress={() => console.log('Pressed')}
-          >
-            <div className="flex flex-row max-w-sm max-h-36">
-              <CardBody className="flex items-center justify-center pt-5 -mx-12">
-                <Image
-                  radius="none"
-                  src={loker.image}
-                  alt="Card image background"
-                  className="object-cover w-[50px]"
-                />
-              </CardBody>
-              <CardFooter className="flex flex-col items-start justify-start w-[600px]  text-small">
-                <h2 className="text-base font-medium">{loker.title}</h2>
-                <h4 className="text-sm text-blue ">{loker.company}</h4>
-                <p className="text-sm text-[#16a34a]">{loker.salary}</p>
-                <p className="text-sm ">{loker.location}</p>
-              </CardFooter>
-            </div>
-            <p className="text-sm py-2 border-t-2 text-[#6b7280]  px-5 w-full flex justify-end items-center gap-2">
-              <MdOutlineWatchLater />
-              {loker.date}
-            </p>
-          </Card>
-        </section>
+        <JobItem key={index} loker={loker} />
       ))}
+    </Suspense>
     </>
   )
 }
 
-export default ListLoker
+export default JobList

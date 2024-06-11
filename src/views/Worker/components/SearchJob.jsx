@@ -4,7 +4,7 @@ import SearchLocation from '@/components/common/SearchLocation'
 import { Button } from '@nextui-org/react'
 import BreadcrumbsHeader from '@/components/common/BreadcrumbsHeader'
 
-const SearchLoker = () => {
+const SearchJob = () => {
   return (
     <>
       <BreadcrumbsHeader />
@@ -24,4 +24,4 @@ const SearchLoker = () => {
   )
 }
 
-export default SearchLoker
+export default SearchJob
