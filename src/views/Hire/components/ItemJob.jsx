@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom'
 const ItemJob = ({ job }) => {
   return (
     <section>
-      <Card radius='sm' className="max-w-[450px]">
+      <Card radius='sm' className="w-full md:max-w-[450px]">
         <CardHeader className="flex gap-3">
           <div className="flex flex-col">
-            <h2 className="text-base font-medium sm:text-lg">
+            <h2 className="text-base font-medium sm:text-lg hover:underline">
               <Link to={`/hire/${job.id}`}>{job.title}</Link>
             </h2>
             <p className="text-sm text-green-500 sm:text-base">{job.salary}</p>
