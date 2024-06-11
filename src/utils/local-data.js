@@ -81,7 +81,7 @@ export const articles = [
 export const testimonyList = [
   {
     id: 1,
-    name: 'John Doe',
+    name: 'Richard Kelvin',
     title: 'Back End Developer',
     image: Testi1,
     message:
@@ -89,7 +89,7 @@ export const testimonyList = [
   },
   {
     id: 2,
-    name: 'Chaplin Doe',
+    name: 'Marsha Yui',
     title: 'UI/UX Designer',
     image: Testi2,
     message:
@@ -97,7 +97,7 @@ export const testimonyList = [
   },
   {
     id: 3,
-    name: 'Jane Doe',
+    name: 'Albert Waili',
     title: 'Fullstack Developer',
     image: Testi3,
     message:
