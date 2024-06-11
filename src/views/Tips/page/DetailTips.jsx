@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout'
 import { Link, useParams } from 'react-router-dom'
 import { articles } from '@/utils/local-data.js'
 import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react'
+import parse from 'html-react-parser'
 
 const DetailTips = () => {
   const { id } = useParams()
@@ -48,10 +49,7 @@ const DetailTips = () => {
           alt={article.title}
           className="object-cover w-full h-96 "
         />
-        <div
-          dangerouslySetInnerHTML={{ __html: article.description }}
-          className="text-base sm:text-lg md:text-xl "
-        />
+        <div>{parse(article.description)}</div>
       </div>
     </BaseLayout>
   )

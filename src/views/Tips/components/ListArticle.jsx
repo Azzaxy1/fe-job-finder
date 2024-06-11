@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { articles } from '@/utils/local-data.js'
 import { Pagination } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
+import parse from 'html-react-parser'
 
 const ListArticle = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const articlePerPage = 5
 
-  const totalPage = Math.ceil(articles.length / articlePerPage)
+  const totalPage = Math.ceil(articles?.length / articlePerPage)
 
   const startIndex = (currentPage - 1) * articlePerPage
   const currentArticles = articles.slice(
@@ -37,11 +38,7 @@ const ListArticle = () => {
               <h2 className="text-2xl font-semibold text-blue hover:underline">
                 <Link to={`/tips/${article.id}`}>{article.title}</Link>
               </h2>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: truncateDescription(article.description, 300)
-                }}
-              />
+              <div>{parse(truncateDescription(article.description, 300))}</div>
             </div>
           </article>
         ))}
