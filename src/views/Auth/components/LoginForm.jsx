@@ -2,18 +2,33 @@ import React, { useState } from 'react'
 import { Button, Input } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { loginSchema } from '../validation'
 
 const LoginForm = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(loginSchema)
+  })
 
   const handlePasswordVisible = () => {
     setPasswordVisible(!isPasswordVisible)
   }
 
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
   return (
     <section className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
-        <form className="px-8  bg-white w-[380px] lg:w-[460px]">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-8  bg-white w-[380px] lg:w-[460px]">
           <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
             Masuk
           </h1>
@@ -28,6 +43,7 @@ const LoginForm = () => {
               Email
             </label>
             <Input
+              {...register('email')}
               type="text"
               id="email"
               variant="bordered"
@@ -36,6 +52,7 @@ const LoginForm = () => {
               className="w-full"
               autoComplete="off"
             />
+            <p className='text-sm text-red-500 2xl:text-base'>{errors.email?.message}</p>
           </div>
           <div className="mb-8">
             <div className="flex items-center justify-between">
@@ -53,6 +70,7 @@ const LoginForm = () => {
               </Link>
             </div>
             <Input
+              {...register('password')}
               type={isPasswordVisible ? 'text' : 'password'}
               variant="bordered"
               name="password"
@@ -66,9 +84,10 @@ const LoginForm = () => {
                 </button>
               }
             />
-            <span className="text-sm text-red-500 lg:text-base"></span>
+            <p className='text-sm text-red-500 2xl:text-base'>{errors.password?.message}</p>
           </div>
           <Button
+            type='submit'
             size="md"
             variant="solid"
             className="w-full text-white bg-blue"
