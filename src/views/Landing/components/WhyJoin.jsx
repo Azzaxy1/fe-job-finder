@@ -6,7 +6,7 @@ import Card3 from '@/assets/landing/card3.svg'
 import Card4 from '@/assets/landing/card4.svg'
 
 const WhyJoin = () => {
-  const cardList = [
+  const whyJoinList = [
     {
       id: 1,
       title: 'Status Aplikasi',
@@ -45,7 +45,7 @@ const WhyJoin = () => {
         </h2>
       </header>
       <article className="flex flex-col justify-center gap-4 md:flex-row md:flex-wrap">
-        {cardList.map((card) => (
+        {whyJoinList.map((card) => (
           <Card
             shadow="sm"
             key={card.id}

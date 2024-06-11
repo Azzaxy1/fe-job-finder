@@ -104,3 +104,40 @@ export const testimonyList = [
         'Menggunakan Job Finder merupakan pengalaman yang sangat positif. Situs ini memudahkan saya untuk menemukan lowongan pekerjaan yang sesuai dengan keahlian saya sebagai Fullstack Developer. Saya sangat merekomendasikannya!'
   }
 ]
+
+export const questions = [
+  {
+    id: 1,
+    question:
+        'Apakah JobFinder menawarkan lowongan pekerjaan di berbagai kota di Indonesia?',
+    answer:
+        'Ya, JobFinder menyediakan lowongan pekerjaan di berbagai kota di seluruh Indonesia. Anda dapat mencari dan melamar pekerjaan berdasarkan lokasi yang Anda inginkan menggunakan filter pencarian di situs kami.'
+  },
+  {
+    id: 2,
+    question:
+        'Kepada siapa saya harus melaporkan jika mengalami masalah saat melamar pekerjaan?',
+    answer:
+        'Jika Anda mengalami masalah saat melamar pekerjaan, Anda dapat menghubungi tim dukungan pelanggan kami melalui WhatsApp. Tim kami akan dengan senang hati membantu Anda mengatasi masalah tersebut.'
+  },
+  {
+    id: 3,
+    question:
+        'Bagaimana cara meningkatkan peluang saya untuk mendapatkan pekerjaan?',
+    answer:
+        'Untuk meningkatkan peluang mendapatkan pekerjaan, pastikan profil dan resume Anda lengkap dan terkini. Sesuaikan resume Anda dengan pekerjaan yang Anda lamar, dan pertimbangkan untuk melamar ke berbagai posisi yang sesuai dengan keterampilan dan pengalaman Anda. Mengikuti pelatihan dan memperoleh sertifikasi tambahan juga bisa membantu.'
+  },
+  {
+    id: 4,
+    question:
+        'Apakah ada batasan jumlah lamaran yang dapat saya kirim melalui JobFinder?',
+    answer:
+        'Tidak, JobFinder tidak membatasi jumlah lamaran yang dapat Anda kirim. Anda bebas melamar ke sebanyak mungkin pekerjaan yang Anda minati dan sesuai dengan kualifikasi Anda.'
+  },
+  {
+    id: 5,
+    question: 'Apakah layanan JobFinder memerlukan biaya?',
+    answer:
+        'JobFinder menyediakan banyak layanan secara gratis untuk pencari kerja. Termasuk juga layanan tips kerja yang diberikan secara gratis.'
+  }
+]
