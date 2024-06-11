@@ -28,8 +28,8 @@ const App = () => {
       {/* Auth */}
       <Route path="login" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
-      <Route path="reset-password" element={<SetPasswordPage />} />
-      <Route path="set-password" element={<ResetPasswordPage />} />
+      <Route path="set-password" element={<SetPasswordPage />} />
+      <Route path="reset-password" element={<ResetPasswordPage />} />
 
       {/* Hire */}
       <Route path="hire-dashboard" element={<Dashboard />} />

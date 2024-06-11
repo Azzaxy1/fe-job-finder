@@ -63,7 +63,7 @@ const LoginForm = () => {
                 Password
               </label>
               <Link
-                to="/reset-password"
+                to="/set-password"
                 className="text-sm font-medium lg:text-base hover:underline text-blue"
               >
                 Lupa Kata Sandi
