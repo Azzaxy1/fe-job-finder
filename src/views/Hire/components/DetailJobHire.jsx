@@ -1,9 +1,10 @@
 import React from 'react'
 import HireLayout from '@/layouts/HireLayout'
 import { listJobHire } from '@/utils/local-data'
-import { BreadcrumbItem, Breadcrumbs, Card, CardBody, CardHeader, Divider } from '@nextui-org/react'
+import { BreadcrumbItem, Breadcrumbs, Card, CardBody, CardFooter, CardHeader, Divider } from '@nextui-org/react'
 import { Link, useParams } from 'react-router-dom'
 import parse from 'html-react-parser'
+import BackButton from '@/components/common/BackButton'
 
 const DetailJobHire = () => {
   const { id } = useParams()
@@ -39,7 +40,10 @@ const DetailJobHire = () => {
           </BreadcrumbItem>
         </Breadcrumbs>
         <Card radius='sm' className='flex flex-col px-5 py-3'>
-          <CardHeader className='flex flex-row items-center justify-between gap-1'>
+          <CardHeader>
+            <BackButton/>
+          </CardHeader>
+          <CardBody className='flex flex-row items-center justify-between gap-1'>
             <div className='flex flex-col items-start gap-1'>
               <h1 className="text-lg font-semibold sm:text-xl md:text-2xl 2xl:text-4xl">
               {job.title}
@@ -50,9 +54,9 @@ const DetailJobHire = () => {
             <div>
               <p className="text-sm text-[#6b7280] sm:text-base">{job.date}</p>
             </div>
-          </CardHeader>
+          </CardBody>
           <Divider/>
-          <CardBody><div>{parse(job.description)}</div></CardBody>
+          <CardFooter><div>{parse(job.description)}</div></CardFooter>
         </Card>
       </section>
   )

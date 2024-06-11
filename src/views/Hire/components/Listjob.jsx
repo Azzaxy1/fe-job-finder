@@ -20,7 +20,7 @@ const Listjob = () => {
     <section className='flex flex-col items-start justify-start w-full gap-4 mb-5 -mt-2 '>
       <div className='flex flex-row items-center justify-between w-full'>
         <h2 className='text-base font-semibold md:text-xl'>Daftar Lowongan Pekerjaan</h2>
-        <Link to="/create-job">
+        <Link to="create-job">
           <Button className='font-semibold text-white bg-blue'>Tambah Pekerjaan</Button>
         </Link>
       </div>

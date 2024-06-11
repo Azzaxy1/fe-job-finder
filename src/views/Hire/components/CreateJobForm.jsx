@@ -1,13 +1,11 @@
 import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Input, Select, SelectItem } from '@nextui-org/react'
 import React from 'react'
 import { useQuill } from 'react-quilljs'
-import { Link, useNavigate } from 'react-router-dom'
-import { FaArrowLeft } from 'react-icons/fa'
-import { inputJob, typeJob } from '../index.js'
+import { Link } from 'react-router-dom'
+import BackButton from '@/components/common/BackButton.jsx'
+import { inputJob, typeJob } from '../index'
 
 const CreateJobForm = () => {
-  const navigate = useNavigate()
-
   const { quillRef } = useQuill()
 
   return (
@@ -27,10 +25,7 @@ const CreateJobForm = () => {
         </Breadcrumbs>
       <Card radius='sm' className='flex flex-col px-5 py-3 pb-4'>
         <CardHeader className='flex flex-col items-start justify-start gap-3'>
-          <Button className='flex flex-row items-center font-semibold text-white bg-blue' onClick={() => navigate(-1)}>
-            <FaArrowLeft/>
-            Kembali
-          </Button>
+          <BackButton/>
           <h2 className='text-lg font-semibold md:text-xl'>Buat Lowongan Pekerjaan</h2>
         </CardHeader>
         <CardBody className="flex flex-col gap-4">
