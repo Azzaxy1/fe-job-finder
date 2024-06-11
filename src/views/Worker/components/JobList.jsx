@@ -121,7 +121,7 @@ const JobList = () => {
 
   return (
     <>
-    <Suspense fallback={<SkeletonPreview/>}>
+    <Suspense fallback={<SkeletonPreview type='list'/>}>
       {listLoker.map((loker, index) => (
         <JobItem key={index} loker={loker} />
       ))}
