@@ -13,7 +13,7 @@ const ItemJob = ({ job }) => {
         <CardHeader className="flex gap-3">
           <div className="flex flex-col">
             <h2 className="text-base font-medium sm:text-lg hover:underline">
-              <Link to={`/hire/${job.id}`}>{job.title}</Link>
+              <Link to={`/manage-jobs/${job.id}`}>{job.title}</Link>
             </h2>
             <p className="text-sm text-green-500 sm:text-base">{job.salary}</p>
           </div>

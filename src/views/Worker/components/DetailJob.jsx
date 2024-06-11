@@ -49,7 +49,7 @@ const DetailJob = () => {
                 <h4 className="text-sm sm:text-base text-blue">
                   {data.job.company}
                 </h4>
-                <p className="text-sm sm:text-base text-[#16a34a]">
+                <p className="text-sm text-green-500 sm:text-base">
                   {data.job.salary}
                 </p>
                 <p className="text-sm sm:text-base">
