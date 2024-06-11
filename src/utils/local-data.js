@@ -272,43 +272,11 @@ export const data = [
       company: 'PT. ABC',
       location: 'Jakarta',
       type: 'Full Time',
-      description:
-          'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       salary: 'Rp. 1.000.000 - Rp. 2.000.000',
       image: Company1,
       date: '2024-01-01',
-      requirements: [
-        'Lulusan S1 di bidang Ilmu Komputer, Teknik Informatika, atau bidang terkait.',
-        'Pengalaman minimal 2 tahun dalam pengembangan perangkat lunak.',
-        'Kemampuan dalam bahasa pemrograman seperti Java, Python, atau JavaScript.',
-        'Pemahaman yang baik tentang sistem basis data dan SQL.',
-        'Kemampuan untuk bekerja secara mandiri dan sebagai bagian dari tim.',
-        'Bersedia untuk bekerja dengan jam yang fleksibel jika diperlukan.',
-        'Mentalitas berorientasi pada solusi dengan kemampuan menyelesaikan masalah yang baik.'
-      ],
-      skills: [
-        'Kemampuan dalam pengembangan aplikasi web menggunakan framework seperti React atau Angular.',
-        'Pengalaman dengan sistem kontrol versi seperti Git.',
-        'Pemahaman tentang prinsip-prinsip OOP dan desain pola.',
-        'Kemampuan analisis dan pemecahan masalah yang kuat.',
-        'Pengalaman dalam pengembangan API dan layanan web.',
-        'Pengetahuan tentang DevOps dan CI/CD merupakan nilai tambah.',
-        'Keterampilan komunikasi yang baik dan mampu bekerja dalam tim.'
-      ],
-      benefit: [
-        'Gaji yang kompetitif dan bonus kinerja.',
-        'Asuransi kesehatan dan tunjangan kesejahteraan.',
-        'Kesempatan untuk berkembang dan pelatihan profesional.',
-        'Lingkungan kerja yang mendukung dan kolaboratif.',
-        'Waktu kerja fleksibel dan opsi remote working.'
-      ],
-      responsibility: [
-        'Mengembangkan dan memelihara aplikasi perangkat lunak.',
-        'Berkoordinasi dengan tim lain untuk memastikan integrasi yang mulus.',
-        'Mengidentifikasi dan memperbaiki bug serta masalah performa.',
-        'Menyusun dokumentasi teknis untuk kode yang ditulis.',
-        'Berpartisipasi dalam pertemuan tim dan memberikan masukan teknis.'
-      ]
+      description:
+        '<h1><b>Syarat Pekerjaan : </b></h1> 1. Lulusan S1 di bidang Ilmu Komputer, Teknik Informatika, atau bidang terkait. <br/>2. Pengalaman minimal 2 tahun dalam pengembangan perangkat lunak.<br/>3. Kemampuan dalam bahasa pemrograman seperti Java, Python, atau JavaScript. <br/>4. Pemahaman yang baik tentang sistem basis data dan SQL. <br/>5. Kemampuan untuk bekerja secara mandiri dan sebagai bagian dari tim. <br/>6. Bersedia untuk bekerja dengan jam yang fleksibel jika diperlukan. <br/>7. Mentalitas berorientasi pada solusi dengan kemampuan menyelesaikan masalah yang baik. <h1><br/> <b>Kualifikasi Keahlian :</b> </h1>1. Kemampuan dalam pengembangan aplikasi web menggunakan framework seperti React atau Angular. <br/> 2. Pengalaman dengan sistem kontrol versi seperti Git. <br/> 3. Pemahaman tentang prinsip-prinsip OOP dan desain pola. <br/> 4. Kemampuan analisis dan pemecahan masalah yang kuat. <br/> 5. Pengalaman dalam pengembangan API dan layanan web. <br/> 6. Pengetahuan tentang DevOps dan CI/CD merupakan nilai tambah. <br/> 7. Keterampilan komunikasi yang baik dan mampu bekerja dalam tim. <h1> <br/> <b>Benefit : </b></h1> 1. Gaji yang kompetitif dan bonus kinerja. <br/> 2. Asuransi kesehatan dan tunjangan kesejahteraan. <br/> 3. Kesempatan untuk berkembang dan pelatihan profesional. <br/> 4. Lingkungan kerja yang mendukung dan kolaboratif. <br/> 5. Waktu kerja fleksibel dan opsi remote working. <h1><br/> <b>Tanggung Jawab : </b></h1> 1. Mengembangkan dan memelihara aplikasi perangkat lunak. <br/> 2. Berkoordinasi dengan tim lain untuk memastikan integrasi yang mulus. <br/> 3. Mengidentifikasi dan memperbaiki bug serta masalah performa. <br/> 4. Menyusun dokumentasi teknis untuk kode yang ditulis. <br/> 5. Berpartisipasi dalam pertemuan tim dan memberikan masukan teknis.'
     }
   }
 ]
@@ -317,6 +285,7 @@ export const user = [
   {
     id: 1,
     name: 'Abdurrohman Azis',
-    email: 'abdurrohman.azis@example.com'
+    email: 'abdurrohman.azis@example.com',
+    phone: '084582453244'
   }
 ]

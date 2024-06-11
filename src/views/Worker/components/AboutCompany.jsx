@@ -10,8 +10,6 @@ import {
 import PropTypes from 'prop-types'
 
 const AboutCompany = ({ company }) => {
-  console.log(company)
-
   return (
     <Card radius="sm" className="px-3">
       <CardHeader className="flex flex-col items-start gap-2 ">
