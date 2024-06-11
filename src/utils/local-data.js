@@ -6,6 +6,10 @@ import Article5 from '@/assets/article/article-5.jpg'
 import Article6 from '@/assets/article/article-6.png'
 import Article7 from '@/assets/article/article-7.png'
 
+import Testi1 from '@/assets/testimony/testi1.jpeg'
+import Testi2 from '@/assets/testimony/testi3.png'
+import Testi3 from '@/assets/testimony/testi2.jpg'
+
 export const articles = [
   {
     id: 1717514221140,
@@ -71,5 +75,32 @@ export const articles = [
     description:
       '<div>Pada tahap awal mencari pekerjaan, terkadang kita begitu antusias untuk segera mendapatkan pekerjaan yang diinginkan, hingga terkadang melewatkan langkah penting, yaitu menilai apakah perusahaan yang akan kita lamar memiliki potensi red flag atau tidak.<br/><br/>Jika kamu mahasiswa yang tengah berkuliah atau baru saja lulus kuliah, perlu mewaspadai hal ini. Menjelang tahap peralihan, banyak dari kita mulai mencari peluang pekerjaan yang sesuai dengan bidang dan minat kita. Namun, ada satu hal yang seringkali diabaikan oleh calon pencari kerja, yaitu riset perusahaan yang hendak dilamar.<br/><br/>Artikel ini akan membahas tentang tips penting yang perlu kamu ketahui sebelum melamar pekerjaan, terutama dalam mengidentifikasi “perusahaan red flag”.<br/><br/><strong>Apa itu Perusahaan Red Flag?</strong><br/><br/>“Red flag” dalam konteks ini mengacu pada tanda-tanda peringatan yang menunjukkan adanya potensi masalah di perusahaan. Ini bisa menjadi indikasi bahwa perusahaan tersebut tidak memiliki praktik terbaik dalam hal manajemen, etika bisnis, atau bahkan kesejahteraan karyawan.<br/><br/>Memahami red flag sangat penting agar kamu tidak terjebak dalam situasi yang merugikan di tempat kerja.<br/><br/><strong>Apa Saja yang Harus Dipersiapkan Ketika Akan Melamar Pekerjaan?</strong><br/><br/>Sebelum kamu melamar pekerjaan, ada beberapa persiapan yang harus kamu lakukan<br/><li>Pertama, perbarui CV dan portfolio kamu. Pastikan informasi yang kamu sertakan relevan dengan posisi yang kamu lamar.</li><li>Kedua, siapkan juga daftar pertanyaan yang ingin kamu ajukan saat wawancara. Ini dapat menunjukkan minat kamu terhadap perusahaan dan posisi yang kamu inginkan.</li><br/><br/><strong>Mengapa Perlu Melakukan Riset Tentang Perusahaan Sebelum Melamar?</strong><br/><br/>Riset sebelum wawancara adalah kunci untuk memahami apakah perusahaan tersebut cocok untuk kamu atau tidak. Ini bukan hanya tentang perusahaan yang mencari karyawan, tetapi juga seberapa sesuai perusahaan dengan tujuan dan nilai kamu.<br/><br/>Dengan melakukan riset mendalam, kamu dapat terhindar dari penipuan sekaligus mengevaluasi apakah perusahaan tersebut sehat dan memiliki lingkungan yang mendukung pertumbuhan karir kamu atau tidak.<br/><br/><strong>Ciri-Ciri Perusahaan Red Flag</strong><br/><br/>1. Design Website yang Kurang Terpercaya<br/><br/>Sesuatu yang terlihat sepele seperti tampilan desain website bisa menjadi aspek yang tidak boleh diabaikan. Umumnya, perusahaan-perusahaan yang memiliki reputasi baik akan mengurus segala aspek perusahaannya secara menyeluruh. Termasuk tampilan desain website yang menarik.<br/><br/>Namun, jika situasinya berbeda saat kamu menemui perusahaan yang tampilan desain website terkesan kurang profesional. Ada baiknya, kamu memiliki kecurigaan dan keraguan terhadap tingkat komitmen dari perusahaan tersebut.<br/><br/>2. Job Desc Tidak Sesuai atau Berlebihan<br/><br/>Tanda selanjutnya berhubungan dengan deskripsi pekerjaan yang ditampilkan saat kamu akan melamar. Terkadang banyak di antara kita yang fokus kepada posisi yang dilamar saja. Hal ini membuat deskripsi pekerjaan sering diabaikan.<br/><br/>Deskripsi pekerjaan yang terlalu berlebihan atau tidak sesuai juga bisa menjadi bagian dari red flag. Dikarenakan menunjukkan indikasi overwork atau eksploitasi pegawai.<br/><br/>3. Ketidaktransparan<br/><br/>Perusahaan yang tidak memberikan informasi yang jelas tentang budaya kerja, struktur organisasi, atau harapan pekerjaan adalah tanda peringatan.<br/><br/>Hindari perusahaan yang memiliki kultur bekerja yang menormalisasi budaya lembur tanpa diikuti pendapatan yang layak. Atau struktur organisasi yang punya indikasi senioritas dan ageisme berlebihan.<br/><br/>Saat ini, ada banyak perusahaan yang mendorong employer branding mereka dengan membuat akun sosial media “lifeat” yang bisa kamu lihat-lihat budaya perusahaan tersebut secara garis besar.<br/><br/>4. Rendahnya Reputasi<br/><br/>Jika perusahaan sering dikaitkan dengan kontroversi atau skandal, ini bisa menjadi red flag bahwa terdapat praktik yang kurang etis.<br/><br/>Kamu bisa mencari tahu tentang ini dengan membaca berita terkini mengenai perusahaan tersebut, apakah sedang mengalami layoff, ekspansi baru hingga mendapat suntikan dana, ataupun melalui review Google My Business, Glassdoor hingga informasi di platform lokal seperti fomo.id dan ecommurz.<br/><br/>5. Tingginya Turnover Karyawan<br/><br/>Jika banyak karyawan yang terus meninggalkan perusahaan, ini mungkin menunjukkan lingkungan kerja yang tidak menyenangkan.<br/><br/>Ini bisa kamu lihat dan sadari melalui tindakan perusahaan yang terlalu sering membuka lowongan pada posisi yang sama dalam jangka waktu yang relatif singkat.<br/><br/>6. Proses Hiring Terlalu Cepat atau Terlalu Lama<br/><br/>Proses perekrutan yang terlalu cepat tanpa seleksi yang memadai atau terlalu lama tanpa alasan jelas bisa menandakan masalah dalam perusahaan, baik itu kekurangan standar atau adanya isu internal.<br/><br/>7. Pewawancara yang Kurang Profesional<br/><br/>Jadikan sesi interview sebagai observasi pribadi kamu juga. Kamu harus melihat bagaimana sesi wawancara tersebut diberlakukan. Jika ada hal yang kamu rasa tidak sesuai dan menunjukkan kurangnya standar profesionalitas, maka kamu harus berhati-hati.<br/><br/>8. Menahan Ijazah<br/><br/>Perusahaan yang melakukan kebijakan menahan ijazah atau dokumen penting lainnya setelah kamu diterima bisa menjadi tanda adanya praktik yang tidak transparan. Ini mencerminkan masalah potensial dalam integritas perusahaan.<br/><br/>9. Penawaran yang Terlalu Baik untuk Jadi Kebenaran<br/><br/>Waspadai perusahaan yang menawarkan gaji atau tunjangan yang jauh di atas standar industri, karena hal ini bisa menjadi taktik untuk menutupi masalah internal.<br/><br/>10. Kontrak Pekerjaan yang Janggal, Kurang Rinci, atau Bahkan Tidak Ada<br/><br/>Perusahaan yang tidak memberikan kontrak kerja yang jelas atau bahkan tidak memberikan kontrak sama sekali menunjukkan kurangnya profesionalisme dan komitmen.<br/><br/><strong>Tips Melamar Agar Tidak Salah Pilih Perusahaan</strong><br/><br/>1. Lakukan penelitian mendalam<br/>2. Tanyakan pertanyaan yang tepat<br/>3. Percayai insting kamu<br/>4. Bandingkan dengan pilihan lain<br/><br/>Menghindari perusahaan red flag bisa menjadi langkah penting dalam meraih karir yang sukses dan memuaskan. Dengan melakukan riset yang cermat, kamu bisa mengidentifikasi tanda-tanda perusahaan yang tidak sesuai dengan nilai dan tujuan kamu bekerja. Dengan demikian, kamu akan lebih percaya diri dan siap menghadapi wawancara serta memilih perusahaan yang benar-benar mendukung pertumbuhan profesional kamu.<br/><br/>Ingatlah, setiap langkah kecil dalam proses pencarian kerja membawa kamu lebih dekat menuju kesuksesan!</div>',
     image: Article2
+  }
+]
+
+export const testimonyList = [
+  {
+    id: 1,
+    name: 'John Doe',
+    title: 'Back End Developer',
+    image: Testi1,
+    message:
+        'Saya sangat terkesan dengan Job Finder. Situs ini membantu saya menemukan pekerjaan impian saya sebagai Software Engineer dengan cepat dan efisien. Prosesnya sangat mudah dan dukungan tim sangat membantu.'
+  },
+  {
+    id: 2,
+    name: 'Chaplin Doe',
+    title: 'UI/UX Designer',
+    image: Testi2,
+    message:
+        'Job Finder benar-benar platform yang luar biasa untuk mencari pekerjaan. Saya berhasil mendapatkan posisi sebagai UI/UX Designer di perusahaan yang hebat. Antarmuka pengguna situs ini sangat intuitif dan ramah pengguna.'
+  },
+  {
+    id: 3,
+    name: 'Jane Doe',
+    title: 'Fullstack Developer',
+    image: Testi3,
+    message:
+        'Menggunakan Job Finder merupakan pengalaman yang sangat positif. Situs ini memudahkan saya untuk menemukan lowongan pekerjaan yang sesuai dengan keahlian saya sebagai Fullstack Developer. Saya sangat merekomendasikannya!'
   }
 ]

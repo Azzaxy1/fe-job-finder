@@ -1,35 +1,9 @@
 import React from 'react'
 import { Image } from '@nextui-org/react'
 import { Carousel } from 'react-responsive-carousel'
+import { testimonyList } from '@/utils/local-data'
 
 const Testimony = () => {
-  const testimonyList = [
-    {
-      id: 1,
-      name: 'John Doe',
-      title: 'Software Engineer',
-      image: 'https://i.pravatar.cc/300',
-      message:
-        'Lacinia ex id gravida dapibus ante cras elit hac torquent aliquet sodales in tortor sollicitudin efficitur ac fermentum purus condimentum viverra venenatis maecenas nullam rhoncus montes accumsan vitae'
-    },
-    {
-      id: 2,
-      name: 'Chaplin Doe',
-      title: 'UI/UX Designer',
-      image: 'https://i.pravatar.cc/300',
-      message:
-        'Taciti quisque conubia at vel laoreet sem mi feugiat nisl mollis purus cras parturient est integer pharetra senectus in elementum morbi cubilia turpis quam risus massa dictumst hendrerit'
-    },
-    {
-      id: 3,
-      name: 'Jane Doe',
-      title: 'Fullstack Developer',
-      image: 'https://i.pravatar.cc/300',
-      message:
-        'Orci erat non id at eget sapien facilisis massa condimentum penatibus nibh augue donec est sodales fusce per quam cras morbi ridiculus feugiat viverra dui euismod montes habitasse dictum vitae sem sociosqu lobortis vulputate class'
-    }
-  ]
-
   const arrowStyles = {
     position: 'absolute',
     zIndex: 2,
