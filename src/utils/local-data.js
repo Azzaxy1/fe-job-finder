@@ -6,9 +6,121 @@ import Article5 from '@/assets/article/article-5.jpg'
 import Article6 from '@/assets/article/article-6.png'
 import Article7 from '@/assets/article/article-7.png'
 
+import Company1 from '@/assets/landing/company/company1.svg'
+import Company2 from '@/assets/landing/company/company2.svg'
+import Company3 from '@/assets/landing/company/company3.svg'
+import Company4 from '@/assets/landing/company/company4.svg'
+import Company5 from '@/assets/landing/company/company5.svg'
+import Company6 from '@/assets/landing/company/company6.svg'
+import Company7 from '@/assets/landing/company/company7.svg'
+import Company8 from '@/assets/landing/company/company8.svg'
+
 import Testi1 from '@/assets/testimony/testi1.jpeg'
 import Testi2 from '@/assets/testimony/testi3.png'
 import Testi3 from '@/assets/testimony/testi2.jpg'
+
+export const listJob = [
+  {
+    id: 1,
+    title: 'Frontend Developer',
+    company: 'BRI',
+    image: Company1,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 2,
+    title: 'Backend Developer',
+    company: 'BRI',
+    image: Company2,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 3,
+    title: 'Fullstack Developer',
+    company: 'BRI',
+    image: Company3,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 4,
+    title: 'Mobile Developer',
+    company: 'BRI',
+    image: Company4,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 5,
+    title: 'Mobile Developer',
+    company: 'BRI',
+    image: Company5,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 6,
+    title: 'Mobile Developer',
+    company: 'BRI',
+    image: Company6,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 7,
+    title: 'Mobile Developer',
+    company: 'BRI',
+    image: Company7,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 8,
+    title: 'Mobile Developer',
+    company: 'BRI',
+    image: Company8,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 9,
+    title: 'Mobile Developer',
+    company: 'BRI',
+    image: Company2,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  },
+  {
+    id: 10,
+    title: 'Mobile Developer',
+    company: 'BRI',
+    image: Company1,
+    salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+    location: 'Jakarta',
+    type: 'Full-time',
+    date: '2024-01-01'
+  }
+]
 
 export const articles = [
   {
@@ -139,5 +251,72 @@ export const questions = [
     question: 'Apakah layanan JobFinder memerlukan biaya?',
     answer:
         'JobFinder menyediakan banyak layanan secara gratis untuk pencari kerja. Termasuk juga layanan tips kerja yang diberikan secara gratis.'
+  }
+]
+
+export const data = [
+  {
+    id: 1,
+    company: {
+      id: 1,
+      name: 'PT. ABC',
+      industry: 'Technology',
+      image: Company1,
+      address: 'Jl. ABC No. 123, Jakarta',
+      description:
+          'Perusahaan yang bergerak di bidang teknologi informasi. Dan sudah beroperasi selama 10 tahun. Sudah berpengalaman dalam bidang tersebut.'
+    },
+    job: {
+      id: 1,
+      title: 'Programmer',
+      company: 'PT. ABC',
+      location: 'Jakarta',
+      type: 'Full Time',
+      description:
+          'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+      image: Company1,
+      date: '2024-01-01',
+      requirements: [
+        'Lulusan S1 di bidang Ilmu Komputer, Teknik Informatika, atau bidang terkait.',
+        'Pengalaman minimal 2 tahun dalam pengembangan perangkat lunak.',
+        'Kemampuan dalam bahasa pemrograman seperti Java, Python, atau JavaScript.',
+        'Pemahaman yang baik tentang sistem basis data dan SQL.',
+        'Kemampuan untuk bekerja secara mandiri dan sebagai bagian dari tim.',
+        'Bersedia untuk bekerja dengan jam yang fleksibel jika diperlukan.',
+        'Mentalitas berorientasi pada solusi dengan kemampuan menyelesaikan masalah yang baik.'
+      ],
+      skills: [
+        'Kemampuan dalam pengembangan aplikasi web menggunakan framework seperti React atau Angular.',
+        'Pengalaman dengan sistem kontrol versi seperti Git.',
+        'Pemahaman tentang prinsip-prinsip OOP dan desain pola.',
+        'Kemampuan analisis dan pemecahan masalah yang kuat.',
+        'Pengalaman dalam pengembangan API dan layanan web.',
+        'Pengetahuan tentang DevOps dan CI/CD merupakan nilai tambah.',
+        'Keterampilan komunikasi yang baik dan mampu bekerja dalam tim.'
+      ],
+      benefit: [
+        'Gaji yang kompetitif dan bonus kinerja.',
+        'Asuransi kesehatan dan tunjangan kesejahteraan.',
+        'Kesempatan untuk berkembang dan pelatihan profesional.',
+        'Lingkungan kerja yang mendukung dan kolaboratif.',
+        'Waktu kerja fleksibel dan opsi remote working.'
+      ],
+      responsibility: [
+        'Mengembangkan dan memelihara aplikasi perangkat lunak.',
+        'Berkoordinasi dengan tim lain untuk memastikan integrasi yang mulus.',
+        'Mengidentifikasi dan memperbaiki bug serta masalah performa.',
+        'Menyusun dokumentasi teknis untuk kode yang ditulis.',
+        'Berpartisipasi dalam pertemuan tim dan memberikan masukan teknis.'
+      ]
+    }
+  }
+]
+
+export const user = [
+  {
+    id: 1,
+    name: 'Abdurrohman Azis',
+    email: 'abdurrohman.azis@example.com'
   }
 ]

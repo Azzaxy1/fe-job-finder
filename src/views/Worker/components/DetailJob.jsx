@@ -14,9 +14,10 @@ import {
   useDisclosure
 } from '@nextui-org/react'
 import { FaRegBookmark } from 'react-icons/fa6'
+import toast from 'react-hot-toast'
+import { data, user } from '@/utils/local-data'
 
 import Company1 from '@/assets/landing/company/company1.svg'
-import toast from 'react-hot-toast'
 import AboutCompany from './AboutCompany'
 
 const DetailJob = () => {
@@ -31,94 +32,6 @@ const DetailJob = () => {
     toast.success('Lamaran berhasil dikirim')
     onOpenChange(false)
   }
-
-  const user = [
-    {
-      id: 1,
-      name: 'Abdurrohman Azis',
-      email: 'abdurrohman.azis@example.com'
-    }
-  ]
-
-  /* const = data [
-    company : [
-      id:
-      name:
-      image:
-      address:
-      description:
-      jobs : [
-        {
-          title:
-          company:
-          salary:
-          location:
-          type:
-          description: > React Quill
-          requirements:
-          date:
-        }
-    ]
-  */
-
-  const data = [
-    {
-      id: 1,
-      company: {
-        id: 1,
-        name: 'PT. ABC',
-        industry: 'Technology',
-        image: Company1,
-        address: 'Jl. ABC No. 123, Jakarta',
-        description:
-          'Perusahaan yang bergerak di bidang teknologi informasi. Dan sudah beroperasi selama 10 tahun. Sudah berpengalaman dalam bidang tersebut.'
-      },
-      job: {
-        id: 1,
-        title: 'Programmer',
-        company: 'PT. ABC',
-        location: 'Jakarta',
-        type: 'Full Time',
-        description:
-          'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        salary: 'Rp. 1.000.000 - Rp. 2.000.000',
-        image: Company1,
-        date: '2024-01-01',
-        requirements: [
-          'Lulusan S1 di bidang Ilmu Komputer, Teknik Informatika, atau bidang terkait.',
-          'Pengalaman minimal 2 tahun dalam pengembangan perangkat lunak.',
-          'Kemampuan dalam bahasa pemrograman seperti Java, Python, atau JavaScript.',
-          'Pemahaman yang baik tentang sistem basis data dan SQL.',
-          'Kemampuan untuk bekerja secara mandiri dan sebagai bagian dari tim.',
-          'Bersedia untuk bekerja dengan jam yang fleksibel jika diperlukan.',
-          'Mentalitas berorientasi pada solusi dengan kemampuan menyelesaikan masalah yang baik.'
-        ],
-        skills: [
-          'Kemampuan dalam pengembangan aplikasi web menggunakan framework seperti React atau Angular.',
-          'Pengalaman dengan sistem kontrol versi seperti Git.',
-          'Pemahaman tentang prinsip-prinsip OOP dan desain pola.',
-          'Kemampuan analisis dan pemecahan masalah yang kuat.',
-          'Pengalaman dalam pengembangan API dan layanan web.',
-          'Pengetahuan tentang DevOps dan CI/CD merupakan nilai tambah.',
-          'Keterampilan komunikasi yang baik dan mampu bekerja dalam tim.'
-        ],
-        benefit: [
-          'Gaji yang kompetitif dan bonus kinerja.',
-          'Asuransi kesehatan dan tunjangan kesejahteraan.',
-          'Kesempatan untuk berkembang dan pelatihan profesional.',
-          'Lingkungan kerja yang mendukung dan kolaboratif.',
-          'Waktu kerja fleksibel dan opsi remote working.'
-        ],
-        responsibility: [
-          'Mengembangkan dan memelihara aplikasi perangkat lunak.',
-          'Berkoordinasi dengan tim lain untuk memastikan integrasi yang mulus.',
-          'Mengidentifikasi dan memperbaiki bug serta masalah performa.',
-          'Menyusun dokumentasi teknis untuk kode yang ditulis.',
-          'Berpartisipasi dalam pertemuan tim dan memberikan masukan teknis.'
-        ]
-      }
-    }
-  ]
 
   return (
     <>
