@@ -3,17 +3,17 @@ import SkeletonType from '../common/SkeletonType'
 
 const SkeletonPreview = () => {
   return (
-   <section>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-    <SkeletonType type="list"/>
-   </section>
+    <section>
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+      <SkeletonType type="list" />
+    </section>
   )
 }
 
