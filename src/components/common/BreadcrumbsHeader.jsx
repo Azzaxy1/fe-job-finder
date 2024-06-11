@@ -11,8 +11,8 @@ const BreadcrumbsHeader = () => {
     <section
       className={`flex px-28 2xl:px-72 items-center justify-start h-36 2xl:h-48 bg-cover bg-fixed bg-no-repeat bg-center ${
         pathname === "jobs"
-          ? "bg-[url('/public/bread1.jpg')]"
-          : "bg-[url('/public/bread2.png')]"
+          ? "bg-[url('@/assets/bread1.jpg')]"
+          : "bg-[url('@/assets/bread2.png')]"
       } -z-10`}
     >
       <div className="flex flex-col w-full gap-2 text-white ">
