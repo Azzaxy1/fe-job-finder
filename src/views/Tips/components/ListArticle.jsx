@@ -3,6 +3,7 @@ import { articles } from '@/utils/local-data.js'
 import { Pagination } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
 import parse from 'html-react-parser'
+import { truncateDescription } from '@/utils/index.js'
 
 const ListArticle = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -18,11 +19,6 @@ const ListArticle = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page)
-  }
-
-  const truncateDescription = (text, maxLength) => {
-    if (text.length <= maxLength) return text
-    return `${text.slice(0, maxLength)}...`
   }
 
   return (

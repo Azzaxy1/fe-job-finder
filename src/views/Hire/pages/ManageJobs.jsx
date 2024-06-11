@@ -1,11 +1,12 @@
 import React from 'react'
 import HireLayout from '@/layouts/HireLayout'
-import TableJobs from '../components/TableJobs'
+// import TableJobs from '../components/TableJobs'
+import Listjob from '../components/Listjob'
 
 const ManageJobs = () => {
   return (
     <HireLayout>
-      <TableJobs />
+      <Listjob />
     </HireLayout>
   )
 }
