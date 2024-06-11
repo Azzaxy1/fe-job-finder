@@ -63,4 +63,11 @@ const resetPasswordSchema = yup.object({
     .oneOf([yup.ref('password'), null], 'Password tidak cocok')
 })
 
-export { loginSchema, registerSchema, resetPasswordSchema }
+const setPasswordSchema = yup.object({
+  email: yup
+    .string()
+    .email('Masukkan email yang valid')
+    .required('Email harus diisi')
+})
+
+export { loginSchema, registerSchema, resetPasswordSchema, setPasswordSchema }
