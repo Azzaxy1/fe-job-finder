@@ -11,7 +11,7 @@ const WorkerProfilePage = () => {
       </Helmet>
       <BaseLayout>
         <div className="min-h-screen px-10 py-3">
-          <ProfileInput type="worker" />
+          <ProfileInput type="user" />
         </div>
       </BaseLayout>
     </>

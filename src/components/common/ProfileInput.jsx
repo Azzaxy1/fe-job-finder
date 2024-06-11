@@ -76,7 +76,7 @@ const ProfileInput = ({ type }) => {
   return (
     <section
       className={`flex flex-col my-10 ${
-        type === 'hire' ? 'max-w-6xl ' : 'md:px-32 2xl:px-72 '
+        type === 'hire' ? 'w-full ' : 'md:px-32 2xl:px-72 '
       }}`}
     >
       <Card radius="sm" className="px-8 py-10 h-[850px]">
@@ -85,13 +85,13 @@ const ProfileInput = ({ type }) => {
             Ubah Profil Anda sebagai {type === 'hire' ? 'Hire' : 'User'}
           </h2>
         </CardHeader>
-        <CardBody className="flex flex-col min-h-[600px] gap-10 md:flex-row ">
-          <div className="relative cursor-pointer w-fit">
+        <CardBody className="flex flex-col gap-10 ">
+          <div className="relative flex items-center justify-center mx-auto w-[150px] h-[150px] cursor-pointer">
             <Image
-              radius={type === 'hire' ? 'none' : 'sm'}
+              radius={type === 'hire' ? 'none' : 'full'}
               src={profileImage}
               alt="Profile"
-              className="relative cursor-pointer"
+              className="cursor-pointer"
             />
             <input
               type="file"
@@ -108,7 +108,6 @@ const ProfileInput = ({ type }) => {
                     variant="bordered"
                     radius="sm"
                     key={input.name}
-                    labelPlacement="outside-left"
                     placeholder={input.placeholder}
                     type={input.type}
                     label={input.name}
@@ -141,14 +140,14 @@ const ProfileInput = ({ type }) => {
             <label htmlFor="description">Tambahkan Deskripsi</label>
             <div
               style={{ height: 200 }}
-              className="mt-2 w-[230px] md:w-[450px]"
+              className="w-full mt-2"
             >
               <div ref={quillRef} />
             </div>
           </article>
         </CardBody>
-        <CardFooter className="flex flex-col items-center w-full gap-4">
-          <Button radius="sm" className="text-white bg-blue">
+        <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">
+          <Button radius="sm" size='lg' className="text-white bg-blue">
             Simpan Perubahan
           </Button>
         </CardFooter>
