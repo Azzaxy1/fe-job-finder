@@ -1,10 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import BaseLayout from "@/layouts/BaseLayout";
-import { Helmet } from "react-helmet-async";
-import ListLoker from "../components/ListLoker";
-import DetailLoker from "../components/DetailLoker";
-import SearchLoker from "../components/SearchLoker";
+import React from 'react'
+import BaseLayout from '@/layouts/BaseLayout'
+import { Helmet } from 'react-helmet-async'
+import ListLoker from '../components/ListLoker'
+import DetailLoker from '../components/DetailLoker'
+import SearchLoker from '../components/SearchLoker'
 
 const SearchLokerPage = () => {
   return (
@@ -24,7 +23,7 @@ const SearchLokerPage = () => {
         </main>
       </BaseLayout>
     </>
-  );
-};
+  )
+}
 
-export default SearchLokerPage;
+export default SearchLokerPage

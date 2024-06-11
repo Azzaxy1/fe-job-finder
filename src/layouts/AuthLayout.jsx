@@ -1,33 +1,31 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
-// import { Image } from "@nextui-org/react";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Logo from "@/assets/logo-blue.svg";
-import Login from "@/assets/login.svg";
-import Register from "@/assets/register.svg";
-import Reset from "@/assets/reset-password.svg";
-import SetPassword from "@/assets/set-password.svg";
-import { Link, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import Logo from '@/assets/logo-blue.svg'
+import Login from '@/assets/login.svg'
+import Register from '@/assets/register.svg'
+import Reset from '@/assets/reset-password.svg'
+import SetPassword from '@/assets/set-password.svg'
+import { Link, useLocation } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 const AuthLayout = ({ children, type }) => {
-  const location = useLocation();
+  const location = useLocation()
 
-  const pathname = location.pathname.split("/")[1];
-  const cleanPath = pathname.replace(/-/g, " ");
+  const pathname = location.pathname.split('/')[1]
+  const cleanPath = pathname.replace(/-/g, ' ')
 
   const capitalizedPath =
-    cleanPath.charAt(0).toUpperCase() + cleanPath.slice(1);
+    cleanPath.charAt(0).toUpperCase() + cleanPath.slice(1)
 
   const authImage =
-    type === "login"
+    type === 'login'
       ? Login
-      : type === "register"
-      ? Register
-      : type === "set-password"
-      ? SetPassword
-      : Reset;
+      : type === 'register'
+        ? Register
+        : type === 'set-password'
+          ? SetPassword
+          : Reset
 
   return (
     <>
@@ -45,10 +43,11 @@ const AuthLayout = ({ children, type }) => {
         </aside>
         <div
           className={`flex flex-col items-center justify-center px-8 py-8 bg-white lg:py-0 lg:order-first lg:col-span-5 xl:col-span-6 ${
-            type === "register" && "mt-8"
+            type === 'register' && 'mt-8'
           }`}
         >
-          {type === "login" ? (
+          {type === 'login'
+            ? (
             <Link to="/">
               <img
                 src={Logo}
@@ -56,23 +55,24 @@ const AuthLayout = ({ children, type }) => {
                 className="object-cover w-[100px] lg:w-[70px]"
               />
             </Link>
-          ) : (
+              )
+            : (
             <img
               src={Logo}
               alt="logo"
               className="object-cover w-[100px] lg:w-[70px]"
             />
-          )}
+              )}
           {children}
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
 AuthLayout.propTypes = {
-  type: PropTypes.oneOf(["login", "register", "set-password", "reset"]),
-  children: PropTypes.node,
-};
+  type: PropTypes.oneOf(['login', 'register', 'set-password', 'reset']),
+  children: PropTypes.node
+}
 
-export default AuthLayout;
+export default AuthLayout

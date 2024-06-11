@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import BaseLayout from "@/layouts/BaseLayout";
-import { Helmet } from "react-helmet-async";
-import ListArticle from "../components/ListArticle";
-import BreadcrumbsHeader from "@/components/common/BreadcrumbsHeader";
+import React from 'react'
+import BaseLayout from '@/layouts/BaseLayout'
+import { Helmet } from 'react-helmet-async'
+import ListArticle from '../components/ListArticle'
+import BreadcrumbsHeader from '@/components/common/BreadcrumbsHeader'
 
 const TipsPage = () => {
   return (
@@ -16,7 +15,7 @@ const TipsPage = () => {
         <ListArticle />
       </BaseLayout>
     </>
-  );
-};
+  )
+}
 
-export default TipsPage;
+export default TipsPage

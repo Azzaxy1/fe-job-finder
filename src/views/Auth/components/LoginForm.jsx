@@ -1,15 +1,14 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
-import { Button, Input } from "@nextui-org/react";
-import { Link } from "react-router-dom";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import React, { useState } from 'react'
+import { Button, Input } from '@nextui-org/react'
+import { Link } from 'react-router-dom'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 const LoginForm = () => {
-  const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const [isPasswordVisible, setPasswordVisible] = useState(false)
 
   const handlePasswordVisible = () => {
-    setPasswordVisible(!isPasswordVisible);
-  };
+    setPasswordVisible(!isPasswordVisible)
+  }
 
   return (
     <section className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
@@ -54,7 +53,7 @@ const LoginForm = () => {
               </Link>
             </div>
             <Input
-              type={isPasswordVisible ? "text" : "password"}
+              type={isPasswordVisible ? 'text' : 'password'}
               variant="bordered"
               name="password"
               size="md"
@@ -90,7 +89,7 @@ const LoginForm = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

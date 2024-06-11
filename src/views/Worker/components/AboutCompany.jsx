@@ -1,17 +1,16 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+import React from 'react'
 import {
   Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
-  Image,
-} from "@nextui-org/react";
-import PropTypes from "prop-types";
+  Image
+} from '@nextui-org/react'
+import PropTypes from 'prop-types'
 
 const AboutCompany = ({ company }) => {
-  console.log(company);
+  console.log(company)
 
   return (
     <Card radius="sm" className="px-3">
@@ -54,11 +53,11 @@ const AboutCompany = ({ company }) => {
         </div>
       </CardFooter>
     </Card>
-  );
-};
+  )
+}
 
 AboutCompany.propTypes = {
-  company: PropTypes.object,
-};
+  company: PropTypes.object
+}
 
-export default AboutCompany;
+export default AboutCompany

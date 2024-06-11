@@ -1,7 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
 const NoteFoundPage = () => {
   return (
@@ -24,7 +23,7 @@ const NoteFoundPage = () => {
         </section>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default NoteFoundPage;
+export default NoteFoundPage

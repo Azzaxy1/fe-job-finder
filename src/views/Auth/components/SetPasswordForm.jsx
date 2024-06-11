@@ -1,7 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Button, Input } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Button, Input } from '@nextui-org/react'
+import { Link } from 'react-router-dom'
 
 const SetPasswordForm = () => {
   return (
@@ -52,7 +51,7 @@ const SetPasswordForm = () => {
         </form>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SetPasswordForm;
+export default SetPasswordForm

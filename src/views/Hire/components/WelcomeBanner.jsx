@@ -1,7 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+import React from 'react'
 
-function WelcomeBanner() {
+function WelcomeBanner () {
   return (
     <div className="relative p-4 mb-8 overflow-hidden rounded-sm bg-blue sm:p-6">
       {/* Background illustration */}
@@ -77,7 +76,7 @@ function WelcomeBanner() {
         </p>
       </div>
     </div>
-  );
+  )
 }
 
-export default WelcomeBanner;
+export default WelcomeBanner

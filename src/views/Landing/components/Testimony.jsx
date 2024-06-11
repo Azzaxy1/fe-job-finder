@@ -1,44 +1,43 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Image } from "@nextui-org/react";
-import { Carousel } from "react-responsive-carousel";
+import React from 'react'
+import { Image } from '@nextui-org/react'
+import { Carousel } from 'react-responsive-carousel'
 
 const Testimony = () => {
   const testimonyList = [
     {
       id: 1,
-      name: "John Doe",
-      title: "Software Engineer",
-      image: "https://i.pravatar.cc/300",
+      name: 'John Doe',
+      title: 'Software Engineer',
+      image: 'https://i.pravatar.cc/300',
       message:
-        "Lacinia ex id gravida dapibus ante cras elit hac torquent aliquet sodales in tortor sollicitudin efficitur ac fermentum purus condimentum viverra venenatis maecenas nullam rhoncus montes accumsan vitae",
+        'Lacinia ex id gravida dapibus ante cras elit hac torquent aliquet sodales in tortor sollicitudin efficitur ac fermentum purus condimentum viverra venenatis maecenas nullam rhoncus montes accumsan vitae'
     },
     {
       id: 2,
-      name: "Chaplin Doe",
-      title: "UI/UX Designer",
-      image: "https://i.pravatar.cc/300",
+      name: 'Chaplin Doe',
+      title: 'UI/UX Designer',
+      image: 'https://i.pravatar.cc/300',
       message:
-        "Taciti quisque conubia at vel laoreet sem mi feugiat nisl mollis purus cras parturient est integer pharetra senectus in elementum morbi cubilia turpis quam risus massa dictumst hendrerit",
+        'Taciti quisque conubia at vel laoreet sem mi feugiat nisl mollis purus cras parturient est integer pharetra senectus in elementum morbi cubilia turpis quam risus massa dictumst hendrerit'
     },
     {
       id: 3,
-      name: "Jane Doe",
-      title: "Fullstack Developer",
-      image: "https://i.pravatar.cc/300",
+      name: 'Jane Doe',
+      title: 'Fullstack Developer',
+      image: 'https://i.pravatar.cc/300',
       message:
-        "Orci erat non id at eget sapien facilisis massa condimentum penatibus nibh augue donec est sodales fusce per quam cras morbi ridiculus feugiat viverra dui euismod montes habitasse dictum vitae sem sociosqu lobortis vulputate class",
-    },
-  ];
+        'Orci erat non id at eget sapien facilisis massa condimentum penatibus nibh augue donec est sodales fusce per quam cras morbi ridiculus feugiat viverra dui euismod montes habitasse dictum vitae sem sociosqu lobortis vulputate class'
+    }
+  ]
 
   const arrowStyles = {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 2,
-    top: "calc(50% - 15px)",
+    top: 'calc(50% - 15px)',
     width: 30,
     height: 30,
-    cursor: "pointer",
-  };
+    cursor: 'pointer'
+  }
 
   return (
     <section className="py-12 text-white bg-blue">
@@ -107,7 +106,7 @@ const Testimony = () => {
         </Carousel>
       </article>
     </section>
-  );
-};
+  )
+}
 
-export default Testimony;
+export default Testimony

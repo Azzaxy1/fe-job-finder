@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   Button,
   Image,
@@ -9,21 +8,21 @@ import {
   NavbarItem,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@nextui-org/react";
-import { Link, useLocation } from "react-router-dom";
+  NavbarMenuToggle
+} from '@nextui-org/react'
+import { Link, useLocation } from 'react-router-dom'
 
-import Logo from "@/assets/logo-blue.svg";
-import DropdownProfile from "./DropdownProfile";
+import Logo from '@/assets/logo-blue.svg'
+import DropdownProfile from './DropdownProfile'
 
 const Header = () => {
-  const [isMenuOpen, SetIsMenuOpen] = useState(false);
-  const [token, setToken] = useState(true);
-  const location = useLocation();
+  const [isMenuOpen, SetIsMenuOpen] = useState(false)
+  const [token, setToken] = useState(true)
+  const location = useLocation()
 
-  const menuItems = ["Beranda", "Lowongan", "Tips Loker"];
+  const menuItems = ['Beranda', 'Lowongan', 'Tips Loker']
 
-  const pathMenu = ["/", "/jobs", "/tips"];
+  const pathMenu = ['/', '/jobs', '/tips']
 
   return (
     <Navbar
@@ -33,7 +32,7 @@ const Header = () => {
     >
       <NavbarContent>
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           className="sm:hidden"
         />
         <NavbarBrand>
@@ -48,7 +47,7 @@ const Header = () => {
             <Link
               className={`font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
                 location.pathname === pathMenu[index] &&
-                "text-blue-600 font-bold"
+                'text-blue-600 font-bold'
               }`}
               to={pathMenu[index]}
               key={item}
@@ -59,7 +58,8 @@ const Header = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        {!token ? (
+        {!token
+          ? (
           <div className="flex items-center gap-4">
             <NavbarItem>
               <Button
@@ -79,16 +79,17 @@ const Header = () => {
               </Button>
             </NavbarItem>
           </div>
-        ) : (
+            )
+          : (
           <DropdownProfile type="user" />
-        )}
+            )}
       </NavbarContent>
       <NavbarMenu className="flex items-center justify-center">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={`w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] && "text-blue-600"
+                location.pathname === pathMenu[index] && 'text-blue-600'
               }`}
               to={pathMenu[index]}
             >
@@ -98,7 +99,7 @@ const Header = () => {
         ))}
       </NavbarMenu>
     </Navbar>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

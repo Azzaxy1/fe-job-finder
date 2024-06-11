@@ -1,8 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Card, CardBody } from "@nextui-org/react";
-import ChartLoker from "./ChartLoker";
-import ChartUser from "./ChartUser";
+import React from 'react'
+import { Card, CardBody } from '@nextui-org/react'
+import ChartLoker from './ChartLoker'
+import ChartUser from './ChartUser'
 
 const ListChart = () => {
   return (
@@ -18,7 +17,7 @@ const ListChart = () => {
         </CardBody>
       </Card>
     </section>
-  );
-};
+  )
+}
 
-export default ListChart;
+export default ListChart

@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Button, Input } from "@nextui-org/react";
+import React from 'react'
+import { Button, Input } from '@nextui-org/react'
 
 const ResetPasswordForm = () => {
   return (
@@ -54,7 +53,7 @@ const ResetPasswordForm = () => {
         </form>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ResetPasswordForm;
+export default ResetPasswordForm

@@ -1,29 +1,28 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState } from "react";
-import { articles } from "@/utils/local-data.js";
-import { Pagination } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { articles } from '@/utils/local-data.js'
+import { Pagination } from '@nextui-org/react'
+import { Link } from 'react-router-dom'
 
 const ListArticle = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const articlePerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1)
+  const articlePerPage = 5
 
-  const totalPage = Math.ceil(articles.length / articlePerPage);
+  const totalPage = Math.ceil(articles.length / articlePerPage)
 
-  const startIndex = (currentPage - 1) * articlePerPage;
+  const startIndex = (currentPage - 1) * articlePerPage
   const currentArticles = articles.slice(
     startIndex,
     startIndex + articlePerPage
-  );
+  )
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+    setCurrentPage(page)
+  }
 
   const truncateDescription = (text, maxLength) => {
-    if (text.length <= maxLength) return text;
-    return `${text.slice(0, maxLength)}...`;
-  };
+    if (text.length <= maxLength) return text
+    return `${text.slice(0, maxLength)}...`
+  }
 
   return (
     <section className="flex flex-col items-center min-h-screen gap-10 px-10 py-12 md:px-28 2xl:px-72">
@@ -40,7 +39,7 @@ const ListArticle = () => {
               </h2>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: truncateDescription(article.description, 300),
+                  __html: truncateDescription(article.description, 300)
                 }}
               />
             </div>
@@ -55,7 +54,7 @@ const ListArticle = () => {
         onChange={handlePageChange}
       />
     </section>
-  );
-};
+  )
+}
 
-export default ListArticle;
+export default ListArticle

@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Image } from "@nextui-org/react";
+import React from 'react'
+import { Image } from '@nextui-org/react'
 
-import Logo from "@/assets/logo-white.svg";
-import { Link } from "react-router-dom";
+import Logo from '@/assets/logo-white.svg'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -20,7 +19,7 @@ const Footer = () => {
           <p className="text-base md:text-xl">Situs Lowongan Pekerjaan</p>
         </div>
         <div className="text-white">
-          <h2 className="text-lg md:text-xl font-semibold">Navigasi</h2>
+          <h2 className="text-lg font-semibold md:text-xl">Navigasi</h2>
           <ul className="text-base">
             <li>
               <Link to="/">Beranda</Link>
@@ -34,7 +33,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="text-white">
-          <h2 className="text-lg md:text-xl font-semibold">Our Team</h2>
+          <h2 className="text-lg font-semibold md:text-xl">Our Team</h2>
           <ul className="text-base">
             <li>Abdurrohman Azis</li>
             <li>Muhammad Anwar Fauzan</li>
@@ -46,7 +45,7 @@ const Footer = () => {
         © 2024 JobFinder. All rights reserved.
       </p>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,13 +1,12 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import BaseLayout from "@/layouts/BaseLayout";
-import { Link, useParams } from "react-router-dom";
-import { articles } from "@/utils/local-data.js";
-import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react";
+import React from 'react'
+import BaseLayout from '@/layouts/BaseLayout'
+import { Link, useParams } from 'react-router-dom'
+import { articles } from '@/utils/local-data.js'
+import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react'
 
 const DetailTips = () => {
-  const { id } = useParams();
-  const article = articles.find((article) => article.id === parseInt(id));
+  const { id } = useParams()
+  const article = articles.find((article) => article.id === parseInt(id))
 
   if (!article) {
     return (
@@ -19,7 +18,7 @@ const DetailTips = () => {
           </h2>
         </div>
       </BaseLayout>
-    );
+    )
   }
 
   return (
@@ -55,7 +54,7 @@ const DetailTips = () => {
         />
       </div>
     </BaseLayout>
-  );
-};
+  )
+}
 
-export default DetailTips;
+export default DetailTips

@@ -1,45 +1,44 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
-import { Button, Input } from "@nextui-org/react";
-import { Link } from "react-router-dom";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import React, { useState } from 'react'
+import { Button, Input } from '@nextui-org/react'
+import { Link } from 'react-router-dom'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 const RegisterForm = () => {
-  const [role, setRole] = useState("User");
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [isConfirmVisible, setIsConfirmVisible] = useState(false);
+  const [role, setRole] = useState('User')
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+  const [isConfirmVisible, setIsConfirmVisible] = useState(false)
 
   const handleRole = () => {
-    role === "User" ? setRole("Perusahaan") : setRole("User");
-  };
+    role === 'User' ? setRole('Perusahaan') : setRole('User')
+  }
 
   const handlePasswordVisible = () => {
-    setIsPasswordVisible(!isPasswordVisible);
-  };
+    setIsPasswordVisible(!isPasswordVisible)
+  }
 
   const handleConfirmVisible = () => {
-    setIsConfirmVisible(!isConfirmVisible);
-  };
+    setIsConfirmVisible(!isConfirmVisible)
+  }
 
   return (
     <section className="flex items-center justify-center px-8 pb-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
         <form className="px-8  bg-white w-[380px] lg:w-[460px]">
           <div className="pt-4 text-sm text-center">
-            Daftar sebagai :{" "}
+            Daftar sebagai :{' '}
             <Button
               size="sm"
               onClick={handleRole}
               className="text-white bg-blue"
             >
-              {role === "User" ? "Penyedia Loker" : "Pencari Loker"}
+              {role === 'User' ? 'Penyedia Loker' : 'Pencari Loker'}
             </Button>
           </div>
           <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
             Daftar Akun
           </h1>
           <p className="mb-2 text-sm">
-            Silahkan daftarkan akun anda sebagai :{" "}
+            Silahkan daftarkan akun anda sebagai :{' '}
             <span className="text-base font-bold underline text-blue">
               {role}
             </span>
@@ -105,7 +104,7 @@ const RegisterForm = () => {
               Password
             </label>
             <Input
-              type={isPasswordVisible ? "text" : "password"}
+              type={isPasswordVisible ? 'text' : 'password'}
               variant="bordered"
               name="password"
               size="md"
@@ -132,7 +131,7 @@ const RegisterForm = () => {
               Konfirmasi Password
             </label>
             <Input
-              type={isConfirmVisible ? "text" : "password"}
+              type={isConfirmVisible ? 'text' : 'password'}
               variant="bordered"
               name="confirm-password"
               size="md"
@@ -173,7 +172,7 @@ const RegisterForm = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm

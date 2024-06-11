@@ -1,18 +1,17 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Button } from "@nextui-org/react";
+import React from 'react'
+import { Button } from '@nextui-org/react'
 
-import HeroImage from "@/assets/landing/hero.svg";
-import Shape from "@/assets/landing/shape.svg";
-import SearchJobs from "@/components/common/SearchJobs";
-import SearchLocation from "@/components/common/SearchLocation";
+import HeroImage from '@/assets/landing/hero.svg'
+import Shape from '@/assets/landing/shape.svg'
+import SearchJobs from '@/components/common/SearchJobs'
+import SearchLocation from '@/components/common/SearchLocation'
 
 const Hero = () => {
   return (
     <section className="relative grid py-6 md:py-0 bg-[#F2F7FD] items-center min-h-screen grid-cols-1 gap-4 px-10 lg:px-10 2xl:px-72 border-2 place-items-center lg:grid-cols-2">
       <article className="flex flex-col gap-4">
         <h1 className="text-2xl font-semibold md:text-4xl 2xl:text-5xl text-fontColor">
-          Temukan pekerjaan impianmu dengan{" "}
+          Temukan pekerjaan impianmu dengan{' '}
           <span className="text-blue">Job Finder</span>
         </h1>
         <p className="text-base md:text-lg 2xl:text-xl text-fontColor">
@@ -43,7 +42,7 @@ const Hero = () => {
         </div>
       </article>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

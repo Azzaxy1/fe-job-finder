@@ -1,6 +1,5 @@
-import { Card, Skeleton } from "@nextui-org/react";
-// eslint-disable-next-line no-unused-vars
-import React from "react";
+import React from 'react'
+import { Card, Skeleton } from '@nextui-org/react'
 
 const SkeletonPreview = () => {
   return (
@@ -20,7 +19,7 @@ const SkeletonPreview = () => {
         </Skeleton>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default SkeletonPreview;
+export default SkeletonPreview

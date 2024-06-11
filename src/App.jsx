@@ -1,19 +1,18 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import LoginPage from "@/views/Auth/pages/LoginPage";
-import RegisterPage from "@/views/Auth/pages/RegisterPage";
-import ResetPasswordPage from "@/views/Auth/pages/ResetPasswordPage";
-import SetPasswordPage from "@/views/Auth/pages/SetPasswordPage";
-import Landing from "@/views/Landing/pages/Landing";
-import SearchLokerPage from "./views/Worker/pages/SearchLokerPage";
-import Dashboard from "./views/Hire/pages/Dashboard";
-import ManageJobs from "./views/Hire/pages/ManageJobs";
-import HireProfile from "./views/Hire/pages/HireProfile";
-import NoteFoundPage from "./views/Error/pages/NoteFoundPage";
-import TipsPage from "./views/Tips/page/TipsPage";
-import DetailTips from "./views/Tips/page/DetailTips";
-import WorkerProfilePage from "./views/Worker/pages/WorkerProfilePage";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import LoginPage from '@/views/Auth/pages/LoginPage'
+import RegisterPage from '@/views/Auth/pages/RegisterPage'
+import ResetPasswordPage from '@/views/Auth/pages/ResetPasswordPage'
+import SetPasswordPage from '@/views/Auth/pages/SetPasswordPage'
+import Landing from '@/views/Landing/pages/Landing'
+import SearchLokerPage from './views/Worker/pages/SearchLokerPage'
+import Dashboard from './views/Hire/pages/Dashboard'
+import ManageJobs from './views/Hire/pages/ManageJobs'
+import HireProfile from './views/Hire/pages/HireProfile'
+import NoteFoundPage from './views/Error/pages/NoteFoundPage'
+import TipsPage from './views/Tips/page/TipsPage'
+import DetailTips from './views/Tips/page/DetailTips'
+import WorkerProfilePage from './views/Worker/pages/WorkerProfilePage'
 
 const App = () => {
   return (
@@ -39,8 +38,7 @@ const App = () => {
 
       <Route path="*" element={<NoteFoundPage />} />
     </Routes>
-  );
-};
+  )
+}
 
-export default App;
-
+export default App

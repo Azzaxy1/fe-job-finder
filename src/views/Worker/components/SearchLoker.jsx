@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import SearchJobs from "@/components/common/SearchJobs";
-import SearchLocation from "@/components/common/SearchLocation";
-import { Button } from "@nextui-org/react";
-import BreadcrumbsHeader from "@/components/common/BreadcrumbsHeader";
+import React from 'react'
+import SearchJobs from '@/components/common/SearchJobs'
+import SearchLocation from '@/components/common/SearchLocation'
+import { Button } from '@nextui-org/react'
+import BreadcrumbsHeader from '@/components/common/BreadcrumbsHeader'
 
 const SearchLoker = () => {
   return (
@@ -22,7 +21,7 @@ const SearchLoker = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SearchLoker;
+export default SearchLoker

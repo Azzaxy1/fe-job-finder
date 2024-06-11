@@ -1,8 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import BaseLayout from "@/layouts/BaseLayout";
-import { Helmet } from "react-helmet-async";
-import ProfileInput from "@/components/common/ProfileInput";
+import React from 'react'
+import BaseLayout from '@/layouts/BaseLayout'
+import { Helmet } from 'react-helmet-async'
+import ProfileInput from '@/components/common/ProfileInput'
 
 const WorkerProfilePage = () => {
   return (
@@ -16,7 +15,7 @@ const WorkerProfilePage = () => {
         </div>
       </BaseLayout>
     </>
-  );
-};
+  )
+}
 
-export default WorkerProfilePage;
+export default WorkerProfilePage
