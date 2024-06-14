@@ -16,7 +16,6 @@ const SearchLocation = ({ jobs, onLocationChange }) => {
       startContent={<IoLocationOutline className="text-2xl" />}
       onSelectionChange={(selected) => {
         const location = locations[selected]
-        console.log(location)
         onLocationChange({ target: { value: location } })
       }}
     >

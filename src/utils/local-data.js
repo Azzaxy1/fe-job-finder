@@ -19,6 +19,34 @@ import Testi1 from '@/assets/testimony/testi1.jpeg'
 import Testi2 from '@/assets/testimony/testi3.png'
 import Testi3 from '@/assets/testimony/testi2.jpg'
 
+export const dataJob = [
+  {
+    id: 1,
+    company: {
+      name: 'PT. ABC',
+      industry: 'Technology',
+      image: Company1,
+      address: 'Jl. ABC No. 123, Jakarta',
+      description:
+          'Perusahaan yang bergerak di bidang teknologi informasi. Dan sudah beroperasi selama 10 tahun. Sudah berpengalaman dalam bidang tersebut.'
+    },
+    job: [
+      {
+        id: 1,
+        title: 'Frontend Developer',
+        company: 'PT. ABC',
+        location: 'Jakarta',
+        type: 'Full Time',
+        salary: 'Rp. 1.000.000 - Rp. 2.000.000',
+        image: Company1,
+        date: '2024-01-01',
+        description:
+      '<h1><b>Syarat Pekerjaan : </b></h1> 1. Lulusan S1 di bidang Ilmu Komputer, Teknik Informatika, atau bidang terkait. <br/>2. Pengalaman minimal 2 tahun dalam pengembangan perangkat lunak.<br/>3. Kemampuan dalam bahasa pemrograman seperti Java, Python, atau JavaScript. <br/>4. Pemahaman yang baik tentang sistem basis data dan SQL. <br/>5. Kemampuan untuk bekerja secara mandiri dan sebagai bagian dari tim. <br/>6. Bersedia untuk bekerja dengan jam yang fleksibel jika diperlukan. <br/>7. Mentalitas berorientasi pada solusi dengan kemampuan menyelesaikan masalah yang baik. <h1><br/> <b>Kualifikasi Keahlian :</b> </h1>1. Kemampuan dalam pengembangan aplikasi web menggunakan framework seperti React atau Angular. <br/> 2. Pengalaman dengan sistem kontrol versi seperti Git. <br/> 3. Pemahaman tentang prinsip-prinsip OOP dan desain pola. <br/> 4. Kemampuan analisis dan pemecahan masalah yang kuat. <br/> 5. Pengalaman dalam pengembangan API dan layanan web. <br/> 6. Pengetahuan tentang DevOps dan CI/CD merupakan nilai tambah. <br/> 7. Keterampilan komunikasi yang baik dan mampu bekerja dalam tim. <h1> <br/> <b>Benefit : </b></h1> 1. Gaji yang kompetitif dan bonus kinerja. <br/> 2. Asuransi kesehatan dan tunjangan kesejahteraan. <br/> 3. Kesempatan untuk berkembang dan pelatihan profesional. <br/> 4. Lingkungan kerja yang mendukung dan kolaboratif. <br/> 5. Waktu kerja fleksibel dan opsi remote working. <h1><br/> <b>Tanggung Jawab : </b></h1> 1. Mengembangkan dan memelihara aplikasi perangkat lunak. <br/> 2. Berkoordinasi dengan tim lain untuk memastikan integrasi yang mulus. <br/> 3. Mengidentifikasi dan memperbaiki bug serta masalah performa. <br/> 4. Menyusun dokumentasi teknis untuk kode yang ditulis. <br/> 5. Berpartisipasi dalam pertemuan tim dan memberikan masukan teknis.'
+      }
+    ]
+  }
+]
+
 export const listJob = [
   {
     id: 1,
@@ -254,11 +282,10 @@ export const questions = [
   }
 ]
 
-export const data = [
+export const data =
   {
     id: 1,
     company: {
-      id: 1,
       name: 'PT. ABC',
       industry: 'Technology',
       image: Company1,
@@ -267,7 +294,6 @@ export const data = [
           'Perusahaan yang bergerak di bidang teknologi informasi. Dan sudah beroperasi selama 10 tahun. Sudah berpengalaman dalam bidang tersebut.'
     },
     job: {
-      id: 1,
       title: 'Programmer',
       company: 'PT. ABC',
       location: 'Jakarta',
@@ -279,7 +305,6 @@ export const data = [
         '<h1><b>Syarat Pekerjaan : </b></h1> 1. Lulusan S1 di bidang Ilmu Komputer, Teknik Informatika, atau bidang terkait. <br/>2. Pengalaman minimal 2 tahun dalam pengembangan perangkat lunak.<br/>3. Kemampuan dalam bahasa pemrograman seperti Java, Python, atau JavaScript. <br/>4. Pemahaman yang baik tentang sistem basis data dan SQL. <br/>5. Kemampuan untuk bekerja secara mandiri dan sebagai bagian dari tim. <br/>6. Bersedia untuk bekerja dengan jam yang fleksibel jika diperlukan. <br/>7. Mentalitas berorientasi pada solusi dengan kemampuan menyelesaikan masalah yang baik. <h1><br/> <b>Kualifikasi Keahlian :</b> </h1>1. Kemampuan dalam pengembangan aplikasi web menggunakan framework seperti React atau Angular. <br/> 2. Pengalaman dengan sistem kontrol versi seperti Git. <br/> 3. Pemahaman tentang prinsip-prinsip OOP dan desain pola. <br/> 4. Kemampuan analisis dan pemecahan masalah yang kuat. <br/> 5. Pengalaman dalam pengembangan API dan layanan web. <br/> 6. Pengetahuan tentang DevOps dan CI/CD merupakan nilai tambah. <br/> 7. Keterampilan komunikasi yang baik dan mampu bekerja dalam tim. <h1> <br/> <b>Benefit : </b></h1> 1. Gaji yang kompetitif dan bonus kinerja. <br/> 2. Asuransi kesehatan dan tunjangan kesejahteraan. <br/> 3. Kesempatan untuk berkembang dan pelatihan profesional. <br/> 4. Lingkungan kerja yang mendukung dan kolaboratif. <br/> 5. Waktu kerja fleksibel dan opsi remote working. <h1><br/> <b>Tanggung Jawab : </b></h1> 1. Mengembangkan dan memelihara aplikasi perangkat lunak. <br/> 2. Berkoordinasi dengan tim lain untuk memastikan integrasi yang mulus. <br/> 3. Mengidentifikasi dan memperbaiki bug serta masalah performa. <br/> 4. Menyusun dokumentasi teknis untuk kode yang ditulis. <br/> 5. Berpartisipasi dalam pertemuan tim dan memberikan masukan teknis.'
     }
   }
-]
 
 export const user = [
   {

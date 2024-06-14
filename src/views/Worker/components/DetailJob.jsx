@@ -30,8 +30,8 @@ const DetailJob = () => {
 
   return (
     <>
-      {data.map((data, index) => (
-        <section key={index} className="flex flex-col w-full gap-4 pl-4">
+      {data && (
+        <section className="flex flex-col w-full gap-4 pl-4">
           <Card radius="sm" className="w-full px-3 pt-2">
             <CardHeader className="flex flex-col items-center gap-6 md:justify-center md:flex-row">
               <div className="me-auto">
@@ -72,7 +72,7 @@ const DetailJob = () => {
           </Card>
           <AboutCompany company={data.company} />
         </section>
-      ))}
+      )}
     </>
   )
 }
