@@ -36,7 +36,7 @@ export const listJob = [
     company: 'BRI',
     image: Company2,
     salary: 'Rp. 1.000.000 - Rp. 2.000.000',
-    location: 'Jakarta',
+    location: 'Bandung',
     type: 'Full-time',
     date: '2024-01-01'
   },
@@ -46,7 +46,7 @@ export const listJob = [
     company: 'BRI',
     image: Company3,
     salary: 'Rp. 1.000.000 - Rp. 2.000.000',
-    location: 'Jakarta',
+    location: 'Medan',
     type: 'Full-time',
     date: '2024-01-01'
   },
@@ -56,7 +56,7 @@ export const listJob = [
     company: 'BRI',
     image: Company4,
     salary: 'Rp. 1.000.000 - Rp. 2.000.000',
-    location: 'Jakarta',
+    location: 'Tangerang',
     type: 'Full-time',
     date: '2024-01-01'
   },
@@ -66,7 +66,7 @@ export const listJob = [
     company: 'BRI',
     image: Company5,
     salary: 'Rp. 1.000.000 - Rp. 2.000.000',
-    location: 'Jakarta',
+    location: 'Jakarta Selatan',
     type: 'Full-time',
     date: '2024-01-01'
   },
@@ -76,7 +76,7 @@ export const listJob = [
     company: 'BRI',
     image: Company6,
     salary: 'Rp. 1.000.000 - Rp. 2.000.000',
-    location: 'Jakarta',
+    location: 'Jakarta Timur',
     type: 'Full-time',
     date: '2024-01-01'
   },
@@ -96,7 +96,7 @@ export const listJob = [
     company: 'BRI',
     image: Company8,
     salary: 'Rp. 1.000.000 - Rp. 2.000.000',
-    location: 'Jakarta',
+    location: 'Serang',
     type: 'Full-time',
     date: '2024-01-01'
   },

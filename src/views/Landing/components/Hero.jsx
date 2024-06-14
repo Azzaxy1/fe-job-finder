@@ -3,7 +3,7 @@ import { Button } from '@nextui-org/react'
 
 import HeroImage from '@/assets/landing/hero.svg'
 import Shape from '@/assets/landing/shape.svg'
-import SearchJobs from '@/components/common/SearchJobs'
+import SearchJobs from '@/components/common/SearchTitle'
 import SearchLocation from '@/components/common/SearchLocation'
 
 const Hero = () => {
