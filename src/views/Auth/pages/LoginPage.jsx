@@ -1,14 +1,13 @@
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import AuthLayout from "../../../layouts/AuthLayout";
-import FormAuth from "../components/LoginForm";
+import React from 'react'
+import AuthLayout from '@/layouts/AuthLayout'
+import LoginForm from '../components/LoginForm'
 
 const LoginPage = () => {
   return (
-    <AuthLayout type="register">
-      <FormAuth type="register" />
+    <AuthLayout type="login">
+      <LoginForm />
     </AuthLayout>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage
