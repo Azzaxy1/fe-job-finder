@@ -1,60 +1,48 @@
-import React from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import LoginPage from '@/views/Auth/pages/LoginPage'
+import RegisterPage from '@/views/Auth/pages/RegisterPage'
+import ResetPasswordPage from '@/views/Auth/pages/ResetPasswordPage'
+import SetPasswordPage from '@/views/Auth/pages/SetPasswordPage'
+import Landing from '@/views/Landing/pages/Landing'
+import SearchLokerPage from './views/Worker/pages/SearchLokerPage'
+import Dashboard from './views/Hire/pages/Dashboard'
+import ManageJobs from './views/Hire/pages/ManageJobs'
+import HireProfile from './views/Hire/pages/HireProfile'
+import NoteFoundPage from './views/Error/pages/NoteFoundPage'
+import TipsPage from './views/Tips/page/TipsPage'
+import DetailTips from './views/Tips/page/DetailTips'
+import WorkerProfilePage from './views/Worker/pages/WorkerProfilePage'
+import DetailJobPage from './views/Hire/pages/DetailJobPage'
+import CreateJobPage from './views/Hire/pages/CreateJobPage'
 
-export default function App() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
+const App = () => {
   return (
-    <>
-      <Button onPress={onOpen}>Open Modal</Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
-              <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
-  );
+    <Routes>
+      <Route path="/">
+        <Route index element={<Landing />} />
+        <Route path="jobs" element={<SearchLokerPage />} />
+        <Route path="tips" element={<TipsPage />} />
+        <Route path="tips/:id" element={<DetailTips />} />
+        <Route path="profile" element={<WorkerProfilePage />} />
+      </Route>
+
+      {/* Auth */}
+      <Route path="login" element={<LoginPage />} />
+      <Route path="register" element={<RegisterPage />} />
+      <Route path="set-password" element={<SetPasswordPage />} />
+      <Route path="reset-password" element={<ResetPasswordPage />} />
+
+      {/* Hire */}
+      <Route path="hire-dashboard" element={<Dashboard />} />
+      <Route path="manage-jobs" element={<ManageJobs />} />
+      <Route path="manage-jobs/:id" element={<DetailJobPage />} />
+      <Route path="hire-profile" element={<HireProfile />} />
+      <Route path='create-job' element={<CreateJobPage/>} />
+
+      <Route path="*" element={<NoteFoundPage />} />
+    </Routes>
+  )
 }
 
+export default App
