@@ -4,7 +4,7 @@ import { IoMenu, IoClose, IoHomeSharp } from 'react-icons/io5'
 import PropTypes from 'prop-types'
 import { Image } from '@nextui-org/react'
 import { Helmet } from 'react-helmet-async'
-
+import { FaUserTie } from 'react-icons/fa'
 import { MdOutlineWork } from 'react-icons/md'
 
 import Logo from '@/assets/logo-white.svg'
@@ -88,7 +88,20 @@ const HireLayout = ({ children }) => {
                 >
                   <span className="flex items-center gap-2 text-xl font-medium ms-3">
                     <MdOutlineWork />
-                    Lowongan Pekerjaan
+                    Kelola Pekerjaan
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/manage-applyer"
+                  className={`flex items-center justify-center p-2 text-white hover:bg-[#0284c7] group ${
+                    location.pathname === '/manage-jobs' && 'bg-[#0284c7]'
+                  }`}
+                >
+                  <span className="flex items-center gap-2 text-xl font-medium ms-3">
+                    <FaUserTie />
+                    Kelola Pelamar
                   </span>
                 </Link>
               </li>

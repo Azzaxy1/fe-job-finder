@@ -13,6 +13,7 @@ import DetailTips from './views/Tips/page/DetailTips'
 import WorkerProfilePage from './views/Worker/pages/WorkerProfilePage'
 import DetailJobPage from './views/Hire/pages/DetailJobPage'
 import CreateJobPage from './views/Hire/pages/CreateJobPage'
+import ManageApplyer from './views/Hire/pages/ManageApplyer'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
 
       {/* Hire */}
       <Route path="hire-dashboard" element={<Dashboard />} />
+      <Route path='manage-applyer' element={<ManageApplyer/>} />
       <Route path="manage-jobs" element={<ManageJobs />} />
       <Route path="manage-jobs/:id" element={<DetailJobPage />} />
       <Route path="hire-profile" element={<HireProfile />} />
