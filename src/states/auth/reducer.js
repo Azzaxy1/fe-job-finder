@@ -6,8 +6,8 @@ const authUserReducer = (authUser = null, action = {}) => {
       return action.payload.authUser
     case ActionType.REGISTER:
       return action.payload.authUser
-    // case ActionType.LOGOUT:
-    //   return null
+    case ActionType.LOGOUT:
+      return null
     default:
       return authUser
   }

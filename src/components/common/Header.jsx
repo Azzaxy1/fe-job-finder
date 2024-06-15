@@ -10,15 +10,18 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle
 } from '@nextui-org/react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import Logo from '@/assets/logo-blue.svg'
 import DropdownProfile from './DropdownProfile'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncLogout } from '@/states/auth/action'
 
 const Header = () => {
   const [isMenuOpen, SetIsMenuOpen] = useState(false)
+  const dispatch = useDispatch()
   const location = useLocation()
+  const navigate = useNavigate()
 
   const authUser = useSelector((states) => states.authUser)
   console.log(authUser)
@@ -27,6 +30,11 @@ const Header = () => {
   // console.log(token)
 
   // TODO : fix conditonal rendering for navbar
+
+  const onLogoutHandler = () => {
+    dispatch(asyncLogout())
+    navigate('/login')
+  }
 
   const menuItems = ['Beranda', 'Lowongan', 'Tips Loker']
 
@@ -89,7 +97,7 @@ const Header = () => {
           </div>
             )
           : (
-          <DropdownProfile type="user" authUser={authUser} />
+          <DropdownProfile type="user" onLogout={onLogoutHandler} authUser={authUser} />
             )}
       </NavbarContent>
       <NavbarMenu className="flex items-center justify-center">

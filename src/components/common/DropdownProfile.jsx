@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ImageCompany from '@/assets/landing/company/company4.svg'
 
-const DropdownProfile = ({ type, authUser }) => {
+const DropdownProfile = ({ type, authUser, onLogout }) => {
   console.log(authUser)
   return (
     <Dropdown placement="bottom-end">
@@ -68,6 +68,7 @@ const DropdownProfile = ({ type, authUser }) => {
           textValue="logout"
           color="danger"
           className="text-danger"
+          onClick={onLogout}
         >
           <Link to="/login">Logout</Link>
         </DropdownItem>
@@ -78,7 +79,8 @@ const DropdownProfile = ({ type, authUser }) => {
 
 DropdownProfile.propTypes = {
   type: PropTypes.string,
-  authUser: PropTypes.object
+  authUser: PropTypes.object,
+  onLogout: PropTypes.func
 }
 
 export default DropdownProfile

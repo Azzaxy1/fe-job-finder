@@ -1,4 +1,4 @@
-import { getUserLogged, login, putAccessToken, register } from '@/services/api'
+import { getUserLogged, login, logout, putAccessToken, register } from '@/services/api'
 import toast from 'react-hot-toast'
 
 const ActionType = {
@@ -22,6 +22,12 @@ const registerActionCreator = (authUser) => {
     payload: {
       authUser
     }
+  }
+}
+
+const logoutActionCreator = () => {
+  return {
+    type: ActionType.LOGOUT
   }
 }
 
@@ -50,4 +56,16 @@ const asyncRegister = (userData) => {
   }
 }
 
-export { loginActionCreator, asyncLogin, asyncRegister, registerActionCreator, ActionType }
+const asyncLogout = () => {
+  return async (dispatch) => {
+    try {
+      const message = await logout()
+      dispatch(logoutActionCreator())
+      toast.success(message)
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+}
+
+export { loginActionCreator, asyncLogin, asyncRegister, registerActionCreator, ActionType, asyncLogout }

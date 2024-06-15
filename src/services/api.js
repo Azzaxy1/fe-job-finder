@@ -67,4 +67,23 @@ const getUserLogged = async () => {
   return resource
 }
 
-export { login, fetchWithToken, putAccessToken, register, getUserLogged }
+const logout = async () => {
+  const response = await fetchWithToken(`${baseURL}/api/logout`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+
+  const responseJson = await response.json()
+  const { message } = responseJson
+  if (message !== 'Logout Success') {
+    throw new Error(message)
+  }
+
+  localStorage.removeItem('accessToken')
+
+  return message
+}
+
+export { login, fetchWithToken, logout, putAccessToken, register, getUserLogged }
