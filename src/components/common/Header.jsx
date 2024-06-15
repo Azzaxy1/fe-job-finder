@@ -14,11 +14,19 @@ import { Link, useLocation } from 'react-router-dom'
 
 import Logo from '@/assets/logo-blue.svg'
 import DropdownProfile from './DropdownProfile'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const [isMenuOpen, SetIsMenuOpen] = useState(false)
-  const [token, setToken] = useState(true)
   const location = useLocation()
+
+  const authUser = useSelector((states) => states.authUser)
+  console.log(authUser)
+
+  // const token = localStorage.getItem('accessToken')
+  // console.log(token)
+
+  // TODO : fix conditonal rendering for navbar
 
   const menuItems = ['Beranda', 'Lowongan', 'Tips Loker']
 
@@ -58,7 +66,7 @@ const Header = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        {!token
+        {authUser === null
           ? (
           <div className="flex items-center gap-4">
             <NavbarItem>
@@ -81,7 +89,7 @@ const Header = () => {
           </div>
             )
           : (
-          <DropdownProfile type="user" />
+          <DropdownProfile type="user" authUser={authUser} />
             )}
       </NavbarContent>
       <NavbarMenu className="flex items-center justify-center">

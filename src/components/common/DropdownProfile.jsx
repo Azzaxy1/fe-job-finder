@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ImageCompany from '@/assets/landing/company/company4.svg'
 
-const DropdownProfile = ({ type }) => {
+const DropdownProfile = ({ type, authUser }) => {
+  console.log(authUser)
   return (
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
@@ -35,10 +36,10 @@ const DropdownProfile = ({ type }) => {
             as="button"
             avatarProps={{
               isBordered: true,
-              src: 'https://i.pravatar.cc/300'
+              src: authUser.foto
             }}
-            description="johndoe@example.com"
-            name="John Doe"
+            description={authUser.email}
+            name={authUser.name}
           />
             )}
       </DropdownTrigger>
@@ -50,7 +51,7 @@ const DropdownProfile = ({ type }) => {
         <DropdownItem key="user" textValue="user" className="gap-2 text-black">
           <p className="font-semibold">Masuk sebagai</p>
           <p className="font-semibold">
-            {type === 'user' ? 'John Doe' : 'Hangry Indonesia'}
+            {type === 'user' ? authUser.name : 'Hangry Indonesia'}
           </p>
         </DropdownItem>
         <DropdownItem
@@ -76,7 +77,8 @@ const DropdownProfile = ({ type }) => {
 }
 
 DropdownProfile.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  authUser: PropTypes.object
 }
 
 export default DropdownProfile

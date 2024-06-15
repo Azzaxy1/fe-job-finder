@@ -1,4 +1,4 @@
-import { login, putAccessToken, register } from '@/services/api'
+import { getUserLogged, login, putAccessToken, register } from '@/services/api'
 import toast from 'react-hot-toast'
 
 const ActionType = {
@@ -26,10 +26,13 @@ const registerActionCreator = (authUser) => {
 }
 
 const asyncLogin = ({ email, password }) => {
-  return async () => {
+  return async (dispatch) => {
     try {
       const token = await login({ email, password })
       putAccessToken(token)
+
+      const authUser = await getUserLogged()
+      dispatch(loginActionCreator(authUser))
     } catch (error) {
       alert(error.message)
     }

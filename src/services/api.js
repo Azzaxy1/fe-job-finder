@@ -1,7 +1,7 @@
 const baseURL = import.meta.env.VITE_API_URL
 
 const getAccessToken = () => {
-  return localStorage.getItem('token')
+  return localStorage.getItem('accessToken')
 }
 
 const putAccessToken = (accessToken) => {
@@ -59,4 +59,12 @@ const register = async ({ name, email, phone, password, confirmPassword, role })
   return { success: true, message }
 }
 
-export { login, fetchWithToken, putAccessToken, register }
+const getUserLogged = async () => {
+  const response = await fetchWithToken(`${baseURL}/api/profile`)
+  const responseJson = await response.json()
+
+  const { resource } = responseJson
+  return resource
+}
+
+export { login, fetchWithToken, putAccessToken, register, getUserLogged }
