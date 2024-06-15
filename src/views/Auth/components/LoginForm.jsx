@@ -55,20 +55,12 @@ const LoginForm = () => {
             <p className='text-sm text-red-500 2xl:text-base'>{errors.email?.message}</p>
           </div>
           <div className="mb-8">
-            <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
                 className="block mb-2 text-[#3C3C3C] text-sm font-normal leading-4 lg:text-sm"
               >
                 Password
               </label>
-              <Link
-                to="/set-password"
-                className="text-sm font-medium lg:text-base hover:underline text-blue"
-              >
-                Lupa Kata Sandi
-              </Link>
-            </div>
             <Input
               {...register('password')}
               type={isPasswordVisible ? 'text' : 'password'}
