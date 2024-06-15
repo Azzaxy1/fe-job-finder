@@ -1,17 +1,10 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/react'
 import React from 'react'
-import { FaRegBookmark } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 
 const ButtonApply = ({ data, user, handleFileChange, cvSelected, handleApply, onOpen, onOpenChange, isOpen }) => {
   return (
     <div className="flex flex-row gap-2 mx-auto md:mx-0 md:flex-col md:ml-auto">
-      <Button
-        variant="bordered"
-        className="font-semibold border-blue text-blue hover:bg-blue hover:text-white"
-      >
-        <FaRegBookmark /> Simpan
-      </Button>
       <Button onPress={onOpen} className="font-semibold text-white bg-blue ">
         Lamar Pekerjaan
       </Button>

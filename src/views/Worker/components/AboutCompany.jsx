@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Button,
   Card,
   CardBody,
   CardFooter,
@@ -41,14 +40,6 @@ const AboutCompany = ({ company }) => {
         <p className="text-sm font-normal text-gray-600 2xl:text-base">
           {company.description}
         </p>
-        <div className="mx-auto mt-4">
-          <Button
-            variant="bordered"
-            className="font-semibold text-blue border-blue hover:bg-blue hover:text-white"
-          >
-            Lihat Perusahaan
-          </Button>
-        </div>
       </CardFooter>
     </Card>
   )
