@@ -43,18 +43,6 @@ const ProfileInput = ({ type }) => {
       name: 'Address',
       placeholder: 'Jl. Setiabudi No. 1',
       type: 'text'
-    },
-    {
-      id: 5,
-      name: 'Password',
-      placeholder: '********',
-      type: 'password'
-    },
-    {
-      id: 6,
-      name: 'Confirm Password',
-      placeholder: '********',
-      type: 'password'
     }
   ]
 
