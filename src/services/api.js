@@ -27,11 +27,7 @@ const login = async ({ email, password }) => {
     body: JSON.stringify({ email, password })
   })
 
-  console.log(response)
-
   const responseJson = await response.json()
-
-  console.log(responseJson)
 
   const { message } = responseJson
 

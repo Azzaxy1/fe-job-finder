@@ -7,15 +7,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { registerSchema } from '../validation'
 import { useDispatch } from 'react-redux'
 import { asyncRegister } from '@/states/auth/action'
-import useInput from '@/hooks/useInput'
 
 const RegisterForm = () => {
   const [role, setRole] = useState('worker')
-  const [name, onNameChange] = useInput('')
-  const [email, onEmailChange] = useInput('')
-  const [phone, onPhoneChange] = useInput('')
-  const [password, onPasswordChange] = useInput('')
-  // const [confirmPassword, onConfirmPasswordChange] = useInput('')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isConfirmVisible, setIsConfirmVisible] = useState(false)
   const dispatch = useDispatch()
@@ -49,15 +43,15 @@ const RegisterForm = () => {
     trigger('confirmPassword')
   }
 
-  const onRegisterHandler = ({ name, email, phone, password, confirmPassword, role }) => {
-    dispatch(asyncRegister({ name, email, phone, password, confirmPassword, role }))
+  const onRegisterHandler = (data) => {
+    dispatch(asyncRegister({ ...data, role }))
     navigate('/login')
   }
 
   return (
     <section className="flex items-center justify-center px-8 pb-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
-        <form className="px-8  bg-white w-[380px] lg:w-[460px]">
+        <form onSubmit={handleSubmit(onRegisterHandler)} className="px-8  bg-white w-[380px] lg:w-[460px]">
           <div className="pt-4 text-sm text-center">
             Daftar sebagai :{' '}
             <Button
@@ -87,8 +81,6 @@ const RegisterForm = () => {
             <Input
               {...register('name')}
               type="text"
-              value={name}
-              onChange={onNameChange}
               id="name"
               variant="bordered"
               size="md"
@@ -109,8 +101,6 @@ const RegisterForm = () => {
               <Input
                 {...register('email')}
                 type="text"
-                value={email}
-                onChange={onEmailChange}
                 id="email"
                 variant="bordered"
                 size="md"
@@ -131,8 +121,6 @@ const RegisterForm = () => {
               <Input
                 {...register('phone')}
                 type="text"
-                value={phone}
-                onChange={onPhoneChange}
                 id="phone"
                 variant="bordered"
                 size="md"
@@ -154,8 +142,6 @@ const RegisterForm = () => {
               {...register('password')}
               type={isPasswordVisible ? 'text' : 'password'}
               variant="bordered"
-              value={password}
-              onChange={onPasswordChange}
               name="password"
               size="md"
               id="password"
@@ -188,7 +174,6 @@ const RegisterForm = () => {
               type={isConfirmVisible ? 'text' : 'password'}
               variant="bordered"
               name="confirm-password"
-              value={confirmPassword}
               size="md"
               id="confirm-password"
               placeholder="*******"
@@ -208,8 +193,7 @@ const RegisterForm = () => {
             </span>
           </div>
           <Button
-            onClick={onRegisterHandler}
-            type='button'
+            type='submit'
             variant="solid"
             size="md"
             className="w-full text-white bg-blue"
