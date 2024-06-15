@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import { Button, Input } from '@nextui-org/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { loginSchema } from '../validation'
+import { useDispatch } from 'react-redux'
+import { asyncLogin } from '@/states/auth/action'
 
 const LoginForm = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -21,14 +25,15 @@ const LoginForm = () => {
     setPasswordVisible(!isPasswordVisible)
   }
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onLoginHandler = ({ email, password }) => {
+    dispatch(asyncLogin({ email, password }))
+    navigate('/')
   }
 
   return (
     <section className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
-        <form onSubmit={handleSubmit(onSubmit)} className="px-8  bg-white w-[380px] lg:w-[460px]">
+        <form onSubmit={handleSubmit(onLoginHandler)} className="px-8  bg-white w-[380px] lg:w-[460px]">
           <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
             Masuk
           </h1>
