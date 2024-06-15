@@ -44,4 +44,23 @@ const login = async ({ email, password }) => {
   return resource
 }
 
-export { login, fetchWithToken, putAccessToken }
+const register = async ({ name, email, phone, password, confirmPassword, role }) => {
+  const response = await fetch(`${baseURL}/api/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name, email, phone, password, confirm_password: confirmPassword, role })
+  })
+
+  const responseJson = await response.json()
+  const { message } = responseJson
+
+  if (message !== 'Register Success') {
+    return { success: false }
+  }
+
+  return { success: true, message }
+}
+
+export { login, fetchWithToken, putAccessToken, register }
