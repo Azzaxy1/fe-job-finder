@@ -7,9 +7,11 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { registerSchema } from '../validation'
 
 const RegisterForm = () => {
-  const [role, setRole] = useState('User')
+  const [role, setRole] = useState('worker')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isConfirmVisible, setIsConfirmVisible] = useState(false)
+
+  console.log(role)
 
   const {
     register,
@@ -22,7 +24,7 @@ const RegisterForm = () => {
   })
 
   const handleRole = () => {
-    role === 'User' ? setRole('Perusahaan') : setRole('User')
+    role === 'worker' ? setRole('hire') : setRole('worker')
   }
 
   const handlePasswordVisible = () => {
@@ -54,7 +56,7 @@ const RegisterForm = () => {
               onClick={handleRole}
               className="text-white bg-blue"
             >
-              {role === 'User' ? 'Penyedia Loker' : 'Pencari Loker'}
+              {role === 'worker' ? 'Penyedia Loker' : 'Pencari Loker'}
             </Button>
           </div>
           <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
