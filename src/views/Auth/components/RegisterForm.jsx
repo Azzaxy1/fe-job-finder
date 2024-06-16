@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { asyncRegister } from '@/states/auth/action'
 
 const RegisterForm = () => {
+  const [loading, setLoading] = useState(false)
   const [role, setRole] = useState('worker')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isConfirmVisible, setIsConfirmVisible] = useState(false)
@@ -45,6 +46,7 @@ const RegisterForm = () => {
 
   const onRegisterHandler = (data) => {
     dispatch(asyncRegister({ ...data, role }, navigate))
+    setLoading(true)
   }
 
   return (
@@ -192,6 +194,7 @@ const RegisterForm = () => {
             </span>
           </div>
           <Button
+            isLoading={loading}
             type='submit'
             variant="solid"
             size="md"
@@ -200,7 +203,6 @@ const RegisterForm = () => {
             Daftar
           </Button>
         </form>
-
         <div className="mt-6 text-center">
           <span className="text-sm font-normal text-center lg:text-base">
             Sudah punya akun?&nbsp;

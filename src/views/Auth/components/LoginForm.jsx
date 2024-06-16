@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { asyncLogin } from '@/states/auth/action'
 
 const LoginForm = () => {
+  const [loading, setLoading] = useState(false)
   const [isPasswordVisible, setPasswordVisible] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -27,6 +28,7 @@ const LoginForm = () => {
 
   const onLoginHandler = ({ email, password }) => {
     dispatch(asyncLogin({ email, password }, navigate))
+    setLoading(true)
   }
 
   return (
@@ -83,6 +85,7 @@ const LoginForm = () => {
             <p className='text-sm text-red-500 2xl:text-base'>{errors.password?.message}</p>
           </div>
           <Button
+            isLoading={loading}
             type='submit'
             size="md"
             variant="solid"
