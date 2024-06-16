@@ -57,7 +57,6 @@ const asyncRegister = (userData) => {
   return async () => {
     try {
       const data = await register(userData)
-      console.log(data)
 
       toast.success(data.message)
     } catch (error) {
