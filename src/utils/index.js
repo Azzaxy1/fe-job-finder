@@ -13,4 +13,14 @@ const getMonthName = (dateString) => {
   return monthNamesShort[monthIndex]
 }
 
-export { truncateDescription, getMonthName }
+const formatHtmlToTextPlaceholder = (html) => {
+  return html
+    .replace(/<\/p>/g, '\n') // Replace paragraph end with new line
+    .replace(/<br>/g, '\n') // Replace line breaks with new line
+    .replace(/<b>(.*?)<\/b>/g, '**$1**') // Replace bold tags with markdown bold
+    .replace(/<i>(.*?)<\/i>/g, '*$1*') // Replace italic tags with markdown italic
+    .replace(/<[^>]+>/g, '') // Remove any remaining HTML tags
+    .trim() // Trim leading/trailing whitespace
+}
+
+export { truncateDescription, getMonthName, formatHtmlToTextPlaceholder }

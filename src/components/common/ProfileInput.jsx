@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useQuill } from 'react-quilljs'
 import {
   Button,
@@ -12,7 +12,7 @@ import {
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncUpdateProfile } from '@/states/profile/action'
-import 'quill/dist/quill.snow.css'
+import { formatHtmlToTextPlaceholder } from '@/utils'
 
 const ProfileInput = ({ type }) => {
   const profile = useSelector((state) => state.profile)
@@ -33,13 +33,12 @@ const ProfileInput = ({ type }) => {
     file: null
   })
 
-  const { quill, quillRef } = useQuill()
-
-  useEffect(() => {
-    if (quill) {
-      quill.clipboard.dangerouslyPasteHTML(profile.description)
-    }
-  }, [quill, profile.description])
+  const placeholder = formatHtmlToTextPlaceholder(authUser.description)
+  const formats = [
+    'bold', 'italic', 'underline', 'strike',
+    'align', 'size', 'header', 'color', 'background'
+  ]
+  const { quillRef } = useQuill({ formats, placeholder })
 
   const inputProfile = [
     { id: 1, name: 'name', placeholder: authUser.name, type: 'text', label: 'Name' },
@@ -93,7 +92,7 @@ const ProfileInput = ({ type }) => {
             Ubah Profil Anda sebagai {type === 'hire' ? 'Hire' : 'User'}
           </h2>
         </CardHeader>
-        <CardBody className="flex flex-col gap-10 ">
+        <CardBody className="flex flex-col gap-10 h-fit">
           <div className="relative flex items-center justify-center mx-auto w-[150px] h-[150px] cursor-pointer">
             <Image
               radius={type === 'hire' ? 'none' : 'full'}
@@ -148,12 +147,9 @@ const ProfileInput = ({ type }) => {
                     )}
               </div>
             )}
-            <label htmlFor="description">Tambahkan Deskripsi</label>
-            <div
-              style={{ height: 200 }}
-              className="w-full mt-2"
-            >
-              <div ref={quillRef} />
+            <label htmlFor="description">Deskripsi</label>
+            <div className='w-full h-[300px]'>
+              <div ref={quillRef} style={{ border: '1px solid #ccc', overflow: 'auto' }} />
             </div>
           </article>
         </CardBody>
