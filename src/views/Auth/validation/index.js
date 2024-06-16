@@ -10,12 +10,12 @@ const loginSchema = yup.object({
     .required('Password harus diisi')
     .min(6, 'Password minimal 6 karakter')
     .matches(/[a-z]+/, 'Password harus mengandung huruf kecil')
-    // .matches(/[A-Z]+/, 'Password harus mengandung huruf kapital')
+    .matches(/[A-Z]+/, 'Password harus mengandung huruf kapital')
     .matches(/[0-9]+/, 'Password harus mengandung angka')
-    // .matches(
-    //   /[!@#$%^&*()_+{}|<>,./?-]/,
-    //   'Password harus mengandung karakter khusus'
-    // )
+    .matches(
+      /[!@#$%^&*()_+{}|<>,./?-]/,
+      'Password harus mengandung karakter khusus'
+    )
 })
 
 const registerSchema = yup.object({
