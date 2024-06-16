@@ -82,6 +82,25 @@ const logout = async () => {
   return message
 }
 
+const updateProfile = async ({ name, email, phone, address, description, image, cv }) => {
+  const response = await fetchWithToken(`${baseURL}/api/profile`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name, email, phone, address, description, image, cv })
+  })
+
+  const responseJson = await response.json()
+
+  const { success, message } = responseJson
+  if (!success) {
+    throw new Error(message)
+  }
+
+  return message
+}
+
 const getDashboardJob = async () => {
   const response = await fetchWithToken(`${baseURL}/api/jobs/dashboard`)
   const responseJson = await response.json()
@@ -90,4 +109,4 @@ const getDashboardJob = async () => {
   return resource
 }
 
-export { login, fetchWithToken, logout, putAccessToken, register, getUserLogged, getDashboardJob }
+export { login, fetchWithToken, logout, updateProfile, putAccessToken, register, getUserLogged, getDashboardJob }
