@@ -44,8 +44,7 @@ const RegisterForm = () => {
   }
 
   const onRegisterHandler = (data) => {
-    dispatch(asyncRegister({ ...data, role }))
-    navigate('/login')
+    dispatch(asyncRegister({ ...data, role }, navigate))
   }
 
   return (

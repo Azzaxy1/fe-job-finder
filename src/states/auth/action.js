@@ -48,19 +48,32 @@ const asyncLogin = ({ email, password }, navigate) => {
         navigate('/hire-dashboard')
       }
     } catch (error) {
-      alert(error.message)
+      toast.error(error.message)
     }
   }
 }
 
-const asyncRegister = (userData) => {
+const asyncRegister = (userData, navigate) => {
   return async () => {
     try {
-      const data = await register(userData)
+      const { message, success } = await register(userData)
+      console.log(message, success)
 
-      toast.success(data.message)
+      if (success) {
+        navigate('/login')
+        toast.success(message)
+      }
     } catch (error) {
-      alert(error.message)
+      const errorMessage = JSON.parse(error.message)
+      if (errorMessage) {
+        for (const field in errorMessage) {
+          if (Object.prototype.hasOwnProperty.call(errorMessage, field)) {
+            toast.error(`${errorMessage[field].join(', ')}`)
+          }
+        }
+      } else {
+        toast.error('An unknown error occurred')
+      }
     }
   }
 }

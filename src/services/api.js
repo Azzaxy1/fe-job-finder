@@ -48,10 +48,10 @@ const register = async ({ name, email, phone, password, confirmPassword, role })
   })
 
   const responseJson = await response.json()
-  const { message } = responseJson
+  const { success, message } = responseJson
 
-  if (message !== 'Register Success') {
-    return { success: false }
+  if (!success) {
+    throw new Error(JSON.stringify(message))
   }
 
   return { success: true, message }
