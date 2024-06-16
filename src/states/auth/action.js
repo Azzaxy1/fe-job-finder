@@ -38,7 +38,6 @@ const asyncLogin = ({ email, password }, navigate) => {
       putAccessToken(resource)
 
       const authUser = await getUserLogged()
-      localStorage.setItem('authUser', JSON.stringify(authUser))
       dispatch(loginActionCreator(authUser))
       toast.success(message)
 

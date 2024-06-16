@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import LoginPage from '@/views/Auth/pages/LoginPage'
 import RegisterPage from '@/views/Auth/pages/RegisterPage'
@@ -14,8 +14,21 @@ import WorkerProfilePage from './views/Worker/pages/WorkerProfilePage'
 import DetailJobPage from './views/Hire/pages/DetailJobPage'
 import CreateJobPage from './views/Hire/pages/CreateJobPage'
 import ManageApplyer from './views/Hire/pages/ManageApplyer'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncIsLoadingProccess } from './states/loading/action'
 
 const App = () => {
+  const dispatch = useDispatch()
+  const isLoading = useSelector((states) => states.isLoading)
+
+  useEffect(() => {
+    dispatch(asyncIsLoadingProccess())
+  }, [dispatch])
+
+  if (isLoading) {
+    return null
+  }
+
   return (
     <Routes>
       <Route path="/">
