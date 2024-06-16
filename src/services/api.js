@@ -29,15 +29,13 @@ const login = async ({ email, password }) => {
 
   const responseJson = await response.json()
 
-  const { message } = responseJson
+  const { message, resource } = responseJson
 
   if (message !== 'Login Success') {
     throw new Error(message)
   }
 
-  const { resource } = responseJson
-
-  return resource
+  return { resource, message }
 }
 
 const register = async ({ name, email, phone, password, confirmPassword, role }) => {
@@ -80,8 +78,6 @@ const logout = async () => {
   if (message !== 'Logout Success') {
     throw new Error(message)
   }
-
-  localStorage.removeItem('accessToken')
 
   return message
 }

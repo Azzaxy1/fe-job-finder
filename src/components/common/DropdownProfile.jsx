@@ -9,10 +9,8 @@ import {
 } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import ImageCompany from '@/assets/landing/company/company4.svg'
 
-const DropdownProfile = ({ type, authUser, onLogout }) => {
-  console.log(authUser)
+const DropdownProfile = ({ type, authUser, onLogout, authHire }) => {
   return (
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
@@ -20,15 +18,15 @@ const DropdownProfile = ({ type, authUser, onLogout }) => {
           ? (
           <div className="flex flex-row items-center gap-4">
             <Avatar
-              src={ImageCompany}
+              src={authHire.foto}
               isBordered
               as="button"
               radius="sm"
               className="transition-transform w-28"
-              name="PT.ABC"
+              name={authHire.name}
               size="md"
             />
-            <p>Hangry Indonesia</p>
+            <p>{authHire.name}</p>
           </div>
             )
           : (
@@ -51,7 +49,7 @@ const DropdownProfile = ({ type, authUser, onLogout }) => {
         <DropdownItem key="user" textValue="user" className="gap-2 text-black">
           <p className="font-semibold">Masuk sebagai</p>
           <p className="font-semibold">
-            {type === 'user' ? authUser.name : 'Hangry Indonesia'}
+            {type === 'user' ? authUser.name : authHire.name}
           </p>
         </DropdownItem>
         <DropdownItem
@@ -80,6 +78,7 @@ const DropdownProfile = ({ type, authUser, onLogout }) => {
 DropdownProfile.propTypes = {
   type: PropTypes.string,
   authUser: PropTypes.object,
+  authHire: PropTypes.object,
   onLogout: PropTypes.func
 }
 

@@ -14,19 +14,19 @@ import { store } from './states/index.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <HelmetProvider>
-      <NextUIProvider>
-        <BrowserRouter>
-          <React.StrictMode>
-            <App />
-            <Toaster
-              position="bottom-right"
-              toastOptions={{ style: { fontSize: '18px', fontWeight: '500' } }}
-              reverseOrder={false}
-              />
-          </React.StrictMode>
-        </BrowserRouter>
-      </NextUIProvider>
+    <BrowserRouter>
+      <HelmetProvider>
+        <NextUIProvider>
+            <React.StrictMode>
+              <App />
+              <Toaster
+                position="bottom-right"
+                toastOptions={{ style: { fontSize: '18px', fontWeight: '500' } }}
+                reverseOrder={false}
+                />
+            </React.StrictMode>
+        </NextUIProvider>
     </HelmetProvider>
+    </BrowserRouter>
   </Provider>
 )

@@ -24,12 +24,6 @@ const Header = () => {
   const navigate = useNavigate()
 
   const authUser = useSelector((states) => states.authUser)
-  console.log(authUser)
-
-  // const token = localStorage.getItem('accessToken')
-  // console.log(token)
-
-  // TODO : fix conditonal rendering for navbar
 
   const onLogoutHandler = () => {
     dispatch(asyncLogout())

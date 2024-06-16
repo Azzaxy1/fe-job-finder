@@ -31,14 +31,22 @@ const logoutActionCreator = () => {
   }
 }
 
-const asyncLogin = ({ email, password }) => {
+const asyncLogin = ({ email, password }, navigate) => {
   return async (dispatch) => {
     try {
-      const token = await login({ email, password })
-      putAccessToken(token)
+      const { resource, message } = await login({ email, password })
+      putAccessToken(resource)
 
       const authUser = await getUserLogged()
+      localStorage.setItem('authUser', JSON.stringify(authUser))
       dispatch(loginActionCreator(authUser))
+      toast.success(message)
+
+      if (authUser.role === 'worker') {
+        navigate('/')
+      } else {
+        navigate('/hire-dashboard')
+      }
     } catch (error) {
       alert(error.message)
     }
@@ -49,6 +57,8 @@ const asyncRegister = (userData) => {
   return async () => {
     try {
       const data = await register(userData)
+      console.log(data)
+
       toast.success(data.message)
     } catch (error) {
       alert(error.message)
@@ -60,6 +70,7 @@ const asyncLogout = () => {
   return async (dispatch) => {
     try {
       const message = await logout()
+      localStorage.removeItem('accessToken')
       dispatch(logoutActionCreator())
       toast.success(message)
     } catch (error) {

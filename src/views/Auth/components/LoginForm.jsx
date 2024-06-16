@@ -26,10 +26,7 @@ const LoginForm = () => {
   }
 
   const onLoginHandler = ({ email, password }) => {
-    dispatch(asyncLogin({ email, password }))
-    if (email && password) {
-      navigate('/')
-    }
+    dispatch(asyncLogin({ email, password }, navigate))
   }
 
   return (
