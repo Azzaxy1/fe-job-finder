@@ -56,7 +56,6 @@ const asyncRegister = (userData, navigate) => {
   return async () => {
     try {
       const { message, success } = await register(userData)
-      console.log(message, success)
 
       if (success) {
         navigate('/login')

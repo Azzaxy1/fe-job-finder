@@ -72,7 +72,7 @@ const ProfileInput = ({ type }) => {
   }
 
   const handleSubmit = () => {
-    const description = quillRef.root.innerHTML
+    const description = quillRef.current.firstChild.innerHTML
     dispatch(asyncUpdateProfile({ ...formData, description }))
   }
 

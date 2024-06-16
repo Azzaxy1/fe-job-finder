@@ -16,7 +16,6 @@ const asyncUpdateProfile = (userData) => {
   return async (dispatch) => {
     try {
       const { success, message, resource } = await updateProfile(userData)
-      console.log(success, message, resource)
       if (success) {
         dispatch(updateProfileActionCreator(resource))
         toast.success(`${message}, please refresh to see changes`)
