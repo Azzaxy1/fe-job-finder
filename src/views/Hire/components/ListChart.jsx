@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card, CardBody } from '@nextui-org/react'
-import ChartLoker from './ChartLoker'
-import ChartUser from './ChartUser'
+import ChartJob from './ChartJob'
 
 const ListChart = () => {
   return (
@@ -10,16 +9,12 @@ const ListChart = () => {
         <h2 className='text-lg font-semibold md:text-xl'>Dashboard</h2>
       </div>
       <div className='flex flex-col w-full gap-10 mb-4 md:flex-row'>
-        <Card radius="none" className="w-full md:w-[48%] h-fit md:h-fit p-5">
+        <Card radius="none" className="w-full p-5 h-fit md:h-fit">
           <CardBody className="w-full">
-            <ChartLoker />
+            <ChartJob />
           </CardBody>
         </Card>
-        <Card radius="none" className="w-full md:w-[48%] h-fit md:h-fit p-5">
-          <CardBody className="w-full">
-            <ChartUser />
-          </CardBody>
-        </Card>
+
       </div>
     </section>
   )

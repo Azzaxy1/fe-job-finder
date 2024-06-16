@@ -82,4 +82,12 @@ const logout = async () => {
   return message
 }
 
-export { login, fetchWithToken, logout, putAccessToken, register, getUserLogged }
+const getDashboardJob = async () => {
+  const response = await fetchWithToken(`${baseURL}/api/jobs/dashboard`)
+  const responseJson = await response.json()
+
+  const { resource } = responseJson
+  return resource
+}
+
+export { login, fetchWithToken, logout, putAccessToken, register, getUserLogged, getDashboardJob }
