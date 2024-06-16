@@ -82,23 +82,28 @@ const logout = async () => {
   return message
 }
 
-const updateProfile = async ({ name, email, phone, address, description, image, cv }) => {
+const updateProfile = async ({ name, email, phone, address, description, foto, file }) => {
+  const formData = new FormData()
+  formData.append('name', name)
+  formData.append('email', email)
+  formData.append('phone', phone)
+  formData.append('address', address)
+  formData.append('description', description)
+  if (foto) formData.append('foto', foto)
+  if (file) formData.append('file', file)
+
   const response = await fetchWithToken(`${baseURL}/api/profile`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name, email, phone, address, description, image, cv })
+    body: formData
   })
 
   const responseJson = await response.json()
-
-  const { success, message } = responseJson
+  const { success, message, resource } = responseJson
   if (!success) {
     throw new Error(message)
   }
 
-  return message
+  return { message, success, resource }
 }
 
 const getDashboardJob = async () => {

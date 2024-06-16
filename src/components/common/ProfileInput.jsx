@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuill } from 'react-quilljs'
 import {
   Button,
@@ -10,55 +10,70 @@ import {
   Input
 } from '@nextui-org/react'
 import PropTypes from 'prop-types'
-import ImgCompany from '@/assets/landing/company/company4.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncUpdateProfile } from '@/states/profile/action'
+import 'quill/dist/quill.snow.css'
 
 const ProfileInput = ({ type }) => {
+  const profile = useSelector((state) => state.profile)
+  const authUser = useSelector((state) => state.authUser)
+  const dispatch = useDispatch()
+
   const [cvSelected, setCvSelected] = useState(false)
   const [profileImage, setProfileImage] = useState(
-    type === 'hire' ? ImgCompany : 'https://i.pravatar.cc/300'
-  )
-  const { quillRef } = useQuill()
+    authUser.foto_url || 'https://i.pravatar.cc/300')
+
+  const [formData, setFormData] = useState({
+    name: profile.name,
+    email: profile.email,
+    phone: profile.phone,
+    address: profile.address,
+    description: profile.description,
+    foto: null,
+    file: null
+  })
+
+  const { quill, quillRef } = useQuill()
+
+  useEffect(() => {
+    if (quill) {
+      quill.clipboard.dangerouslyPasteHTML(profile.description)
+    }
+  }, [quill, profile.description])
 
   const inputProfile = [
-    {
-      id: 1,
-      name: 'Name',
-      placeholder: 'John Doe',
-      type: 'text'
-    },
-    {
-      id: 2,
-      name: 'Email',
-      placeholder: 'johndoe@example.com',
-      type: 'email'
-    },
-    {
-      id: 3,
-      name: 'Phone',
-      placeholder: '081234567890',
-      type: 'number'
-    },
-    {
-      id: 4,
-      name: 'Address',
-      placeholder: 'Jl. Setiabudi No. 1',
-      type: 'text'
-    }
+    { id: 1, name: 'name', placeholder: authUser.name, type: 'text', label: 'Name' },
+    { id: 2, name: 'email', placeholder: authUser.email, type: 'email', label: 'Email' },
+    { id: 3, name: 'phone', placeholder: authUser.phone, type: 'number', label: 'Phone' },
+    { id: 4, name: 'address', placeholder: authUser.address === null ? '' : authUser.address, type: 'text', label: 'Address' }
   ]
 
-  const handleCVChange = () => {
-    setCvSelected(!cvSelected)
+  const handleCVChange = (e) => {
+    const fileValue = e.target.files[0]
+    setCvSelected(!!fileValue)
+    setFormData({ ...formData, file: fileValue })
   }
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0]
-    if (file) {
+  const handleImageChange = (e) => {
+    const fileValue = e.target.files[0]
+    if (fileValue) {
       const reader = new FileReader()
       reader.onloadend = () => {
         setProfileImage(reader.result)
       }
-      reader.readAsDataURL(file)
+      reader.readAsDataURL(fileValue)
+      setFormData({ ...formData, foto: fileValue })
     }
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const handleSubmit = () => {
+    const description = quillRef.root.innerHTML
+    dispatch(asyncUpdateProfile({ ...formData, description }))
   }
 
   return (
@@ -100,10 +115,13 @@ const ProfileInput = ({ type }) => {
                   <Input
                     variant="bordered"
                     radius="sm"
-                    key={input.name}
+                    disabled={input.name === 'email'}
+                    name={input.name}
                     placeholder={input.placeholder}
                     type={input.type}
-                    label={input.name}
+                    label={input.label}
+                    value={formData[input.name]}
+                    onChange={handleInputChange}
                   />
                 </div>
               ))}
@@ -140,7 +158,7 @@ const ProfileInput = ({ type }) => {
           </article>
         </CardBody>
         <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">
-          <Button radius="sm" size='lg' className="text-white bg-blue">
+          <Button radius="sm" size='lg' className="text-white bg-blue" onClick={handleSubmit}>
             Simpan Perubahan
           </Button>
         </CardFooter>

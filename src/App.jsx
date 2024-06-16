@@ -16,6 +16,7 @@ import CreateJobPage from './views/Hire/pages/CreateJobPage'
 import ManageApplyer from './views/Hire/pages/ManageApplyer'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncIsLoadingProccess } from './states/loading/action'
+import { Spinner } from '@nextui-org/react'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -26,7 +27,13 @@ const App = () => {
   }, [dispatch])
 
   if (isLoading) {
-    return null
+    return (
+      <div
+        className="flex items-center justify-center w-full h-screen"
+      >
+        <Spinner label='Loading...' color="secondary" />
+      </div>
+    )
   }
 
   return (
