@@ -31,7 +31,7 @@ const App = () => {
       <div
         className="flex items-center justify-center w-full h-screen"
       >
-        <Spinner label='Loading...' color="secondary" />
+        <Spinner label='Halaman sedang dimuat....' labelColor='foreground' color="primary" size='lg' />
       </div>
     )
   }
