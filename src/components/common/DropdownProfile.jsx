@@ -18,7 +18,7 @@ const DropdownProfile = ({ type, authUser, onLogout, authHire }) => {
           ? (
           <div className="flex flex-row items-center gap-4">
             <Avatar
-              src={authHire.foto}
+              src={authHire.foto_url}
               isBordered
               as="button"
               radius="sm"
@@ -34,7 +34,7 @@ const DropdownProfile = ({ type, authUser, onLogout, authHire }) => {
             as="button"
             avatarProps={{
               isBordered: true,
-              src: authUser.foto
+              src: authUser.foto_url
             }}
             description={authUser.email}
             name={authUser.name}
