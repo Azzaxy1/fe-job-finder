@@ -31,13 +31,10 @@ const Header = () => {
   }
 
   const pathName = location.pathname
-  console.log(pathName)
 
   const menuItems = ['Beranda', 'Lowongan', 'Tips Loker']
 
   const pathMenu = ['/', '/jobs', '/tips']
-
-  console.log(pathMenu[2])
 
   return (
     <Navbar
