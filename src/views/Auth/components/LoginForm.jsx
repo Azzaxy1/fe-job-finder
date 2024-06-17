@@ -13,7 +13,6 @@ const LoginForm = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  console.log(loading)
 
   const {
     register,

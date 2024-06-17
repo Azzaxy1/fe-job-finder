@@ -1,13 +1,29 @@
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/react'
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
-const ButtonApply = ({ data, user, handleFileChange, cvSelected, handleApply, onOpen, onOpenChange, isOpen }) => {
+const ButtonApply = ({ data, handleFileChange, cvSelected, handleApply, onOpen, onOpenChange, isOpen }) => {
+  const user = useSelector((state) => state.authUser)
+  const navigate = useNavigate()
+  const applyJob = useSelector((state) => state.applyJob)
+
+  const job = applyJob.find((job) => job.id_job === data.id)
+
   return (
     <div className="flex flex-row gap-2 mx-auto md:mx-0 md:flex-col md:ml-auto">
-      <Button onPress={onOpen} className="font-semibold text-white bg-blue ">
+      {job
+        ? (
+        <div className="px-4 py-2 text-sm font-semibold text-white bg-red-800 rounded-lg">
+        Sudah Daftar
+        </div>
+          )
+        : (
+        <Button onPress={user === null ? () => navigate('/login') : onOpen} className="font-semibold text-white bg-blue ">
         Lamar Pekerjaan
-      </Button>
+        </Button>
+          )}
       <Modal
         backdrop="opaque"
         isOpen={isOpen}
@@ -41,15 +57,15 @@ const ButtonApply = ({ data, user, handleFileChange, cvSelected, handleApply, on
             <>
               <ModalHeader className="flex flex-col gap-1">
                 <h2 className="text-base font-medium sm:text-lg">
-                  Lamar Pekerjaan{' '}
-                  <span className="text-blue">{data.job.company}</span> sebagai{' '}
-                  <span className="text-blue">{data.job.title}</span>
+                  Lamar Pekerjaan di{' '}
+                  <span className="text-blue">{data.company}</span> sebagai{' '}
+                  <span className="text-blue">{data.title}</span>
                 </h2>
               </ModalHeader>
               <ModalBody>
                 <h2 className="text-base font-medium">Informasi Kontak</h2>
-                {user.map((user, index) => (
-                  <div key={index}>
+                {user && (
+                  <div>
                     <div className="flex flex-col pb-2">
                       <label htmlFor="name">Nama</label>
                       <p className="text-sm">{user.name}</p>
@@ -86,7 +102,7 @@ const ButtonApply = ({ data, user, handleFileChange, cvSelected, handleApply, on
                       </div>
                     </div>
                   </div>
-                ))}
+                )}
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
@@ -105,12 +121,7 @@ const ButtonApply = ({ data, user, handleFileChange, cvSelected, handleApply, on
 }
 
 ButtonApply.propTypes = {
-  data: PropTypes.shape({
-    job: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      company: PropTypes.string.isRequired
-    }).isRequired
-  }),
+  data: PropTypes.object.isRequired,
   user: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

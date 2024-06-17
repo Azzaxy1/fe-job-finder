@@ -1,4 +1,5 @@
 import { getAllJob } from '@/services/api'
+import toast from 'react-hot-toast'
 
 const ActionType = {
   GET_ALL_JOB: 'GET_ALL_JOB'
@@ -15,9 +16,13 @@ const getAllJobActionCreator = (resource) => {
 
 const asyncGetAllJob = () => {
   return async (dispatch) => {
-    const { resource, success } = await getAllJob()
-    if (success) {
-      dispatch(getAllJobActionCreator(resource))
+    try {
+      const { resource, success } = await getAllJob()
+      if (success) {
+        dispatch(getAllJobActionCreator(resource))
+      }
+    } catch (error) {
+      toast.error(error.message)
     }
   }
 }

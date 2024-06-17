@@ -5,6 +5,9 @@ import SkeletonPreview from '@/components/ui/SkeletonPreview'
 import useInput from '@/hooks/useInput'
 import SearchJob from '@/components/ui/SearchJob'
 import { useDispatch, useSelector } from 'react-redux'
+import { asyncGetApplyJob } from '@/states/applyJob/action'
+import Logo from '@/assets/logo-blue.svg'
+import { Image } from '@nextui-org/react'
 import { asyncGetAllJob } from '@/states/worker/action'
 
 const JobItem = lazy(() =>
@@ -24,6 +27,7 @@ const SearchLokerPage = () => {
   const [location, onLocationChange] = useInput('')
   const allJob = useSelector((state) => state.worker)
   const [searchResult, setSearchResult] = useState([])
+  const [selectedJobId, setSelectedJobId] = useState(null)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -33,6 +37,10 @@ const SearchLokerPage = () => {
   useEffect(() => {
     setSearchResult(allJob)
   }, [allJob])
+
+  useEffect(() => {
+    dispatch(asyncGetApplyJob())
+  }, [dispatch])
 
   const handleSearch = () => {
     if (title === '' && location === '') {
@@ -48,6 +56,10 @@ const SearchLokerPage = () => {
     }
   }
 
+  const handleJobCLick = (JobId) => {
+    setSelectedJobId(JobId)
+  }
+
   return (
     <>
       <Helmet>
@@ -57,7 +69,7 @@ const SearchLokerPage = () => {
         <main className="flex flex-col min-h-screen gap-8">
           <SearchJob jobs={allJob} onTitleChange={onTitleChange} onLocationChange={onLocationChange} onSearch={handleSearch} />
           <section className="flex flex-col gap-10 px-10 pb-10 md:gap-0 sm:flex-row 2xl:px-72">
-            <div className="flex flex-col p-2 max-h-[500px] md:max-h-[1350px] overflow-y-auto max-w-[400px] sm:min-w-[400px] scroll-smooth">
+            <div className="flex flex-col p-2 max-h-[1000px] overflow-y-auto max-w-[400px] sm:min-w-[400px] scroll-smooth">
               <Suspense fallback={<SkeletonPreview type='list'/>}>
                 {searchResult.length === 0
                   ? (
@@ -65,13 +77,19 @@ const SearchLokerPage = () => {
                     )
                   : (
                       searchResult.map((job, index) => (
-                    <JobItem key={index} job={job} />
+                    <JobItem key={index} job={job} onClick={handleJobCLick} />
                       ))
                     )}
               </Suspense>
             </div>
             <Suspense fallback={<SkeletonPreview type='detail' />}>
-              <DetailJob />
+              {selectedJobId !== null
+                ? <DetailJob jobId={selectedJobId} />
+                : <div className='flex flex-col items-center justify-center w-full'>
+                  <Image src={Logo} alt="logo" width={300} />
+                  <p className='text-fontColor'>Silakan pilih lowongan di sebelah kiri untuk melihat detailnya</p>
+                  </div>
+              }
             </Suspense>
           </section>
         </main>

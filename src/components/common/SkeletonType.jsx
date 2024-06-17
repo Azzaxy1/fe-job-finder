@@ -38,7 +38,6 @@ export default function SkeletonType ({ variant }) {
               </div>
               <div className='flex gap-4 md:flex-col'>
                 <Skeleton className="flex w-24 h-8 rounded-md" />
-                <Skeleton className="flex w-24 h-8 rounded-md" />
               </div>
             </article>
             <div className="flex flex-col w-full gap-4 p-5">
