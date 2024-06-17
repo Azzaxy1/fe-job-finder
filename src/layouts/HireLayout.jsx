@@ -107,7 +107,7 @@ const HireLayout = ({ children }) => {
                 <Link
                   to="/manage-applyer"
                   className={`flex items-center justify-center p-2 text-white hover:bg-[#0284c7] group ${
-                    location.pathname === '/manage-jobs' && 'bg-[#0284c7]'
+                    location.pathname === '/manage-applyer' && 'bg-[#0284c7]'
                   }`}
                 >
                   <span className="flex items-center gap-2 text-xl font-medium ms-3">

@@ -3,6 +3,7 @@ import { Image } from '@nextui-org/react'
 
 import Logo from '@/assets/logo-white.svg'
 import { Link } from 'react-router-dom'
+import { FaGithub } from 'react-icons/fa'
 
 const Footer = () => {
   return (
@@ -35,9 +36,15 @@ const Footer = () => {
         <div className="text-white">
           <h2 className="text-lg font-semibold md:text-xl">Our Team</h2>
           <ul className="text-base">
-            <li>Abdurrohman Azis</li>
-            <li>Muhammad Anwar Fauzan</li>
-            <li>Marcell Virgiano Hernand De Ro</li>
+            <li >
+              <Link to="https://github.com/Azzaxy1" className='flex flex-row items-center gap-2'><FaGithub /> Abdurrohman Azis</Link>
+            </li>
+            <li >
+              <Link to="https://github.com/Anuraaaa" className='flex flex-row items-center gap-2'><FaGithub /> Muhammad Anwar Fauzan</Link>
+            </li>
+            <li >
+              <Link to="https://github.com/aclrdhv" className='flex flex-row items-center gap-2'><FaGithub /> Marcell Virgiano Hernand De Ro</Link>
+            </li>
           </ul>
         </div>
       </section>
