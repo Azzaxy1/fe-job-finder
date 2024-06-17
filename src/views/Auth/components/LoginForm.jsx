@@ -13,6 +13,7 @@ const LoginForm = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  console.log(loading)
 
   const {
     register,
@@ -26,9 +27,12 @@ const LoginForm = () => {
     setPasswordVisible(!isPasswordVisible)
   }
 
-  const onLoginHandler = ({ email, password }) => {
-    dispatch(asyncLogin({ email, password }, navigate))
+  const onLoginHandler = async ({ email, password }) => {
     setLoading(true)
+    const success = await dispatch(asyncLogin({ email, password }, navigate))
+    if (!success) {
+      setLoading(false)
+    }
   }
 
   return (

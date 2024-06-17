@@ -29,13 +29,13 @@ const login = async ({ email, password }) => {
 
   const responseJson = await response.json()
 
-  const { message, resource } = responseJson
+  const { message, resource, success } = responseJson
 
   if (message !== 'Login Success') {
     throw new Error(message)
   }
 
-  return { resource, message }
+  return { resource, message, success }
 }
 
 const register = async ({ name, email, phone, password, confirmPassword, role }) => {
@@ -54,7 +54,7 @@ const register = async ({ name, email, phone, password, confirmPassword, role })
     throw new Error(JSON.stringify(message))
   }
 
-  return { success: true, message }
+  return { success, message }
 }
 
 const getUserLogged = async () => {

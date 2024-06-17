@@ -44,9 +44,12 @@ const RegisterForm = () => {
     trigger('confirmPassword')
   }
 
-  const onRegisterHandler = (data) => {
-    dispatch(asyncRegister({ ...data, role }, navigate))
+  const onRegisterHandler = async (data) => {
     setLoading(true)
+    const success = await dispatch(asyncRegister({ ...data, role }, navigate))
+    if (!success) {
+      setLoading(false)
+    }
   }
 
   return (

@@ -1,5 +1,6 @@
 import { getUserLogged, login, logout, putAccessToken, register } from '@/services/api'
 import toast from 'react-hot-toast'
+import { setIsLoadingActionCreator } from '../loading/action'
 
 const ActionType = {
   LOGIN: 'LOGIN',
@@ -34,20 +35,28 @@ const logoutActionCreator = () => {
 const asyncLogin = ({ email, password }, navigate) => {
   return async (dispatch) => {
     try {
-      const { resource, message } = await login({ email, password })
-      putAccessToken(resource)
+      const { resource, message, success } = await login({ email, password })
+      if (success) {
+        putAccessToken(resource)
 
-      const authUser = await getUserLogged()
-      dispatch(loginActionCreator(authUser))
-      toast.success(message)
+        const authUser = await getUserLogged()
+        dispatch(loginActionCreator(authUser))
+        toast.success(message)
 
-      if (authUser.role === 'worker') {
-        navigate('/')
+        if (authUser.role === 'worker') {
+          navigate('/')
+        } else {
+          navigate('/hire-dashboard')
+        }
+        return true
       } else {
-        navigate('/hire-dashboard')
+        toast.error(message)
+        return false
       }
     } catch (error) {
       toast.error(error.message)
+      dispatch(setIsLoadingActionCreator(false))
+      return false
     }
   }
 }
@@ -60,6 +69,10 @@ const asyncRegister = (userData, navigate) => {
       if (success) {
         navigate('/login')
         toast.success(message)
+        return true
+      } else {
+        toast.error(message)
+        return false
       }
     } catch (error) {
       const errorMessage = JSON.parse(error.message)
