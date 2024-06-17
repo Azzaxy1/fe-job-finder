@@ -79,7 +79,7 @@ const ButtonApply = ({ data, handleFileChange, cvSelected, handleApply, onOpen, 
                       <p className="text-sm">{user.phone}</p>
                     </div>
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="cv">Pilih CV</label>
+                      <label htmlFor="cv">CV</label>
                       <div className="relative">
                         <input
                           type="file"
@@ -88,7 +88,7 @@ const ButtonApply = ({ data, handleFileChange, cvSelected, handleApply, onOpen, 
                           className="absolute inset-0 z-50 w-full h-full opacity-0 cursor-pointer"
                           onChange={handleFileChange}
                         />
-                        {cvSelected
+                        {user.file_url
                           ? (
                           <div className="px-4 py-2 text-sm text-center text-white bg-green-500 rounded cursor-pointer">
                             CV telah dipilih
