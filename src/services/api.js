@@ -127,6 +127,14 @@ const applyJob = async ({ id }) => {
   return { success, message }
 }
 
+const getApplyJob = async () => {
+  const response = await fetchWithToken(`${baseURL}/api/worker/apply-job`)
+  const responseJson = await response.json()
+
+  const { success, message, resource } = responseJson
+  return { success, message, resource }
+}
+
 const getDashboardJob = async () => {
   const response = await fetchWithToken(`${baseURL}/api/hire/jobs/dashboard`)
   const responseJson = await response.json()
@@ -135,4 +143,4 @@ const getDashboardJob = async () => {
   return resource
 }
 
-export { login, fetchWithToken, logout, updateProfile, applyJob, getAllJob, putAccessToken, register, getUserLogged, getDashboardJob }
+export { login, fetchWithToken, logout, updateProfile, applyJob, getApplyJob, getAllJob, putAccessToken, register, getUserLogged, getDashboardJob }

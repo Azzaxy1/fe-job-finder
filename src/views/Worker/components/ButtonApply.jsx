@@ -7,12 +7,23 @@ import { useNavigate } from 'react-router-dom'
 const ButtonApply = ({ data, handleFileChange, cvSelected, handleApply, onOpen, onOpenChange, isOpen }) => {
   const user = useSelector((state) => state.authUser)
   const navigate = useNavigate()
+  const applyJob = useSelector((state) => state.applyJob)
+
+  const job = applyJob.find((job) => job.id_job === data.id)
 
   return (
     <div className="flex flex-row gap-2 mx-auto md:mx-0 md:flex-col md:ml-auto">
-      <Button onPress={user === null ? () => navigate('/login') : onOpen} className="font-semibold text-white bg-blue ">
+      {job
+        ? (
+        <div className="px-4 py-2 text-sm font-semibold text-white bg-red-800 rounded-lg">
+        Sudah Daftar
+        </div>
+          )
+        : (
+        <Button onPress={user === null ? () => navigate('/login') : onOpen} className="font-semibold text-white bg-blue ">
         Lamar Pekerjaan
-      </Button>
+        </Button>
+          )}
       <Modal
         backdrop="opaque"
         isOpen={isOpen}

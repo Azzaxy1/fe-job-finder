@@ -5,9 +5,10 @@ import SkeletonPreview from '@/components/ui/SkeletonPreview'
 import useInput from '@/hooks/useInput'
 import SearchJob from '@/components/ui/SearchJob'
 import { useDispatch, useSelector } from 'react-redux'
-import { asyncGetAllJob } from '@/states/worker/action'
+import { asyncGetApplyJob } from '@/states/applyJob/action'
 import Logo from '@/assets/logo-blue.svg'
 import { Image } from '@nextui-org/react'
+import { asyncGetAllJob } from '@/states/worker/action'
 
 const JobItem = lazy(() =>
   new Promise((resolve) => setTimeout(resolve, 2000)).then(() =>
@@ -36,6 +37,10 @@ const SearchLokerPage = () => {
   useEffect(() => {
     setSearchResult(allJob)
   }, [allJob])
+
+  useEffect(() => {
+    dispatch(asyncGetApplyJob())
+  }, [dispatch])
 
   const handleSearch = () => {
     if (title === '' && location === '') {

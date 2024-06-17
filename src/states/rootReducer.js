@@ -4,11 +4,13 @@ import { hireReducer } from './hire/reducer'
 import { isLoadingReducer } from './loading/reducer'
 import { profileReducer } from './profile/reducer'
 import { workerReducer } from './worker/reducer'
+import { applyReducer } from './applyJob/reducer'
 
 const rootReducer = combineReducers({
   authUser: authUserReducer,
   worker: workerReducer,
   hire: hireReducer,
+  applyJob: applyReducer,
   profile: profileReducer,
   isLoading: isLoadingReducer
 })

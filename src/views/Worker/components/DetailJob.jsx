@@ -15,7 +15,7 @@ import { formatDate, formatRupiah } from '@/utils'
 import AboutCompany from './AboutCompany'
 import ButtonApply from './ButtonApply'
 import Company from '@/assets/company.png'
-import { asyncApplyJob } from '@/states/worker/action'
+import { asyncApplyJob } from '@/states/applyJob/action'
 
 const DetailJob = ({ jobId }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
