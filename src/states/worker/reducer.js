@@ -5,7 +5,7 @@ const workerReducer = (resource = [], action = {}) => {
     case ActionType.GET_ALL_JOB:
       return action.payload.resource
     case ActionType.APPLY_JOB:
-      return action.payload.resource
+      return resource
     default:
       return resource
   }

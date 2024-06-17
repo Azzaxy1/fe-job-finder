@@ -2,15 +2,15 @@ import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const ButtonApply = ({ data, handleFileChange, cvSelected, handleApply, onOpen, onOpenChange, isOpen }) => {
   const user = useSelector((state) => state.authUser)
-  console.log(data)
-  console.log(user)
+  const navigate = useNavigate()
 
   return (
     <div className="flex flex-row gap-2 mx-auto md:mx-0 md:flex-col md:ml-auto">
-      <Button onPress={onOpen} className="font-semibold text-white bg-blue ">
+      <Button onPress={user === null ? () => navigate('/login') : onOpen} className="font-semibold text-white bg-blue ">
         Lamar Pekerjaan
       </Button>
       <Modal

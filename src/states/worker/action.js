@@ -15,12 +15,9 @@ const getAllJobActionCreator = (resource) => {
   }
 }
 
-const applyJobActionCreator = (resource) => {
+const applyJobActionCreator = () => {
   return {
-    type: ActionType.APPLY_JOB,
-    payload: {
-      resource
-    }
+    type: ActionType.APPLY_JOB
   }
 }
 
@@ -42,8 +39,10 @@ const asyncApplyJob = ({ id }) => {
     try {
       const { success, message } = await applyJob({ id })
       if (success) {
-        dispatch(applyJobActionCreator({ success, message }))
+        dispatch(applyJobActionCreator())
         toast.success(message)
+      } else {
+        toast.error(message)
       }
     } catch (error) {
       toast.error(error.message)

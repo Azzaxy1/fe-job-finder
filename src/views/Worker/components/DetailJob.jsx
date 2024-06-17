@@ -7,7 +7,6 @@ import {
   Image,
   useDisclosure
 } from '@nextui-org/react'
-import toast from 'react-hot-toast'
 import parse from 'html-react-parser'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'

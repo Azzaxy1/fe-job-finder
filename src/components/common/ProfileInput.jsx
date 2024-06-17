@@ -20,7 +20,6 @@ const ProfileInput = ({ type }) => {
   const profile = useSelector((state) => state.profile)
   const authUser = useSelector((state) => state.authUser)
   const dispatch = useDispatch()
-  console.log(authUser)
 
   const [cvSelected, setCvSelected] = useState(false)
   const [profileImage, setProfileImage] = useState(
