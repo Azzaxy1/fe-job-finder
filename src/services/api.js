@@ -106,6 +106,14 @@ const updateProfile = async ({ name, email, phone, address, description, foto, f
   return { message, success, resource }
 }
 
+const getAllJob = async () => {
+  const response = await fetchWithToken(`${baseURL}/api/jobs`)
+  const responseJson = await response.json()
+
+  const { resource, success } = responseJson
+  return { resource, success }
+}
+
 const getDashboardJob = async () => {
   const response = await fetchWithToken(`${baseURL}/api/jobs/dashboard`)
   const responseJson = await response.json()
@@ -114,4 +122,4 @@ const getDashboardJob = async () => {
   return resource
 }
 
-export { login, fetchWithToken, logout, updateProfile, putAccessToken, register, getUserLogged, getDashboardJob }
+export { login, fetchWithToken, logout, updateProfile, getAllJob, putAccessToken, register, getUserLogged, getDashboardJob }

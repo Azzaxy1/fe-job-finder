@@ -13,6 +13,12 @@ const getMonthName = (dateString) => {
   return monthNamesShort[monthIndex]
 }
 
+const formatDate = (dateString) => {
+  const date = new Date(dateString)
+  const options = { year: 'numeric', month: 'long', day: 'numeric' }
+  return date.toLocaleDateString('id-ID', options)
+}
+
 const formatHtmlToTextPlaceholder = (html) => {
   return html
     .replace(/<\/p>/g, '\n') // Replace paragraph end with new line
@@ -23,4 +29,4 @@ const formatHtmlToTextPlaceholder = (html) => {
     .trim() // Trim leading/trailing whitespace
 }
 
-export { truncateDescription, getMonthName, formatHtmlToTextPlaceholder }
+export { truncateDescription, getMonthName, formatHtmlToTextPlaceholder, formatDate }
