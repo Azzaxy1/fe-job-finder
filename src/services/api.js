@@ -114,12 +114,25 @@ const getAllJob = async () => {
   return { resource, success }
 }
 
+const applyJob = async ({ id }) => {
+  const response = await fetchWithToken(`${baseURL}/api/worker/apply-job/${id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const responseJson = await response.json()
+
+  const { success, message } = responseJson
+  return { success, message }
+}
+
 const getDashboardJob = async () => {
-  const response = await fetchWithToken(`${baseURL}/api/jobs/dashboard`)
+  const response = await fetchWithToken(`${baseURL}/api/hire/jobs/dashboard`)
   const responseJson = await response.json()
 
   const { resource } = responseJson
   return resource
 }
 
-export { login, fetchWithToken, logout, updateProfile, getAllJob, putAccessToken, register, getUserLogged, getDashboardJob }
+export { login, fetchWithToken, logout, updateProfile, applyJob, getAllJob, putAccessToken, register, getUserLogged, getDashboardJob }

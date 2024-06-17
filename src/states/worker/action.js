@@ -1,7 +1,9 @@
-import { getAllJob } from '@/services/api'
+import { applyJob, getAllJob } from '@/services/api'
+import toast from 'react-hot-toast'
 
 const ActionType = {
-  GET_ALL_JOB: 'GET_ALL_JOB'
+  GET_ALL_JOB: 'GET_ALL_JOB',
+  APPLY_JOB: 'APPLY_JOB'
 }
 
 const getAllJobActionCreator = (resource) => {
@@ -13,13 +15,40 @@ const getAllJobActionCreator = (resource) => {
   }
 }
 
-const asyncGetAllJob = () => {
-  return async (dispatch) => {
-    const { resource, success } = await getAllJob()
-    if (success) {
-      dispatch(getAllJobActionCreator(resource))
+const applyJobActionCreator = (resource) => {
+  return {
+    type: ActionType.APPLY_JOB,
+    payload: {
+      resource
     }
   }
 }
 
-export { getAllJobActionCreator, ActionType, asyncGetAllJob }
+const asyncGetAllJob = () => {
+  return async (dispatch) => {
+    try {
+      const { resource, success } = await getAllJob()
+      if (success) {
+        dispatch(getAllJobActionCreator(resource))
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+}
+
+const asyncApplyJob = ({ id }) => {
+  return async (dispatch) => {
+    try {
+      const { success, message } = await applyJob({ id })
+      if (success) {
+        dispatch(applyJobActionCreator({ success, message }))
+        toast.success(message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+}
+
+export { getAllJobActionCreator, ActionType, asyncGetAllJob, asyncApplyJob }

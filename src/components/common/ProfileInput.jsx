@@ -7,21 +7,24 @@ import {
   CardFooter,
   CardHeader,
   Image,
-  Input
+  Input,
+  User
 } from '@nextui-org/react'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncUpdateProfile } from '@/states/profile/action'
-import { formatHtmlToTextPlaceholder } from '@/utils'
+// import UserImage from '@/assets/user-placeholder.jpg'
+// import { formatHtmlToTextPlaceholder } from '@/utils'
 
 const ProfileInput = ({ type }) => {
   const profile = useSelector((state) => state.profile)
   const authUser = useSelector((state) => state.authUser)
   const dispatch = useDispatch()
+  console.log(authUser)
 
   const [cvSelected, setCvSelected] = useState(false)
   const [profileImage, setProfileImage] = useState(
-    authUser.foto_url || 'https://i.pravatar.cc/300')
+    authUser.foto_url || null)
 
   const [formData, setFormData] = useState({
     name: profile.name,
@@ -33,7 +36,7 @@ const ProfileInput = ({ type }) => {
     file: null
   })
 
-  const placeholder = formatHtmlToTextPlaceholder(authUser.description)
+  const placeholder = authUser.description
   const formats = [
     'bold', 'italic', 'underline', 'strike',
     'align', 'size', 'header', 'color', 'background'
@@ -94,12 +97,25 @@ const ProfileInput = ({ type }) => {
         </CardHeader>
         <CardBody className="flex flex-col gap-10 h-fit">
           <div className="relative flex items-center justify-center mx-auto w-[150px] h-[150px] cursor-pointer">
-            <Image
+            {profileImage === null
+              ? (
+              <User
+                avatarProps={{
+                  isBordered: true,
+                  src: authUser.foto_url
+                }}
+                name={authUser.name}
+                className='flex flex-col'
+              />
+                )
+              : (
+              <Image
               radius={type === 'hire' ? 'none' : 'full'}
               src={profileImage}
               alt="Profile"
               className="cursor-pointer"
             />
+                )}
             <input
               type="file"
               accept="image/*"

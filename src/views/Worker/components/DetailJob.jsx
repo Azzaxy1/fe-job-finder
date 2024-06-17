@@ -10,18 +10,20 @@ import {
 import toast from 'react-hot-toast'
 import parse from 'html-react-parser'
 import PropTypes from 'prop-types'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { formatDate, formatRupiah } from '@/utils'
 
 import AboutCompany from './AboutCompany'
 import ButtonApply from './ButtonApply'
 import Company from '@/assets/company.png'
+import { asyncApplyJob } from '@/states/worker/action'
 
 const DetailJob = ({ jobId }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const [cvSelected, setCvSelected] = useState(false)
   const [data, setData] = useState(null)
   const jobs = useSelector((state) => state.worker)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const jobData = jobs.find((job) => job.id === jobId)
@@ -33,7 +35,7 @@ const DetailJob = ({ jobId }) => {
   }
 
   const handleApply = () => {
-    toast.success('Lamaran berhasil dikirim')
+    dispatch(asyncApplyJob({ id: data.id }))
     onOpenChange(false)
   }
 
@@ -65,7 +67,7 @@ const DetailJob = ({ jobId }) => {
                   {data.location} - <span className='font-semibold text-blue'>{data.type}</span>
                 </p>
               </div>
-              <ButtonApply onOpen={onOpen} onOpenChange={onOpenChange} isOpen={isOpen} handleApply={handleApply} handleFileChange={handleFileChange} cvSelected={cvSelected}/>
+              <ButtonApply data={data} onOpen={onOpen} onOpenChange={onOpenChange} isOpen={isOpen} handleApply={handleApply} handleFileChange={handleFileChange} cvSelected={cvSelected}/>
             </CardHeader>
             <CardBody className="flex flex-col border-t-2">
               <h2 className="text-base font-medium sm:text-xl text-blue">
