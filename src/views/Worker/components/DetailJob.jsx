@@ -76,7 +76,7 @@ const DetailJob = ({ jobId }) => {
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-sm text-gray-600">{formatDate(data.date)}</p>
+              <p className="text-sm text-gray-600">{formatDate(data.created_at)}</p>
             </CardFooter>
           </Card>
           <AboutCompany company={data.get_user} />

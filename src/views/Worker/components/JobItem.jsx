@@ -32,7 +32,7 @@ const JobItem = ({ job, onClick }) => {
         </div>
         <p className="text-sm py-2 border-t-2 text-[#6b7280]  px-5 w-full flex justify-end items-center gap-2">
           <MdOutlineWatchLater />
-          {formatDate(job.date)}
+          {formatDate(job.created_at)}
         </p>
       </Card>
     </section>
