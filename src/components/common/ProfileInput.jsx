@@ -45,7 +45,7 @@ const ProfileInput = ({ type }) => {
   const inputProfile = [
     { id: 1, name: 'name', placeholder: authUser.name, type: 'text', label: 'Name' },
     { id: 2, name: 'email', placeholder: authUser.email, type: 'email', label: 'Email' },
-    { id: 3, name: 'phone', placeholder: authUser.phone, type: 'number', label: 'Phone' },
+    { id: 3, name: 'phone', placeholder: authUser.phone, type: 'text', label: 'Phone' },
     { id: 4, name: 'address', placeholder: authUser.address === null ? '' : authUser.address, type: 'text', label: 'Address' }
   ]
 
