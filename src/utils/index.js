@@ -19,6 +19,14 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString('id-ID', options)
 }
 
+const formatRupiah = (number) => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0
+  }).format(number)
+}
+
 const formatHtmlToTextPlaceholder = (html) => {
   return html
     .replace(/<\/p>/g, '\n') // Replace paragraph end with new line
@@ -29,4 +37,4 @@ const formatHtmlToTextPlaceholder = (html) => {
     .trim() // Trim leading/trailing whitespace
 }
 
-export { truncateDescription, getMonthName, formatHtmlToTextPlaceholder, formatDate }
+export { truncateDescription, getMonthName, formatHtmlToTextPlaceholder, formatDate, formatRupiah }
