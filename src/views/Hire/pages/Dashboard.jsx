@@ -4,10 +4,10 @@ import ListChart from '../components/ListChart'
 import { useSelector } from 'react-redux'
 
 const Dashboard = () => {
-  const hire = useSelector((state) => state.hire)
+  const hire = useSelector((state) => state.hireDashboard)
   return (
     <HireLayout>
-      <div className='flex gap-5 w-full flex-wrap'>
+      <div className='flex gap-5 w-full lg:flex-row flex-col'>
         <ListChart title={'Pekerjaan'} data={hire}/>
         <ListChart title={'Pelamar'} data={hire}/>
       </div>

@@ -1,31 +1,35 @@
-import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardHeader, Input, Select, SelectItem } from '@nextui-org/react'
-import React, { useState } from 'react'
+import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Input, Select, SelectItem } from '@nextui-org/react'
+import React, { useEffect, useState } from 'react'
 import { useQuill } from 'react-quilljs'
 import { Link, useNavigate } from 'react-router-dom'
 import BackButton from '@/components/common/BackButton.jsx'
 import { typeJob } from '../index'
-import { useDispatch } from 'react-redux'
-import { asyncAddJob } from '@/states/hire/action'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncEditJob } from '@/states/hire/action'
+import PropTypes from 'prop-types'
+import { formatHtmlToTextPlaceholder } from '@/utils'
 
-const CreateJobForm = () => {
+const EditJobForm = ({ id }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const listJobHire = useSelector((state) => state.hireDashboardJob)
+  const job = listJobHire?.find((job) => job.id === parseInt(id))
+
   const [formData, setFormData] = useState({
-    title: '',
-    company: '',
-    location: '',
-    salarymin: '',
-    salarymax: '',
-    type: '',
-    description: ''
+    title: job?.title || '',
+    company: job?.company || '',
+    location: job?.company || '',
+    salarymin: job?.salarymin || '',
+    salarymax: job?.salarymax || '',
+    type: job?.type || '',
+    description: job?.description || ''
   })
 
-  const placeholder = formData.description
   const formats = [
     'bold', 'italic', 'underline', 'strike',
     'align', 'size', 'header', 'color', 'background'
   ]
-  const { quillRef } = useQuill({ formats, placeholder })
+  const { quillRef, quill } = useQuill({ formats })
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -38,12 +42,18 @@ const CreateJobForm = () => {
     setFormData({ ...formData, type: selectName.name })
   }
 
-  const onAddJobHandler = (e) => {
+  const onEditJobHandler = (e) => {
     e.preventDefault()
     const description = quillRef.current.firstChild.innerHTML
-    dispatch(asyncAddJob({ ...formData, description }, navigate))
+    dispatch(asyncEditJob({ ...formData, description, id: parseInt(id) }, navigate))
   }
 
+  useEffect(() => {
+    const description = formData.description ? formatHtmlToTextPlaceholder(formData.description) : formData.description
+    if (quill) {
+      quill.root.innerHTML = description
+    }
+  }, [quill])
   return (
     <section className='flex flex-col w-full min-h-screen gap-4 mb-10 text-fontColor'>
       <Breadcrumbs
@@ -62,10 +72,10 @@ const CreateJobForm = () => {
       <Card radius='sm' className='flex flex-col px-5 py-3 pb-4'>
         <CardHeader className='flex flex-col items-start justify-start gap-3'>
           <BackButton/>
-          <h2 className='text-lg font-semibold md:text-xl'>Buat Lowongan Pekerjaan</h2>
+          <h2 className='text-lg font-semibold md:text-xl'>Ubah Lowongan Pekerjaan</h2>
         </CardHeader>
         <CardBody className="flex flex-col gap-4">
-          <form className='flex flex-col gap-2' onSubmit={onAddJobHandler}>
+          <div className='flex flex-col gap-2'>
             <div>
               <Input
                 type={'text'}
@@ -137,7 +147,7 @@ const CreateJobForm = () => {
               <Select
                 label="Tipe"
                 variant='bordered'
-                placeholder='Pilih tipe pekerjaan'
+                placeholder={formData.type}
                 labelPlacement='outside'
                 radius='sm'
                 name='type'
@@ -151,18 +161,24 @@ const CreateJobForm = () => {
               </Select>
             <div>
               <label htmlFor="description">Deskripsi</label>
-              <div style={{ height: 200 }} className="w-full mt-2">
-                <div ref={quillRef}/>
+              <div className="w-full mt-2 h-[300px]">
+                <div ref={quillRef} style={{ border: '1px solid #ccc', overflow: 'auto' }}/>
               </div>
             </div>
-            <Button radius="sm" size='md' className="text-white bg-blue mt-16" type='submit'>
-              Tambah Pekerjaan
-            </Button>
-          </form>
+          </div>
         </CardBody>
+        <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">
+            <Button radius="sm" size='md' className="text-white bg-blue" onClick={onEditJobHandler}>
+              Ubah Pekerjaan
+            </Button>
+        </CardFooter>
       </Card>
     </section>
   )
 }
 
-export default CreateJobForm
+EditJobForm.propTypes = {
+  id: PropTypes.any.isRequired
+}
+
+export default EditJobForm

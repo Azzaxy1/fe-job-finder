@@ -1,13 +1,14 @@
 import React, { useMemo, useState } from 'react'
 import ItemJob from './ItemJob'
-import { listJobHire } from '@/utils/local-data'
 import { Button, Pagination } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Listjob = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const jobPerPage = 6
 
+  const listJobHire = useSelector((state) => state.hireDashboardJob)
   const totalPage = Math.ceil(listJobHire?.length / jobPerPage)
 
   const items = useMemo(() => {
@@ -29,7 +30,7 @@ const Listjob = () => {
           </Button>
       </div>
       <article className='flex flex-row flex-wrap w-full gap-4'>
-        {items.map((job, index) => (
+        {items?.map((job, index) => (
           <ItemJob key={index} job={job} />
         ))}
       </article>

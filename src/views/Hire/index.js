@@ -81,34 +81,19 @@ const users = [
   }
 ]
 
-const inputJob = [
-  {
-    id: 1,
-    label: 'Posisi',
-    type: 'text',
-    placeholder: 'Fullstack Developer'
-  },
-  {
-    id: 2,
-    label: 'Gaji',
-    type: 'text',
-    placeholder: 'Rp. 1.000.000 - Rp. 2.000.000'
-  }
-]
-
 const typeJob = [
   {
     id: 1,
-    name: 'Full time'
+    name: 'Full Time'
   },
   {
     id: 2,
-    name: 'Part time'
+    name: 'Part Time'
   },
   {
     id: 3,
-    name: 'Freelance'
+    name: 'Remote'
   }
 ]
 
-export { columns, users, inputJob, typeJob }
+export { columns, users, typeJob }

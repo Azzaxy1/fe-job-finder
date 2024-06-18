@@ -135,7 +135,7 @@ const getApplyJob = async () => {
   return { success, message, resource }
 }
 
-const getDashboardJob = async () => {
+const getDashboard = async () => {
   const response = await fetchWithToken(`${baseURL}/api/hire/jobs/dashboard`)
   const responseJson = await response.json()
 
@@ -143,4 +143,81 @@ const getDashboardJob = async () => {
   return resource
 }
 
-export { login, fetchWithToken, logout, updateProfile, applyJob, getApplyJob, getAllJob, putAccessToken, register, getUserLogged, getDashboardJob }
+const getDashboardJob = async () => {
+  const response = await fetchWithToken(`${baseURL}/api/hire/jobs`)
+  const responseJson = await response.json()
+
+  const { resource } = responseJson
+  return resource
+}
+
+const addJob = async ({ title, company, location, salarymin, salarymax, type, description }) => {
+  const response = await fetchWithToken(`${baseURL}/api/hire/jobs`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ title, company, location, salarymin, salarymax, type, description })
+  })
+
+  const responseJson = await response.json()
+  const { success, message, resource } = responseJson
+  if (!success) {
+    throw new Error(message)
+  }
+
+  return { message, success, resource }
+}
+
+const editJob = async ({ title, company, location, salarymin, salarymax, type, description, id }) => {
+  const response = await fetchWithToken(`${baseURL}/api/hire/jobs/${id}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ title, company, location, salarymin, salarymax, type, description })
+  })
+
+  const responseJson = await response.json()
+  const { success, message, resource } = responseJson
+  if (!success) {
+    throw new Error(message)
+  }
+
+  return { message, success, resource }
+}
+
+const deleteJob = async ({ id }) => {
+  const response = await fetchWithToken(`${baseURL}/api/hire/jobs/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+
+  const responseJson = await response.json()
+  const { success, message, resource } = responseJson
+  if (!success) {
+    throw new Error(message)
+  }
+
+  return { message, success, resource }
+}
+
+export {
+  login,
+  fetchWithToken,
+  logout,
+  updateProfile,
+  applyJob,
+  getApplyJob,
+  getAllJob,
+  putAccessToken,
+  register,
+  getUserLogged,
+  getDashboard,
+  getDashboardJob,
+  addJob,
+  editJob,
+  deleteJob
+}
