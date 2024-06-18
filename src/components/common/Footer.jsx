@@ -31,6 +31,9 @@ const Footer = () => {
             <li>
               <Link to="/tips">Tips Loker</Link>
             </li>
+            <li>
+              <Link to="/about-us">Tentang Kami</Link>
+            </li>
           </ul>
         </div>
         <div className="text-white">
