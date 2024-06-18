@@ -3,12 +3,13 @@ import { Card, CardBody, CardFooter, CardHeader, Image } from '@nextui-org/react
 import { FaGithub } from 'react-icons/fa'
 import { IoLogoLinkedin } from 'react-icons/io'
 import { Link } from 'react-router-dom'
+import Azis from '@/assets/azis.jpg'
 
 const AboutUs = () => {
   const profileDev = [
     {
       id: 1,
-      image: 'https://i.pravatar.cc/150?u=a04258114e29026702d',
+      image: Azis,
       name: 'Abdurrohman Azis',
       role: 'FrontEnd Developer',
       college: 'Universitas Banten Jaya',
@@ -47,9 +48,9 @@ const AboutUs = () => {
         <div className='w-[200px] h-[2px] mb-10 bg-blue'></div>
         <div className='flex flex-wrap items-center justify-center gap-5'>
         {profileDev.map((profile) => (
-          <Card key={profile.id} isHoverable radius='sm' className='w-[300px] h-[410px] px-2 py-2'>
+          <Card key={profile.id} isHoverable radius='sm' className='w-[300px] h-[415px] px-2 py-2'>
             <CardHeader className='flex justify-center w-full'>
-              <Image src='https://i.pravatar.cc/150?u=a04258114e29026702d' alt='avatar' radius='sm' width={200} height={200} />
+              <Image src={profile.image} className={`object-cover ${profile.image[0]}`} alt='avatar' radius='sm' width={200} height={200} />
             </CardHeader>
             <CardBody>
               <h2 className='text-xl font-semibold text-blue'>{profile.name}</h2>
