@@ -5,6 +5,7 @@ import { IoLogoLinkedin } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import Azis from '@/assets/azis.jpg'
 import Marcell from '@/assets/marcell.jpg'
+import Anwar from '@/assets/anwar.jpg'
 
 const AboutUs = () => {
   const profileDev = [
@@ -28,7 +29,7 @@ const AboutUs = () => {
     },
     {
       id: 3,
-      image: 'https://i.pravatar.cc/150?u=a04258114e29026702d',
+      image: Anwar,
       name: 'Muhammad Anwar Fauzan',
       role: 'BackEnd Developer',
       college: 'Universitas Banten Jaya',
