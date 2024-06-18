@@ -33,7 +33,7 @@ const AuthLayout = ({ children, type }) => {
         <title>{capitalizedPath} | Job Finder</title>
       </Helmet>
       <section className="lg:grid lg:min-h-screen lg:grid-cols-12">
-        <aside className="items-center justify-center hidden h-24 md:flex bg-blue lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
+        <aside className="items-center justify-center hidden h-24 md:flex bg-blue lg:order-last lg:col-span-6 lg:h-full xl:col-span-6">
           <img
             alt="auth image"
             src={authImage}
@@ -42,7 +42,7 @@ const AuthLayout = ({ children, type }) => {
           />
         </aside>
         <div
-          className={`flex flex-col items-center justify-center px-8 py-8 bg-white lg:py-0 lg:order-first lg:col-span-5 xl:col-span-6 ${
+          className={`flex flex-col items-center justify-center px-8 py-8 bg-white lg:py-0 lg:order-first lg:col-span-6 xl:col-span-6 ${
             type === 'register' && 'mt-8'
           }`}
         >
