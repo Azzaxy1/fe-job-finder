@@ -11,13 +11,13 @@ import { Image } from '@nextui-org/react'
 import { asyncGetAllJob } from '@/states/worker/action'
 
 const JobItem = lazy(() =>
-  new Promise((resolve) => setTimeout(resolve, 2000)).then(() =>
+  new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import('../components/JobItem')
   )
 )
 
 const DetailJob = lazy(() =>
-  new Promise((resolve) => setTimeout(resolve, 2000)).then(() =>
+  new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
     import('../components/DetailJob')
   )
 )

@@ -24,6 +24,16 @@ const SkeletonPreview = ({ type }) => {
         <SkeletonType variant="detail" />
       </section>
     )}
+    {type === 'hire' && (
+      <section className='flex flex-row flex-wrap gap-2'>
+        <SkeletonType variant="hire" />
+        <SkeletonType variant="hire" />
+        <SkeletonType variant="hire" />
+        <SkeletonType variant="hire" />
+        <SkeletonType variant="hire" />
+        <SkeletonType variant="hire" />
+      </section>
+    )}
   </>
   )
 }

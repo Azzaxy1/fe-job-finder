@@ -97,6 +97,29 @@ export default function SkeletonType ({ variant }) {
           </Card>
         </section>
       )}
+      {variant === 'hire' && (
+        <section className="flex flex-col gap-4">
+          <div className="max-w-[500px]  bg-red-100 w-full flex gap-3">
+            <Card className=" w-[280px] h-[200px] md:w-[430px] 2xl:w-[900px]" radius="sm">
+              <section className="flex flex-col gap-4">
+                <div className="max-w-[700px] mx-auto w-full flex p-7 justify-center items-center gap-3">
+                  <div className="flex flex-col w-full gap-2">
+                    <Skeleton className="w-3/5 h-3 rounded-lg" />
+                    <Skeleton className="w-3/5 h-3 rounded-lg" />
+                    <div className='flex flex-col gap-3 py-8'>
+                      <Skeleton className="w-4/5 h-3 rounded-lg" />
+                      <Skeleton className="w-1/3 h-3 rounded-lg" />
+                    </div>
+                    <div className="flex justify-end">
+                      <Skeleton className="w-1/3 h-3 rounded-lg" />
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </Card>
+          </div>
+        </section>
+      )}
     </>
   )
 }

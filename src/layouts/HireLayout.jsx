@@ -80,7 +80,7 @@ const HireLayout = ({ children }) => {
               <li>
                 <Link
                   to="/hire-dashboard"
-                  className={`flex items-center justify-center p-2 text-white hover:bg-[#0284c7] group ${
+                  className={`flex items-center justify-start pl-8 p-2 text-white hover:bg-[#0284c7] group ${
                     location.pathname === '/hire-dashboard' && 'bg-[#0284c7]'
                   }`}
                 >
@@ -93,7 +93,7 @@ const HireLayout = ({ children }) => {
               <li>
                 <Link
                   to="/manage-jobs"
-                  className={`flex items-center justify-center p-2 text-white hover:bg-[#0284c7] group ${
+                  className={`flex items-center justify-start pl-8 p-2 text-white hover:bg-[#0284c7] group ${
                     location.pathname === '/manage-jobs' && 'bg-[#0284c7]'
                   }`}
                 >
@@ -106,7 +106,7 @@ const HireLayout = ({ children }) => {
               <li>
                 <Link
                   to="/manage-applyer"
-                  className={`flex items-center justify-center p-2 text-white hover:bg-[#0284c7] group ${
+                  className={`flex items-center justify-start pl-8 p-2 text-white hover:bg-[#0284c7] group ${
                     location.pathname === '/manage-applyer' && 'bg-[#0284c7]'
                   }`}
                 >
