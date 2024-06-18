@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import { Button, Input } from '@nextui-org/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { loginSchema } from '../validation'
+import { useDispatch } from 'react-redux'
+import { asyncLogin } from '@/states/auth/action'
 
 const LoginForm = () => {
+  const [loading, setLoading] = useState(false)
   const [isPasswordVisible, setPasswordVisible] = useState(false)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -21,14 +26,18 @@ const LoginForm = () => {
     setPasswordVisible(!isPasswordVisible)
   }
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onLoginHandler = async ({ email, password }) => {
+    setLoading(true)
+    const success = await dispatch(asyncLogin({ email, password }, navigate))
+    if (!success) {
+      setLoading(false)
+    }
   }
 
   return (
     <section className="flex items-center justify-center px-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
-        <form onSubmit={handleSubmit(onSubmit)} className="px-8  bg-white w-[380px] lg:w-[460px]">
+        <form onSubmit={handleSubmit(onLoginHandler)} className="px-8  bg-white w-[380px] lg:w-[460px]">
           <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
             Masuk
           </h1>
@@ -55,20 +64,12 @@ const LoginForm = () => {
             <p className='text-sm text-red-500 2xl:text-base'>{errors.email?.message}</p>
           </div>
           <div className="mb-8">
-            <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
                 className="block mb-2 text-[#3C3C3C] text-sm font-normal leading-4 lg:text-sm"
               >
                 Password
               </label>
-              <Link
-                to="/set-password"
-                className="text-sm font-medium lg:text-base hover:underline text-blue"
-              >
-                Lupa Kata Sandi
-              </Link>
-            </div>
             <Input
               {...register('password')}
               type={isPasswordVisible ? 'text' : 'password'}
@@ -87,6 +88,7 @@ const LoginForm = () => {
             <p className='text-sm text-red-500 2xl:text-base'>{errors.password?.message}</p>
           </div>
           <Button
+            isLoading={loading}
             type='submit'
             size="md"
             variant="solid"

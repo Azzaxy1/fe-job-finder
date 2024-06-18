@@ -9,9 +9,8 @@ import {
 } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import ImageCompany from '@/assets/landing/company/company4.svg'
 
-const DropdownProfile = ({ type }) => {
+const DropdownProfile = ({ type, authUser, onLogout, authHire }) => {
   return (
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
@@ -19,15 +18,15 @@ const DropdownProfile = ({ type }) => {
           ? (
           <div className="flex flex-row items-center gap-4">
             <Avatar
-              src={ImageCompany}
+              src={authHire.foto_url}
               isBordered
               as="button"
               radius="sm"
               className="transition-transform w-28"
-              name="PT.ABC"
+              name={authHire.name}
               size="md"
             />
-            <p>Hangry Indonesia</p>
+            <p>{authHire.name}</p>
           </div>
             )
           : (
@@ -35,10 +34,10 @@ const DropdownProfile = ({ type }) => {
             as="button"
             avatarProps={{
               isBordered: true,
-              src: 'https://i.pravatar.cc/300'
+              src: authUser.foto_url
             }}
-            description="johndoe@example.com"
-            name="John Doe"
+            description={authUser.email}
+            name={authUser.name}
           />
             )}
       </DropdownTrigger>
@@ -50,7 +49,7 @@ const DropdownProfile = ({ type }) => {
         <DropdownItem key="user" textValue="user" className="gap-2 text-black">
           <p className="font-semibold">Masuk sebagai</p>
           <p className="font-semibold">
-            {type === 'user' ? 'John Doe' : 'Hangry Indonesia'}
+            {type === 'user' ? authUser.name : authHire.name}
           </p>
         </DropdownItem>
         <DropdownItem
@@ -67,6 +66,7 @@ const DropdownProfile = ({ type }) => {
           textValue="logout"
           color="danger"
           className="text-danger"
+          onClick={onLogout}
         >
           <Link to="/login">Logout</Link>
         </DropdownItem>
@@ -76,7 +76,10 @@ const DropdownProfile = ({ type }) => {
 }
 
 DropdownProfile.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  authUser: PropTypes.object,
+  authHire: PropTypes.object,
+  onLogout: PropTypes.func
 }
 
 export default DropdownProfile

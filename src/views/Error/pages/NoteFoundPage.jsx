@@ -1,8 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const NoteFoundPage = () => {
+  const authuser = useSelector((states) => states.authUser)
   return (
     <>
       <Helmet>
@@ -15,7 +17,7 @@ const NoteFoundPage = () => {
           </h1>
           <p className="text-lg font-semibold">Halaman tidak ditemukan...</p>
           <Link
-            to="/"
+            to={authuser.role === 'worker' ? '/' : '/hire-dashboard'}
             className="px-6 py-3 text-lg font-semibold text-white rounded-lg bg-blue"
           >
             Kembali ke halaman utama

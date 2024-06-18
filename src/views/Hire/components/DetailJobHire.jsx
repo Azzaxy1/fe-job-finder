@@ -9,7 +9,6 @@ import BackButton from '@/components/common/BackButton'
 const DetailJobHire = () => {
   const { id } = useParams()
   const job = listJobHire.find((job) => job.id === parseInt(id))
-  console.log(job)
 
   if (!job) {
     return (
