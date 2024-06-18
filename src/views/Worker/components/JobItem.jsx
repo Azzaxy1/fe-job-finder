@@ -6,6 +6,7 @@ import { formatDate, formatRupiah } from '@/utils'
 import Company from '@/assets/company.png'
 
 const JobItem = ({ job, onClick }) => {
+  console.log(job)
   return (
     <section className="flex flex-col pb-3">
       <Card
