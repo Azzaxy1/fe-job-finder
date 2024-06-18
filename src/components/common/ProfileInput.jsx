@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuill } from 'react-quilljs'
 import {
   Button,
@@ -14,7 +14,7 @@ import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncUpdateProfile } from '@/states/profile/action'
 // import UserImage from '@/assets/user-placeholder.jpg'
-// import { formatHtmlToTextPlaceholder } from '@/utils'
+import { formatHtmlToTextPlaceholder } from '@/utils'
 
 const ProfileInput = ({ type }) => {
   const profile = useSelector((state) => state.profile)
@@ -35,13 +35,11 @@ const ProfileInput = ({ type }) => {
     file: null
   })
 
-  const placeholder = authUser.description
   const formats = [
     'bold', 'italic', 'underline', 'strike',
     'align', 'size', 'header', 'color', 'background'
   ]
-  const { quillRef } = useQuill({ formats, placeholder })
-
+  const { quillRef, quill } = useQuill({ formats })
   const inputProfile = [
     { id: 1, name: 'name', placeholder: authUser.name, type: 'text', label: 'Name' },
     { id: 2, name: 'email', placeholder: authUser.email, type: 'email', label: 'Email' },
@@ -76,6 +74,13 @@ const ProfileInput = ({ type }) => {
     const description = quillRef.current.firstChild.innerHTML
     dispatch(asyncUpdateProfile({ ...formData, description }))
   }
+
+  useEffect(() => {
+    const description = formatHtmlToTextPlaceholder(authUser.description)
+    if (quill) {
+      quill.root.innerHTML = description
+    }
+  }, [quill])
 
   return (
     <section
