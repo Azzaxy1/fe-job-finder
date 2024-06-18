@@ -4,6 +4,7 @@ import { FaGithub } from 'react-icons/fa'
 import { IoLogoLinkedin } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import Azis from '@/assets/azis.jpg'
+import Marcell from '@/assets/marcell.jpg'
 
 const AboutUs = () => {
   const profileDev = [
@@ -18,7 +19,7 @@ const AboutUs = () => {
     },
     {
       id: 2,
-      image: 'https://i.pravatar.cc/150?u=a04258114e29026702d',
+      image: Marcell,
       name: 'Marcell Virgiano Hernand',
       role: 'FrontEnd Developer',
       college: 'Universitas Telkom',
