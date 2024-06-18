@@ -13,7 +13,7 @@ const AboutUs = () => {
       id: 1,
       image: Azis,
       name: 'Abdurrohman Azis',
-      role: 'FrontEnd Developer',
+      role: 'Front-End Developer',
       college: 'Universitas Banten Jaya',
       github: 'https://github.com/azzaxy1',
       linkedIn: 'https://www.linkedin.com/in/AbdurrohmanAzis/'
@@ -22,7 +22,7 @@ const AboutUs = () => {
       id: 2,
       image: Marcell,
       name: 'Marcell Virgiano Hernand',
-      role: 'FrontEnd Developer',
+      role: 'Project Manager',
       college: 'Universitas Telkom',
       github: 'https://github.com/aclrdhv',
       linkedIn: 'https://www.linkedin.com/in/marcellv/'
@@ -31,7 +31,7 @@ const AboutUs = () => {
       id: 3,
       image: Anwar,
       name: 'Muhammad Anwar Fauzan',
-      role: 'BackEnd Developer',
+      role: 'Back-End Developer',
       college: 'Universitas Banten Jaya',
       github: 'https://github.com/Anuraaaa',
       linkedIn: 'https://www.linkedin.com/in/anwarfauzann/'
