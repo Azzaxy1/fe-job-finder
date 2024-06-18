@@ -14,6 +14,7 @@ import WorkerProfilePage from './views/Worker/pages/WorkerProfilePage'
 import DetailJobPage from './views/Hire/pages/DetailJobPage'
 import CreateJobPage from './views/Hire/pages/CreateJobPage'
 import ManageApplyer from './views/Hire/pages/ManageApplyer'
+import AboutUsPage from './views/Landing/pages/AboutUsPage'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncIsLoadingProccess } from './states/loading/action'
 import { Spinner } from '@nextui-org/react'
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="tips" element={<TipsPage />} />
           <Route path="tips/:id" element={<DetailTips />} />
           <Route path="profile" element={<WorkerProfilePage />} />
+          <Route path='about-us' element={<AboutUsPage />} />
           </Route>
         </>
       )}

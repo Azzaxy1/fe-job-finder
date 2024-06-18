@@ -30,9 +30,11 @@ const Header = () => {
     navigate('/login')
   }
 
-  const menuItems = ['Beranda', 'Lowongan', 'Tips Loker']
+  const pathName = location.pathname
 
-  const pathMenu = ['/', '/jobs', '/tips']
+  const menuItems = ['Beranda', 'Lowongan', 'Tips Loker', 'Tentang Kami']
+
+  const pathMenu = ['/', '/jobs', '/tips', '/about-us']
 
   return (
     <Navbar
@@ -56,8 +58,8 @@ const Header = () => {
           {menuItems.map((item, index) => (
             <Link
               className={`font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] &&
-                'text-blue-600 font-bold'
+                pathName === pathMenu[index] &&
+                'text-blue-500 underline font-bold'
               }`}
               to={pathMenu[index]}
               key={item}
@@ -99,7 +101,7 @@ const Header = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={`w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] && 'text-blue-600'
+                pathName === pathMenu[index] && 'text-blue-500 underline'
               }`}
               to={pathMenu[index]}
             >

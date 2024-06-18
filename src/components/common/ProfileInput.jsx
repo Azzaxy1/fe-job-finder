@@ -13,7 +13,6 @@ import {
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncUpdateProfile } from '@/states/profile/action'
-// import UserImage from '@/assets/user-placeholder.jpg'
 import { formatHtmlToTextPlaceholder } from '@/utils'
 
 const ProfileInput = ({ type }) => {
