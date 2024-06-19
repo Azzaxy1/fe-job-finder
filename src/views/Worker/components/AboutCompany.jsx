@@ -1,22 +1,22 @@
 import React from 'react'
 import {
-  Button,
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
   Image
 } from '@nextui-org/react'
 import PropTypes from 'prop-types'
+import Company from '@/assets/company.png'
+import parse from 'html-react-parser'
 
 const AboutCompany = ({ company }) => {
   return (
     <Card radius="sm" className="px-3">
       <CardHeader className="flex flex-col items-start gap-2 ">
         <h2 className="text-lg font-semibold text-blue">Tentang Perusahaan</h2>
-        <div className="flex flex-row items-center gap-6">
-          <Image src={company.image} />
-          <div>
+        <div className="flex flex-row items-center justify-start w-full gap-4">
+            <Image src={company.foto_url === null ? Company : company.foto_url} radius='none' width={100} className='object-cover' />
+          <div >
             <p className="text-sm font-semibold sm:text-lg text-fontColor">
               {company.name}
             </p>
@@ -26,30 +26,14 @@ const AboutCompany = ({ company }) => {
           </div>
         </div>
       </CardHeader>
-      <CardBody>
-        <h4 className="text-sm font-semibold sm:text-base text-fontColor">
-          Industri
-        </h4>
-        <p className="text-sm font-normal text-gray-600 2xl:text-base">
-          {company.industry}
-        </p>
-      </CardBody>
-      <CardFooter className="flex flex-col items-start">
+      <CardBody className="flex flex-col items-start">
         <h4 className="text-sm font-semibold sm:text-base text-fontColor">
           Deskripsi Perusahaan
         </h4>
         <p className="text-sm font-normal text-gray-600 2xl:text-base">
-          {company.description}
+          {parse(company.description)}
         </p>
-        <div className="mx-auto mt-4">
-          <Button
-            variant="bordered"
-            className="font-semibold text-blue border-blue hover:bg-blue hover:text-white"
-          >
-            Lihat Perusahaan
-          </Button>
-        </div>
-      </CardFooter>
+      </CardBody>
     </Card>
   )
 }

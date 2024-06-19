@@ -1,15 +1,28 @@
 import React from 'react'
 import HireLayout from '@/layouts/HireLayout'
-import { listJobHire } from '@/utils/local-data'
-import { BreadcrumbItem, Breadcrumbs, Card, CardBody, CardFooter, CardHeader, Divider } from '@nextui-org/react'
-import { Link, useParams } from 'react-router-dom'
+import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Divider } from '@nextui-org/react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import parse from 'html-react-parser'
 import BackButton from '@/components/common/BackButton'
+import { useDispatch, useSelector } from 'react-redux'
+import { formatDate, formatRupiah } from '@/utils'
+import { FaPencilAlt, FaTrash } from 'react-icons/fa'
+import { asyncDeleteJob } from '@/states/hire/action'
 
 const DetailJobHire = () => {
   const { id } = useParams()
-  const job = listJobHire.find((job) => job.id === parseInt(id))
-  console.log(job)
+  const listJobHire = useSelector((state) => state.hireDashboardJob)
+  const job = listJobHire?.find((job) => job.id === parseInt(id))
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleClickEdit = () => {
+    navigate(`/edit-job/${job.id}`)
+  }
+
+  const handleClickDelete = () => {
+    dispatch(asyncDeleteJob({ id }, navigate))
+  }
 
   if (!job) {
     return (
@@ -40,19 +53,29 @@ const DetailJobHire = () => {
           </BreadcrumbItem>
         </Breadcrumbs>
         <Card radius='sm' className='flex flex-col px-5 py-3'>
-          <CardHeader>
+          <CardHeader className='flex justify-between'>
             <BackButton/>
+            <div className='flex gap-3'>
+              <Button className='flex flex-row items-center font-semibold text-white bg-yellow-600' onClick={handleClickEdit}>
+                <FaPencilAlt/>
+                Edit
+              </Button>
+              <Button className='flex flex-row items-center font-semibold text-white bg-red-600' onClick={handleClickDelete}>
+                <FaTrash/>
+                Hapus
+              </Button>
+            </div>
           </CardHeader>
           <CardBody className='flex flex-row items-center justify-between gap-1'>
             <div className='flex flex-col items-start gap-1'>
               <h1 className="text-lg font-semibold sm:text-xl md:text-2xl 2xl:text-4xl">
               {job.title}
               </h1>
-              <p className="text-sm text-green-500 sm:text-base">{job.salary}</p>
               <p className="text-sm text-[#6b7280] sm:text-base">{job.type}</p>
+              <p className="text-sm text-green-500 sm:text-base">{formatRupiah(job.salarymin)} - {formatRupiah(job.salarymax)}</p>
             </div>
             <div>
-              <p className="text-sm text-[#6b7280] sm:text-base">{job.date}</p>
+              <p className="text-sm text-[#6b7280] sm:text-base">{formatDate(job.created_at)}</p>
             </div>
           </CardBody>
           <Divider/>

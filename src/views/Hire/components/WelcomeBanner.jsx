@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 function WelcomeBanner () {
+  const authUser = useSelector((states) => states.authUser)
+
   return (
     <div className="relative p-4 mb-8 overflow-hidden rounded-sm bg-blue sm:p-6">
       {/* Background illustration */}
@@ -69,7 +72,7 @@ function WelcomeBanner () {
       {/* Content */}
       <div className="relative">
         <h1 className="mb-1 text-2xl font-bold text-white md:text-3xl ">
-          Selamat Datang, Hangry Indonesia. 👋
+          Selamat Datang, {authUser?.name}. 👋
         </h1>
         <p className="text-white">
           Inilah yang terjadi dengan Informasi Perusahaan Anda hari ini:

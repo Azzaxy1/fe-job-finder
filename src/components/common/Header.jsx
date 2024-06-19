@@ -10,19 +10,31 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle
 } from '@nextui-org/react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import Logo from '@/assets/logo-blue.svg'
 import DropdownProfile from './DropdownProfile'
+import { useDispatch, useSelector } from 'react-redux'
+import { asyncLogout } from '@/states/auth/action'
 
 const Header = () => {
   const [isMenuOpen, SetIsMenuOpen] = useState(false)
-  const [token, setToken] = useState(true)
+  const dispatch = useDispatch()
   const location = useLocation()
+  const navigate = useNavigate()
 
-  const menuItems = ['Beranda', 'Lowongan', 'Tips Loker']
+  const authUser = useSelector((states) => states.authUser)
 
-  const pathMenu = ['/', '/jobs', '/tips']
+  const onLogoutHandler = () => {
+    dispatch(asyncLogout())
+    navigate('/login')
+  }
+
+  const pathName = location.pathname
+
+  const menuItems = ['Beranda', 'Lowongan', 'Tips Loker', 'Tentang Kami']
+
+  const pathMenu = ['/', '/jobs', '/tips', '/about-us']
 
   return (
     <Navbar
@@ -46,8 +58,8 @@ const Header = () => {
           {menuItems.map((item, index) => (
             <Link
               className={`font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] &&
-                'text-blue-600 font-bold'
+                pathName === pathMenu[index] &&
+                'text-blue-500 underline font-bold'
               }`}
               to={pathMenu[index]}
               key={item}
@@ -58,7 +70,7 @@ const Header = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        {!token
+        {authUser === null
           ? (
           <div className="flex items-center gap-4">
             <NavbarItem>
@@ -81,7 +93,7 @@ const Header = () => {
           </div>
             )
           : (
-          <DropdownProfile type="user" />
+          <DropdownProfile type="user" onLogout={onLogoutHandler} authUser={authUser} />
             )}
       </NavbarContent>
       <NavbarMenu className="flex items-center justify-center">
@@ -89,7 +101,7 @@ const Header = () => {
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
               className={`w-full font-medium text-fontColor hover:text-blue-hover hover:underline hover:underline-offset-8 ${
-                location.pathname === pathMenu[index] && 'text-blue-600'
+                pathName === pathMenu[index] && 'text-blue-500 underline'
               }`}
               to={pathMenu[index]}
             >

@@ -25,7 +25,7 @@ const registerSchema = yup.object({
     .email('Masukkan email yang valid')
     .required('Email harus diisi'),
   phone: yup
-    .number()
+    .string()
     .typeError('Nomor Telepon harus berupa angka')
     .required('Nomor Telepon harus diisi'),
   password: yup

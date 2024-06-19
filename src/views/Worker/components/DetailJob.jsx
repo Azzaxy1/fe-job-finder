@@ -1,80 +1,111 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Card,
   CardBody,
   CardFooter,
   CardHeader,
+  Chip,
   Image,
   useDisclosure
 } from '@nextui-org/react'
-import toast from 'react-hot-toast'
 import parse from 'html-react-parser'
-import { data, user } from '@/utils/local-data'
+import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
+import { formatDate, formatRupiah } from '@/utils'
 
-import Company1 from '@/assets/landing/company/company1.svg'
 import AboutCompany from './AboutCompany'
 import ButtonApply from './ButtonApply'
+import Company from '@/assets/company.png'
+import { asyncApplyJob } from '@/states/applyJob/action'
 
-const DetailJob = () => {
+const statusColorMap = {
+  pending: 'danger',
+  accept: 'success',
+  rejected: 'warning'
+}
+
+const DetailJob = ({ jobId }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const [cvSelected, setCvSelected] = useState(false)
+  const [data, setData] = useState(null)
+  const jobs = useSelector((state) => state.worker)
+  const applyJob = useSelector((state) => state.applyJob)
+  const job = applyJob.find((job) => job.id_job === jobId)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const jobData = jobs.find((job) => job.id === jobId)
+    setData(jobData)
+  }, [jobs, jobId])
 
   const handleFileChange = (e) => {
     e.target.files.length > 0 ? setCvSelected(true) : setCvSelected(false)
   }
 
   const handleApply = () => {
-    toast.success('Lamaran berhasil dikirim')
+    dispatch(asyncApplyJob({ id: data.id }))
     onOpenChange(false)
   }
 
   return (
     <>
-      {data.map((data, index) => (
-        <section key={index} className="flex flex-col w-full gap-4 pl-4">
+      {data && (
+        <section className="flex flex-col w-full gap-4 pl-4 ">
           <Card radius="sm" className="w-full px-3 pt-2">
-            <CardHeader className="flex flex-col items-center gap-6 md:justify-center md:flex-row">
-              <div className="me-auto">
+            <CardHeader className="flex flex-col items-center gap-6 md:justify-start md:flex-row">
+              <div>
                 <Image
-                  src={Company1}
+                  src={data.get_user.foto_url === null ? Company : data.get_user.foto_url}
                   alt="image"
                   radius="none"
+                  width={100}
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col me-auto md:-ml-28">
-                <h2 className="text-base font-medium sm:text-lg">
-                  {data.job.title}
-                </h2>
+              <div className="flex flex-col">
+                <div className='flex items-center gap-3'>
+                  <h2 className="text-base font-medium sm:text-lg">
+                    {data.title}
+                  </h2>
+                  {job &&
+                  <Chip className="text-sm capitalize" radius='sm' color={statusColorMap[job.status]} size="sm" variant="flat">
+                    {job.status}
+                  </Chip>
+                  }
+                </div>
                 <h4 className="text-sm sm:text-base text-blue">
-                  {data.job.company}
+                  {data.company}
                 </h4>
                 <p className="text-sm text-green-500 sm:text-base">
-                  {data.job.salary}
+                  {formatRupiah(data.salarymin)} - {formatRupiah(data.salarymax)}
                 </p>
                 <p className="text-sm sm:text-base">
-                  {data.job.location} - {data.job.type}
+                  {data.location} - <span className='font-semibold text-blue'>{data.type}</span>
                 </p>
               </div>
-              <ButtonApply data={data} user={user} onOpen={onOpen} onOpenChange={onOpenChange} isOpen={isOpen} handleApply={handleApply} handleFileChange={handleFileChange} cvSelected={cvSelected}/>
+              <ButtonApply data={data} onOpen={onOpen} onOpenChange={onOpenChange} isOpen={isOpen} handleApply={handleApply} handleFileChange={handleFileChange} cvSelected={cvSelected}/>
             </CardHeader>
             <CardBody className="flex flex-col border-t-2">
               <h2 className="text-base font-medium sm:text-xl text-blue">
                 Informasi Pekerjaan
               </h2>
               <div className="flex flex-col gap-2 pt-2">
-                <div>{parse(data.job.description)}</div>
+                <div>{parse(data.description)}</div>
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-sm text-gray-600">{data.job.date}</p>
+              <p className="text-sm text-gray-600">{formatDate(data.created_at)}</p>
             </CardFooter>
           </Card>
-          <AboutCompany company={data.company} />
+          <AboutCompany company={data.get_user} />
         </section>
-      ))}
+      )}
     </>
   )
+}
+
+DetailJob.propTypes = {
+  jobId: PropTypes.number
 }
 
 export default DetailJob

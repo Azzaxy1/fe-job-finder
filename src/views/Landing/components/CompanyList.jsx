@@ -62,7 +62,7 @@ const CompanyList = () => {
         ))}
       </article>
       <Button className="font-semibold text-white bg-blue">
-        <Link to="/login">Ayo Mulai Sekarang</Link>
+        <Link to="/jobs">Ayo Mulai Sekarang</Link>
       </Button>
     </section>
   )

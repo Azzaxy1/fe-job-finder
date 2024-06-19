@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import { Button, Input } from '@nextui-org/react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { registerSchema } from '../validation'
+import { useDispatch } from 'react-redux'
+import { asyncRegister } from '@/states/auth/action'
 
 const RegisterForm = () => {
-  const [role, setRole] = useState('User')
+  const [loading, setLoading] = useState(false)
+  const [role, setRole] = useState('worker')
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [isConfirmVisible, setIsConfirmVisible] = useState(false)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -22,7 +27,7 @@ const RegisterForm = () => {
   })
 
   const handleRole = () => {
-    role === 'User' ? setRole('Perusahaan') : setRole('User')
+    role === 'worker' ? setRole('hire') : setRole('worker')
   }
 
   const handlePasswordVisible = () => {
@@ -39,14 +44,18 @@ const RegisterForm = () => {
     trigger('confirmPassword')
   }
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onRegisterHandler = async (data) => {
+    setLoading(true)
+    const success = await dispatch(asyncRegister({ ...data, role }, navigate))
+    if (!success) {
+      setLoading(false)
+    }
   }
 
   return (
     <section className="flex items-center justify-center px-8 pb-8 sm:px-12 lg:col-span-7 lg:px-16 xl:col-span-6">
       <div className="max-w-xl lg:max-w-3xl">
-        <form onSubmit={handleSubmit(onSubmit)} className="px-8  bg-white w-[380px] lg:w-[460px]">
+        <form onSubmit={handleSubmit(onRegisterHandler)} className="px-8  bg-white w-[380px] lg:w-[460px]">
           <div className="pt-4 text-sm text-center">
             Daftar sebagai :{' '}
             <Button
@@ -54,7 +63,7 @@ const RegisterForm = () => {
               onClick={handleRole}
               className="text-white bg-blue"
             >
-              {role === 'User' ? 'Penyedia Loker' : 'Pencari Loker'}
+              {role === 'worker' ? 'Penyedia Loker' : 'Pencari Loker'}
             </Button>
           </div>
           <h1 className="mb-2 text-2xl font-bold leading-9 md:text-2xl xl:text-3xl text-blue">
@@ -188,6 +197,7 @@ const RegisterForm = () => {
             </span>
           </div>
           <Button
+            isLoading={loading}
             type='submit'
             variant="solid"
             size="md"
@@ -196,7 +206,6 @@ const RegisterForm = () => {
             Daftar
           </Button>
         </form>
-
         <div className="mt-6 text-center">
           <span className="text-sm font-normal text-center lg:text-base">
             Sudah punya akun?&nbsp;

@@ -3,8 +3,7 @@ import { Button } from '@nextui-org/react'
 
 import HeroImage from '@/assets/landing/hero.svg'
 import Shape from '@/assets/landing/shape.svg'
-import SearchJobs from '@/components/common/SearchJobs'
-import SearchLocation from '@/components/common/SearchLocation'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -18,11 +17,9 @@ const Hero = () => {
           Temukan pekerjaan yang akan Anda sukai.
         </p>
         <div className="flex flex-col gap-4 md:flex-row">
-          <SearchJobs />
-          <SearchLocation />
-          <Button radius="sm" className="text-white bg-blue">
-            Cari
-          </Button>
+          <Link to="/jobs">
+            <Button radius='sm' className='text-white bg-blue '>Mulai Pencarian Sekarang</Button>
+          </Link>
         </div>
       </article>
       <article className="flex w-full h-full">
