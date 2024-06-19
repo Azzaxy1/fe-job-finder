@@ -1,4 +1,4 @@
-import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardHeader, Input, Select, SelectItem } from '@nextui-org/react'
+import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Input, Select, SelectItem } from '@nextui-org/react'
 import React, { useState } from 'react'
 import { useQuill } from 'react-quilljs'
 import { Link, useNavigate } from 'react-router-dom'
@@ -65,7 +65,7 @@ const CreateJobForm = () => {
           <h2 className='text-lg font-semibold md:text-xl'>Buat Lowongan Pekerjaan</h2>
         </CardHeader>
         <CardBody className="flex flex-col gap-4">
-          <form className='flex flex-col gap-2' onSubmit={onAddJobHandler}>
+          <div className='flex flex-col gap-2'>
             <div>
               <Input
                 type={'text'}
@@ -155,11 +155,13 @@ const CreateJobForm = () => {
                 <div ref={quillRef}/>
               </div>
             </div>
-            <Button radius="sm" size='md' className="text-white bg-blue mt-16" type='submit'>
+          </div>
+        </CardBody>
+        <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">
+            <Button radius="sm" size='md' className="text-white bg-blue" onClick={onAddJobHandler}>
               Tambah Pekerjaan
             </Button>
-          </form>
-        </CardBody>
+        </CardFooter>
       </Card>
     </section>
   )
