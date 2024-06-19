@@ -10,7 +10,7 @@ const ItemJob = ({ job }) => {
   return (
     <section>
       <Link to={`/manage-jobs/${job.id}`}>
-        <Card radius='sm' className="w-full md:max-w-[450px] 2xl:max-w-[510px] transition-transform ease-in-out duration-300 hover:scale-105 transform cursor-pointer">
+        <Card radius='sm' className="w-[100%] md:w-[430px] 2xl:w-[495px] transition-transform ease-in-out duration-300 hover:scale-105 transform cursor-pointer">
           <CardHeader className="flex gap-3">
             <div className="flex flex-col">
               <h2 className="text-base font-medium sm:text-lg">

@@ -1,8 +1,14 @@
-import React, { useMemo, useState } from 'react'
-import ItemJob from './ItemJob'
+import React, { Suspense, useMemo, useState, lazy } from 'react'
+import { useSelector } from 'react-redux'
+import SkeletonPreview from '@/components/ui/SkeletonPreview'
 import { Button, Pagination } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+
+const ItemJob = lazy(() =>
+  new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
+    import('./ItemJob')
+  )
+)
 
 const Listjob = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -29,10 +35,21 @@ const Listjob = () => {
             <Link to="/create-job">Tambah Pekerjaan</Link>
           </Button>
       </div>
-      <article className='flex flex-row flex-wrap w-full gap-4'>
-        {items?.map((job, index) => (
-          <ItemJob key={index} job={job} />
-        ))}
+      <article className='flex flex-col flex-wrap w-full gap-4 md:flex-row'>
+        <Suspense fallback={<SkeletonPreview type="hire" />}>
+          {listJobHire.length === 0
+            ? (
+            <p className="flex items-center justify-center">Tidak ada Lowongan Pekerjaan yang ditemukan</p>
+              )
+            : (
+                (
+                  items.map((job, index) => (
+            <ItemJob key={index} job={job} />
+                  ))
+                )
+              )
+          }
+        </Suspense>
       </article>
       <Pagination
       isCompact
