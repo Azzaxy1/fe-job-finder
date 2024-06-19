@@ -7,12 +7,6 @@ const ActionType = {
   GET_ALL_APPLY_JOB: 'GET_ALL_APPLY_JOB'
 }
 
-const applyJobActionCreator = () => {
-  return {
-    type: ActionType.APPLY_JOB
-  }
-}
-
 const getApplyJobActionCreator = (resource) => {
   return {
     type: ActionType.GET_APPLY_JOB,
@@ -40,7 +34,7 @@ const asyncApplyJob = ({ id }) => {
     try {
       const { success, message } = await applyJob({ id })
       if (success) {
-        dispatch(applyJobActionCreator())
+        dispatch(asyncGetApplyJob())
         toast.success(message)
       }
     } catch (error) {

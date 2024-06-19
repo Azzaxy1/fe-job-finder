@@ -6,8 +6,6 @@ const applyReducer = (applyJob = [], action = {}) => {
       return action.payload.resource
     case ActionType.GET_ALL_APPLY_JOB:
       return action.payload.resource
-    case ActionType.APPLY_JOB:
-      return applyJob
     default:
       return applyJob
   }
