@@ -154,7 +154,7 @@ const ProfileInput = ({ type }) => {
               </div>
             )}
             <label htmlFor="description">Deskripsi</label>
-            <ReactQuill style={{ border: '1px solid #ccc', overflow: 'auto' }} className='h-[300px] w-full' onChange={setDescription} placeholder={formatHtmlToTextPlaceholder(description)} />
+            <ReactQuill style={{ border: '1px solid #ccc', overflow: 'auto' }} className='h-[300px] w-full' onChange={setDescription} defaultValue={formatHtmlToTextPlaceholder(description)} />
           </article>
         </CardBody>
         <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">
