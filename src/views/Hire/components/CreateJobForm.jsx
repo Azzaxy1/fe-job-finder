@@ -1,11 +1,12 @@
 import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Input, Select, SelectItem } from '@nextui-org/react'
 import React, { useState } from 'react'
-import { useQuill } from 'react-quilljs'
 import { Link, useNavigate } from 'react-router-dom'
 import BackButton from '@/components/common/BackButton.jsx'
 import { typeJob } from '../index'
 import { useDispatch } from 'react-redux'
 import { asyncAddJob } from '@/states/hire/action'
+import ReactQuill from 'react-quill'
+import { formatHtmlToTextPlaceholder } from '@/utils'
 
 const CreateJobForm = () => {
   const dispatch = useDispatch()
@@ -16,16 +17,10 @@ const CreateJobForm = () => {
     location: '',
     salarymin: '',
     salarymax: '',
-    type: '',
-    description: ''
+    type: ''
   })
 
-  const placeholder = formData.description
-  const formats = [
-    'bold', 'italic', 'underline', 'strike',
-    'align', 'size', 'header', 'color', 'background'
-  ]
-  const { quillRef } = useQuill({ formats, placeholder })
+  const [description, setDescription] = useState('')
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -40,7 +35,6 @@ const CreateJobForm = () => {
 
   const onAddJobHandler = (e) => {
     e.preventDefault()
-    const description = quillRef.current.firstChild.innerHTML
     dispatch(asyncAddJob({ ...formData, description }, navigate))
   }
 
@@ -151,10 +145,8 @@ const CreateJobForm = () => {
               </Select>
             <div>
               <label htmlFor="description">Deskripsi</label>
-              <div style={{ height: 200 }} className="w-full mt-2">
-                <div ref={quillRef}/>
+              <ReactQuill style={{ border: '1px solid #ccc', overflow: 'auto' }} className='h-[300px] w-full' onChange={setDescription} placeholder={formatHtmlToTextPlaceholder(description)} />
               </div>
-            </div>
           </div>
         </CardBody>
         <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">

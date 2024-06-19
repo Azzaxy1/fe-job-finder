@@ -1,6 +1,5 @@
 import { BreadcrumbItem, Breadcrumbs, Button, Card, CardBody, CardFooter, CardHeader, Input, Select, SelectItem } from '@nextui-org/react'
-import React, { useEffect, useState } from 'react'
-import { useQuill } from 'react-quilljs'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import BackButton from '@/components/common/BackButton.jsx'
 import { typeJob } from '../index'
@@ -8,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { asyncEditJob } from '@/states/hire/action'
 import PropTypes from 'prop-types'
 import { formatHtmlToTextPlaceholder } from '@/utils'
+import ReactQuill from 'react-quill'
 
 const EditJobForm = ({ id }) => {
   const dispatch = useDispatch()
@@ -21,15 +21,10 @@ const EditJobForm = ({ id }) => {
     location: job?.company || '',
     salarymin: job?.salarymin || '',
     salarymax: job?.salarymax || '',
-    type: job?.type || '',
-    description: job?.description || ''
+    type: job?.type || ''
   })
 
-  const formats = [
-    'bold', 'italic', 'underline', 'strike',
-    'align', 'size', 'header', 'color', 'background'
-  ]
-  const { quillRef, quill } = useQuill({ formats })
+  const [description, setDescription] = useState(job?.description || '')
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -44,16 +39,9 @@ const EditJobForm = ({ id }) => {
 
   const onEditJobHandler = (e) => {
     e.preventDefault()
-    const description = quillRef.current.firstChild.innerHTML
     dispatch(asyncEditJob({ ...formData, description, id: parseInt(id) }, navigate))
   }
 
-  useEffect(() => {
-    const description = formData.description ? formatHtmlToTextPlaceholder(formData.description) : formData.description
-    if (quill) {
-      quill.root.innerHTML = description
-    }
-  }, [quill])
   return (
     <section className='flex flex-col w-full min-h-screen gap-4 mb-10 text-fontColor'>
       <Breadcrumbs
@@ -161,10 +149,8 @@ const EditJobForm = ({ id }) => {
               </Select>
             <div>
               <label htmlFor="description">Deskripsi</label>
-              <div className="w-full mt-2 h-[300px]">
-                <div ref={quillRef} style={{ border: '1px solid #ccc', overflow: 'auto' }}/>
+              <ReactQuill style={{ border: '1px solid #ccc', overflow: 'auto' }} className='h-[300px] w-full' onChange={setDescription} placeholder={formatHtmlToTextPlaceholder(description)} />
               </div>
-            </div>
           </div>
         </CardBody>
         <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">

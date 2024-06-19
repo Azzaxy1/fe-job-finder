@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useQuill } from 'react-quilljs'
+import React, { useState } from 'react'
 import {
   Button,
   Card,
@@ -13,6 +12,7 @@ import {
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncUpdateProfile } from '@/states/profile/action'
+import ReactQuill from 'react-quill'
 import { formatHtmlToTextPlaceholder } from '@/utils'
 
 const ProfileInput = ({ type }) => {
@@ -29,16 +29,11 @@ const ProfileInput = ({ type }) => {
     email: profile.email,
     phone: profile.phone,
     address: profile.address,
-    description: profile.description,
     foto: null,
     file: null
   })
 
-  const formats = [
-    'bold', 'italic', 'underline', 'strike',
-    'align', 'size', 'header', 'color', 'background'
-  ]
-  const { quillRef, quill } = useQuill({ formats })
+  const [description, setDescription] = useState(authUser.description)
   const inputProfile = [
     { id: 1, name: 'name', placeholder: authUser.name, type: 'text', label: 'Name' },
     { id: 2, name: 'email', placeholder: authUser.email, type: 'email', label: 'Email' },
@@ -70,16 +65,8 @@ const ProfileInput = ({ type }) => {
   }
 
   const handleSubmit = () => {
-    const description = quillRef.current.firstChild.innerHTML
     dispatch(asyncUpdateProfile({ ...formData, description }))
   }
-
-  useEffect(() => {
-    const description = authUser.description ? formatHtmlToTextPlaceholder(authUser.description) : authUser.description
-    if (quill) {
-      quill.root.innerHTML = description
-    }
-  }, [quill])
 
   return (
     <section
@@ -167,9 +154,7 @@ const ProfileInput = ({ type }) => {
               </div>
             )}
             <label htmlFor="description">Deskripsi</label>
-            <div className='w-full h-[300px]'>
-              <div ref={quillRef} style={{ border: '1px solid #ccc', overflow: 'auto' }} />
-            </div>
+            <ReactQuill style={{ border: '1px solid #ccc', overflow: 'auto' }} className='h-[300px] w-full' onChange={setDescription} placeholder={formatHtmlToTextPlaceholder(description)} />
           </article>
         </CardBody>
         <CardFooter className="flex flex-col items-center w-full gap-4 pt-4">
