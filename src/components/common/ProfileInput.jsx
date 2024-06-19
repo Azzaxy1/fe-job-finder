@@ -75,7 +75,7 @@ const ProfileInput = ({ type }) => {
   }
 
   useEffect(() => {
-    const description = formatHtmlToTextPlaceholder(authUser.description)
+    const description = authUser.description ? formatHtmlToTextPlaceholder(authUser.description) : authUser.description
     if (quill) {
       quill.root.innerHTML = description
     }
