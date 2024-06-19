@@ -6,7 +6,6 @@ import { typeJob } from '../index'
 import { useDispatch, useSelector } from 'react-redux'
 import { asyncEditJob } from '@/states/hire/action'
 import PropTypes from 'prop-types'
-import { formatHtmlToTextPlaceholder } from '@/utils'
 import ReactQuill from 'react-quill'
 
 const EditJobForm = ({ id }) => {
@@ -149,7 +148,7 @@ const EditJobForm = ({ id }) => {
               </Select>
             <div>
               <label htmlFor="description">Deskripsi</label>
-              <ReactQuill style={{ border: '1px solid #ccc', overflow: 'auto' }} className='h-[300px] w-full' onChange={setDescription} defaultValue={formatHtmlToTextPlaceholder(description)} />
+              <ReactQuill style={{ border: '1px solid #ccc', overflow: 'auto' }} className='h-[300px] w-full' onChange={setDescription} defaultValue={description} />
               </div>
           </div>
         </CardBody>
