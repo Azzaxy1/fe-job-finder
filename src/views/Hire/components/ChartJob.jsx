@@ -29,7 +29,7 @@ const ChartJob = ({ title, data }) => {
   const dispatch = useDispatch()
 
   const labelsJob = title === 'Pekerjaan' ? (data.recordsJobs ? Object.keys(data.recordsJobs).map((date) => getMonthName(date)) : []) : (data.recordsApply ? Object.keys(data.recordsApply).map((date) => getMonthName(date)) : [])
-  const dataValues = title === 'Pekerjaan' ? (data.recordsJobs ? Object.values(data.recordsJobs) : []) : (data.recordsApply ? Object.values(data.recordsApply) : [])
+  const dataValues = title === 'Pelamar' ? (data.recordsJobs ? Object.values(data.recordsJobs) : []) : (data.recordsApply ? Object.values(data.recordsApply) : [])
 
   const dataChart = {
     labels: labelsJob,

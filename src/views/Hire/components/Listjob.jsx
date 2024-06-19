@@ -37,9 +37,18 @@ const Listjob = () => {
       </div>
       <article className='flex flex-col flex-wrap w-full gap-4 md:flex-row'>
         <Suspense fallback={<SkeletonPreview type="hire" />}>
-          {items.map((job, index) => (
+          {listJobHire.length === 0
+            ? (
+            <p className="flex items-center justify-center">Tidak ada Lowongan Pekerjaan yang ditemukan</p>
+              )
+            : (
+                (
+                  items.map((job, index) => (
             <ItemJob key={index} job={job} />
-          ))}
+                  ))
+                )
+              )
+          }
         </Suspense>
       </article>
       <Pagination

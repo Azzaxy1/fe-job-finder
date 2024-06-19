@@ -14,9 +14,11 @@ const EditJobPage = () => {
   }, [dispatch])
 
   return (
-    <HireLayout>
-      <EditJobForm id={id} />
-    </HireLayout>
+    <>
+      <HireLayout>
+        <EditJobForm id={id} />
+      </HireLayout>
+    </>
   )
 }
 
