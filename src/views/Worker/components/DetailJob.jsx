@@ -4,6 +4,7 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
+  Chip,
   Image,
   useDisclosure
 } from '@nextui-org/react'
@@ -17,11 +18,19 @@ import ButtonApply from './ButtonApply'
 import Company from '@/assets/company.png'
 import { asyncApplyJob } from '@/states/applyJob/action'
 
+const statusColorMap = {
+  pending: 'danger',
+  accept: 'success',
+  rejected: 'warning'
+}
+
 const DetailJob = ({ jobId }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const [cvSelected, setCvSelected] = useState(false)
   const [data, setData] = useState(null)
   const jobs = useSelector((state) => state.worker)
+  const applyJob = useSelector((state) => state.applyJob)
+  const job = applyJob.find((job) => job.id_job === jobId)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -53,9 +62,16 @@ const DetailJob = ({ jobId }) => {
                 />
               </div>
               <div className="flex flex-col">
-                <h2 className="text-base font-medium sm:text-lg">
-                  {data.title}
-                </h2>
+                <div className='flex gap-3 items-center'>
+                  <h2 className="text-base font-medium sm:text-lg">
+                    {data.title}
+                  </h2>
+                  {job &&
+                  <Chip className="text-sm capitalize" radius='sm' color={statusColorMap[job.status]} size="sm" variant="flat">
+                    {job.status}
+                  </Chip>
+                  }
+                </div>
                 <h4 className="text-sm sm:text-base text-blue">
                   {data.company}
                 </h4>

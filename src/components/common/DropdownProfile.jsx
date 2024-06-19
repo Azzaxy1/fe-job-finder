@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Avatar,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -16,18 +15,15 @@ const DropdownProfile = ({ type, authUser, onLogout, authHire }) => {
       <DropdownTrigger>
         {type === 'hire'
           ? (
-          <div className="flex flex-row items-center gap-4">
-            <Avatar
-              src={authHire.foto_url}
-              isBordered
-              as="button"
-              radius="sm"
-              className="transition-transform w-28"
-              name={authHire.name}
-              size="md"
-            />
-            <p>{authHire.name}</p>
-          </div>
+          <User
+            as="button"
+            avatarProps={{
+              isBordered: true,
+              src: authHire.foto_url
+            }}
+            description={'Penyedia Loker'}
+            name={authHire.name}
+          />
             )
           : (
           <User

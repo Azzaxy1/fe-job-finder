@@ -1,15 +1,10 @@
-import { applyJob, getApplyJob } from '@/services/api'
+import { applyJob, getAllApplyJob, getApplyJob, updateApplyJob } from '@/services/api'
 import toast from 'react-hot-toast'
 
 const ActionType = {
   APPLY_JOB: 'APPLY_JOB',
-  GET_APPLY_JOB: 'GET_APPLY_JOB'
-}
-
-const applyJobActionCreator = () => {
-  return {
-    type: ActionType.APPLY_JOB
-  }
+  GET_APPLY_JOB: 'GET_APPLY_JOB',
+  GET_ALL_APPLY_JOB: 'GET_ALL_APPLY_JOB'
 }
 
 const getApplyJobActionCreator = (resource) => {
@@ -39,7 +34,7 @@ const asyncApplyJob = ({ id }) => {
     try {
       const { success, message } = await applyJob({ id })
       if (success) {
-        dispatch(applyJobActionCreator())
+        dispatch(asyncGetApplyJob())
         toast.success(message)
       }
     } catch (error) {
@@ -48,4 +43,48 @@ const asyncApplyJob = ({ id }) => {
   }
 }
 
-export { ActionType, asyncGetApplyJob, asyncApplyJob, getApplyJobActionCreator }
+const getAllApplyJobActionCreator = (resource) => {
+  return {
+    type: ActionType.GET_ALL_APPLY_JOB,
+    payload: {
+      resource
+    }
+  }
+}
+
+const asyncGetAllApplyJob = () => {
+  return async (dispatch) => {
+    try {
+      const { success, resource } = await getAllApplyJob()
+      if (success) {
+        dispatch(getAllApplyJobActionCreator(resource))
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+}
+
+const asyncUpdateApplyJob = ({ id, status, idUser }) => {
+  return async (dispatch) => {
+    try {
+      const { success, message } = await updateApplyJob({ id, status, idUser })
+      if (success) {
+        dispatch(asyncGetAllApplyJob())
+        toast.success(message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+}
+
+export {
+  ActionType,
+  asyncGetApplyJob,
+  asyncApplyJob,
+  getApplyJobActionCreator,
+  getAllApplyJobActionCreator,
+  asyncGetAllApplyJob,
+  asyncUpdateApplyJob
+}
