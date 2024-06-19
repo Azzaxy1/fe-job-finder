@@ -11,8 +11,9 @@ import {
   Tooltip,
   Legend
 } from 'chart.js'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { asyncGetDashboard } from '@/states/hire/action'
+import PropTypes from 'prop-types'
 
 ChartJS.register(
   CategoryScale,
@@ -24,19 +25,17 @@ ChartJS.register(
   Legend
 )
 
-const ChartJob = () => {
+const ChartJob = ({ title, data }) => {
   const dispatch = useDispatch()
 
-  const hire = useSelector((state) => state.hire)
+  const labelsJob = title === 'Pekerjaan' ? (data.recordsJobs ? Object.keys(data.recordsJobs).map((date) => getMonthName(date)) : []) : (data.recordsApply ? Object.keys(data.recordsApply).map((date) => getMonthName(date)) : [])
+  const dataValues = title === 'Pekerjaan' ? (data.recordsJobs ? Object.values(data.recordsJobs) : []) : (data.recordsApply ? Object.values(data.recordsApply) : [])
 
-  const labelsJob = hire.recordsJobs ? Object.keys(hire.recordsJobs).map((date) => getMonthName(date)) : []
-  const dataValues = hire.recordsJobs ? Object.values(hire.recordsJobs) : []
-
-  const data = {
+  const dataChart = {
     labels: labelsJob,
     datasets: [
       {
-        label: 'Total Pekerjaan',
+        label: `Total ${title}`,
         data: dataValues,
         backgroundColor: 'rgb(54, 162, 235)',
         borderColor: 'rgba(54, 162, 235, 0.2)',
@@ -52,13 +51,18 @@ const ChartJob = () => {
 
   return (
     <section className="flex flex-col gap-4">
-      <Line data={data} />
+      <Line data={dataChart} />
       <p className="text-sm sm:text-base">
-        Total pekerjaan sekarang adalah :{' '}
-        <span className="font-bold text-blue">{hire.totalJobs}</span>
+        Total {title} sekarang adalah :{' '}
+        <span className="font-bold text-blue">{title === 'Pekerjaan' ? data.totalJobs : data.totalApply}</span>
       </p>
     </section>
   )
+}
+
+ChartJob.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.any.isRequired
 }
 
 export default ChartJob

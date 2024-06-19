@@ -1,10 +1,12 @@
 import HireLayout from '@/layouts/HireLayout'
 import React, { useEffect } from 'react'
-import DetailJobHire from '../components/DetailJobHire'
+import EditJobForm from '../components/EditJobForm'
+import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { asyncGetDashboardJob } from '@/states/hire/action'
 
-const DetailJobPage = () => {
+const EditJobPage = () => {
+  const { id } = useParams()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -13,9 +15,9 @@ const DetailJobPage = () => {
 
   return (
     <HireLayout>
-      <DetailJobHire/>
+      <EditJobForm id={id} />
     </HireLayout>
   )
 }
 
-export default DetailJobPage
+export default EditJobPage

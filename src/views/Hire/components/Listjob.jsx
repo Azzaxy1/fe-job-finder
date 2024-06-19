@@ -1,9 +1,8 @@
 import React, { Suspense, useMemo, useState, lazy } from 'react'
-// import ItemJob from './ItemJob'
-import { listJobHire } from '@/utils/local-data'
+import { useSelector } from 'react-redux'
+import SkeletonPreview from '@/components/ui/SkeletonPreview'
 import { Button, Pagination } from '@nextui-org/react'
 import { Link } from 'react-router-dom'
-import SkeletonPreview from '@/components/ui/SkeletonPreview'
 
 const ItemJob = lazy(() =>
   new Promise((resolve) => setTimeout(resolve, 1000)).then(() =>
@@ -15,6 +14,7 @@ const Listjob = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const jobPerPage = 6
 
+  const listJobHire = useSelector((state) => state.hireDashboardJob)
   const totalPage = Math.ceil(listJobHire?.length / jobPerPage)
 
   const items = useMemo(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuill } from 'react-quilljs'
 import {
   Button,
@@ -34,13 +34,11 @@ const ProfileInput = ({ type }) => {
     file: null
   })
 
-  const placeholder = authUser.description === null ? 'Masukan deskripsi anda' : formatHtmlToTextPlaceholder(authUser.description)
   const formats = [
     'bold', 'italic', 'underline', 'strike',
     'align', 'size', 'header', 'color', 'background'
   ]
-  const { quillRef } = useQuill({ formats, placeholder })
-
+  const { quillRef, quill } = useQuill({ formats })
   const inputProfile = [
     { id: 1, name: 'name', placeholder: authUser.name, type: 'text', label: 'Name' },
     { id: 2, name: 'email', placeholder: authUser.email, type: 'email', label: 'Email' },
@@ -75,6 +73,13 @@ const ProfileInput = ({ type }) => {
     const description = quillRef.current.firstChild.innerHTML
     dispatch(asyncUpdateProfile({ ...formData, description }))
   }
+
+  useEffect(() => {
+    const description = authUser.description ? formatHtmlToTextPlaceholder(authUser.description) : authUser.description
+    if (quill) {
+      quill.root.innerHTML = description
+    }
+  }, [quill])
 
   return (
     <section
