@@ -58,11 +58,12 @@ const DetailJob = ({ jobId }) => {
                   src={data.get_user.foto_url === null ? Company : data.get_user.foto_url}
                   alt="image"
                   radius="none"
+                  width={100}
                   className="object-cover"
                 />
               </div>
               <div className="flex flex-col">
-                <div className='flex gap-3 items-center'>
+                <div className='flex items-center gap-3'>
                   <h2 className="text-base font-medium sm:text-lg">
                     {data.title}
                   </h2>
