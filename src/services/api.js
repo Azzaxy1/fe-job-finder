@@ -204,6 +204,32 @@ const deleteJob = async ({ id }) => {
   return { message, success, resource }
 }
 
+const getAllApplyJob = async () => {
+  const response = await fetchWithToken(`${baseURL}/api/hire/apply-job/all`)
+  const responseJson = await response.json()
+
+  const { success, message, resource } = responseJson
+  return { success, message, resource }
+}
+
+const updateApplyJob = async ({ id, status, idUser }) => {
+  const response = await fetchWithToken(`${baseURL}/api/hire/apply-job/${id}/update`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ status, id_user: idUser })
+  })
+
+  const responseJson = await response.json()
+  const { success, message, resource } = responseJson
+  if (!success) {
+    throw new Error(message)
+  }
+
+  return { success, message, resource }
+}
+
 export {
   login,
   fetchWithToken,
@@ -219,5 +245,7 @@ export {
   getDashboardJob,
   addJob,
   editJob,
-  deleteJob
+  deleteJob,
+  getAllApplyJob,
+  updateApplyJob
 }
