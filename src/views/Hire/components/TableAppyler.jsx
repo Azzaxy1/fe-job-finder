@@ -95,7 +95,7 @@ const TableAppyler = () => {
             </TableColumn>
           )}
         </TableHeader>
-        <TableBody items={paginatedApply}>
+        <TableBody items={paginatedApply} emptyContent={'Tidak ada pelamar untuk sekarang ini'}>
           {(applyment) => (
             <TableRow key={applyment.id}>
               {(columnKey) => {
