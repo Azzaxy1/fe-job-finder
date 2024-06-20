@@ -45,7 +45,7 @@ const DetailJob = ({ jobId }) => {
   return (
     <>
       {data && (
-        <section className="flex flex-col w-full gap-4 pl-4 ">
+        <section className="flex flex-col w-full gap-4 px-2">
           <Card radius="sm" className="w-full px-3 pt-2">
             <CardHeader className="flex flex-col items-center gap-6 md:justify-start md:flex-row">
               <div>
@@ -57,7 +57,7 @@ const DetailJob = ({ jobId }) => {
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col w-full">
                 <div className='flex items-center gap-3'>
                   <h2 className="text-base font-medium sm:text-lg">
                     {data.title}
@@ -85,7 +85,7 @@ const DetailJob = ({ jobId }) => {
                 Informasi Pekerjaan
               </h2>
               <div className="flex flex-col gap-2 pt-2">
-                <div>{parse(data.description)}</div>
+                <p className='text-sm md:text-base'>{parse(data.description)}</p>
               </div>
             </CardBody>
             <CardFooter>

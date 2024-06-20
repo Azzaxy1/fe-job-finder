@@ -4,7 +4,7 @@ import { questions } from '@/utils/local-data'
 
 const Faq = () => {
   return (
-    <section className="flex flex-col items-center gap-10 px-10 py-12 lg:px-10 2xl:px-72">
+    <section className="flex flex-col items-center gap-10 px-6 py-12 lg:px-10 2xl:px-72">
       <header className="flex flex-col justify-center max-w-2xl gap-2 text-center text-fontColor">
         <h2 className="text-2xl font-semibold sm:text-3xl">
           Ada Pertanyaan Lanjutan?

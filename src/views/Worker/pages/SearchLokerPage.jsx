@@ -68,7 +68,7 @@ const SearchLokerPage = () => {
       <BaseLayout>
         <main className="flex flex-col min-h-screen gap-8">
           <SearchJob jobs={allJob} onTitleChange={onTitleChange} onLocationChange={onLocationChange} onSearch={handleSearch} />
-          <section className="flex flex-col gap-10 px-10 pb-10 md:gap-0 sm:flex-row 2xl:px-72">
+          <section className="flex flex-col gap-10 px-4 pb-10 md:gap-0 sm:flex-row 2xl:px-72">
             <div className="flex flex-col p-2 max-h-[1000px] overflow-y-auto max-w-[400px] sm:min-w-[400px] scroll-smooth">
               <Suspense fallback={<SkeletonPreview type='list'/>}>
                 {searchResult.length === 0
@@ -87,7 +87,7 @@ const SearchLokerPage = () => {
                 ? <DetailJob jobId={selectedJobId} />
                 : <div className='flex flex-col items-center justify-center w-full'>
                   <Image src={Logo} alt="logo" width={300} />
-                  <p className='text-fontColor'>Silakan pilih lowongan di sebelah kiri untuk melihat detailnya</p>
+                  <p className='text-center text-fontColor'>Silakan pilih lowongan pekerjaan untuk melihat detailnya</p>
                   </div>
               }
             </Suspense>
