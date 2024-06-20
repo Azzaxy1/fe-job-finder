@@ -17,7 +17,7 @@ const EditJobForm = ({ id }) => {
   const [formData, setFormData] = useState({
     title: job?.title || '',
     company: job?.company || '',
-    location: job?.company || '',
+    location: job?.location || '',
     salarymin: job?.salarymin || '',
     salarymax: job?.salarymax || '',
     type: job?.type || ''
