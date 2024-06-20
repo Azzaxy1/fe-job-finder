@@ -68,18 +68,18 @@ const DetailJobHire = () => {
           </CardHeader>
           <CardBody className='flex flex-row items-center justify-between gap-1'>
             <div className='flex flex-col items-start gap-1'>
-              <h1 className="text-lg font-semibold sm:text-xl md:text-2xl 2xl:text-4xl">
+              <h1 className="font-semibold text-lg md:text-xl">
               {job.title}
               </h1>
-              <p className="text-sm text-[#6b7280] sm:text-base">{job.type}</p>
-              <p className="text-sm text-green-500 sm:text-base">{formatRupiah(job.salarymin)} - {formatRupiah(job.salarymax)}</p>
+              <p className="text-[#6b7280] text-sm md:text-lg">{job.type}</p>
+              <p className=" text-green-500 text-sm md:text-lg">{formatRupiah(job.salarymin)} - {formatRupiah(job.salarymax)}</p>
             </div>
             <div>
-              <p className="text-sm text-[#6b7280] sm:text-base">{formatDate(job.created_at)}</p>
+              <p className="text-[#6b7280] text-sm md:text-lg">{formatDate(job.created_at)}</p>
             </div>
           </CardBody>
           <Divider/>
-          <CardFooter><div>{parse(job.description)}</div></CardFooter>
+          <CardFooter><div className='text-sm'>{parse(job.description)}</div></CardFooter>
         </Card>
       </section>
   )
