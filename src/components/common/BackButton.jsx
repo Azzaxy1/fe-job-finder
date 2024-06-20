@@ -11,7 +11,7 @@ const BackButton = () => {
   }
 
   return (
-    <Button className='flex flex-row items-center font-semibold text-white bg-blue' onClick={handleClick}>
+    <Button className='flex flex-row items-center font-semibold text-white bg-blue' size='sm' onClick={handleClick}>
       <FaArrowLeft/>
       Kembali
     </Button>

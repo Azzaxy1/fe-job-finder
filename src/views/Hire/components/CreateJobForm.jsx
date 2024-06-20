@@ -53,7 +53,7 @@ const CreateJobForm = () => {
             Buat Lowongan Pekerjaan
           </BreadcrumbItem>
         </Breadcrumbs>
-      <Card radius='sm' className='flex flex-col px-5 py-3 pb-4'>
+      <Card radius='sm' className='flex flex-col px-2 md:px-5 py-3 pb-4'>
         <CardHeader className='flex flex-col items-start justify-start gap-3'>
           <BackButton/>
           <h2 className='text-lg font-semibold md:text-xl'>Buat Lowongan Pekerjaan</h2>
