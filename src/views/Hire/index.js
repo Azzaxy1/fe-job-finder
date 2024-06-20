@@ -2,7 +2,6 @@ import CV from '@/assets/cv.pdf'
 const columns = [
   { name: 'NAME', uid: 'name' },
   { name: 'PHONE', uid: 'phone' },
-  { name: 'ADDRESS', uid: 'address' },
   { name: 'JOB', uid: 'job' },
   { name: 'CV', uid: 'cv' },
   { name: 'STATUS', uid: 'status' },

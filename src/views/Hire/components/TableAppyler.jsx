@@ -26,21 +26,17 @@ const TableAppyler = () => {
     switch (columnKey) {
       case 'name':
         // eslint-disable-next-line multiline-ternary
-        return <User
-          avatarProps={{ radius: 'lg', src: user.foto_url ? user.foto_url : null }}
-          description={user.email}
-          name={user.name}
-        />
+        return <div className='flex'>
+            <User
+              avatarProps={{ radius: 'lg', src: user.foto_url ? user.foto_url : null }}
+              description={user.email}
+              name={user.name}
+            />
+          </div>
       case 'phone':
         return (
           <div className="flex flex-col">
             <p className="text-sm capitalize text-bold text-fontColor">{user.phone}</p>
-          </div>
-        )
-      case 'address':
-        return (
-          <div className="flex flex-col">
-            <p className="text-sm capitalize text-bold text-fontColor">{user.address || '-'}</p>
           </div>
         )
       case 'job':
