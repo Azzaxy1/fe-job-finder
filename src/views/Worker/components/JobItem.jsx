@@ -24,7 +24,7 @@ const JobItem = ({ job, onClick }) => {
             />
           </CardBody>
           <CardFooter className="flex flex-col items-start justify-start w-[600px] text-small">
-            <h2 className="text-base font-medium">{job.title}</h2>
+            <h2 className="text-sm font-medium md:text-base">{job.title}</h2>
             <h4 className="text-sm text-blue ">{job.company}</h4>
             <p className="text-sm text-[#16a34a]">{formatRupiah(job.salarymin)} - {formatRupiah(job.salarymax)}</p>
             <p className="text-sm text-start">{job.location}</p>

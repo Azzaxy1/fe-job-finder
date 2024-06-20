@@ -22,7 +22,7 @@ const ListArticle = () => {
   }
 
   return (
-    <section className="flex flex-col items-center min-h-screen gap-10 px-10 py-12 md:px-28 2xl:px-72">
+    <section className="flex flex-col items-center min-h-screen gap-10 px-6 py-12 md:px-28 2xl:px-72">
       <div className="flex flex-col gap-4">
         {currentArticles.map((article, index) => (
           <article
@@ -31,7 +31,7 @@ const ListArticle = () => {
           >
             <img src={article.image} alt={article.title} className="w-40 " />
             <div>
-              <h2 className="text-2xl font-semibold text-blue hover:underline">
+              <h2 className="text-xl font-semibold md:text-2xl text-blue hover:underline">
                 <Link to={`/tips/${article.id}`}>{article.title}</Link>
               </h2>
               <div>{parse(truncateDescription(article.description, 300))}</div>

@@ -8,7 +8,7 @@ const BreadcrumbsHeader = () => {
 
   return (
     <section
-      className={`flex px-28 2xl:px-72 items-center justify-start h-36 2xl:h-48 bg-cover bg-fixed bg-no-repeat bg-center ${
+      className={`flex px-6 2xl:px-72 items-center justify-start h-36 2xl:h-48 bg-cover bg-fixed bg-no-repeat bg-center ${
         pathname === 'jobs'
           ? "bg-[url('@/assets/bread1.jpg')]"
           : "bg-[url('@/assets/bread2.png')]"

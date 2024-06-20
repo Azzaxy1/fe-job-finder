@@ -7,7 +7,7 @@ const SearchTitle = ({ onTitleChange }) => {
   return (
     <Input
       variant="bordered"
-      placeholder="Cari pekerjaan"
+      placeholder="Cari Posisi"
       className="w-full border border-gray-400 rounded-xl"
       startContent={<IoIosSearch className="text-xl" />}
       onChange={onTitleChange}

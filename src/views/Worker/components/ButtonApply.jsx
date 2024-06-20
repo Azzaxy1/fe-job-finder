@@ -12,15 +12,15 @@ const ButtonApply = ({ data, handleApply, onOpen, onOpenChange, isOpen }) => {
   const job = applyJob.find((job) => job.id_job === data.id)
 
   return (
-    <div className="flex flex-row gap-2 mx-auto md:mx-0 md:flex-col md:ml-auto">
+    <div className="flex flex-row w-full gap-2 mx-auto md:w-fit md:mx-0 md:flex-col md:ml-auto">
       {job
         ? (
-        <div className="px-4 py-2 text-sm font-semibold text-white bg-red-800 rounded-lg">
-        Sudah Daftar
+        <div className="w-full text-sm text-center md:w-fit ">
+          <p className='px-4 py-2 font-semibold text-white bg-red-800 rounded-lg '>Sudah Daftar</p>
         </div>
           )
         : (
-        <Button onPress={user === null ? () => navigate('/login') : onOpen} className="font-semibold text-white bg-blue ">
+        <Button onPress={user === null ? () => navigate('/login') : onOpen} className="w-full font-semibold text-white bg-blue md:w-fit ">
         Lamar Pekerjaan
         </Button>
           )}
@@ -93,7 +93,7 @@ const ButtonApply = ({ data, handleApply, onOpen, onOpenChange, isOpen }) => {
                 <Button color='danger' variant='light' radius='sm' onPress={onClose}>
                   Batal
                 </Button>
-                <Button className='bg-blue text-white' radius='sm' onPress={handleApply}>
+                <Button className='text-white bg-blue' radius='sm' onPress={handleApply}>
                   Kirim
                 </Button>
               </ModalFooter>

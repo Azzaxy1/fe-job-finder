@@ -9,11 +9,11 @@ const SearchJob = ({ onTitleChange, onLocationChange, onSearch, jobs }) => {
   return (
     <>
       <BreadcrumbsHeader />
-      <div className="flex flex-col max-w-3xl gap-4 pl-12 2xl:max-w-5xl 2xl:pl-72">
+      <div className="flex flex-col max-w-3xl gap-4 px-6 2xl:max-w-5xl 2xl:pl-72">
         <h2 className="text-lg font-semibold sm:text-xl">
           Cari Lowongan Pekerjaan
         </h2>
-        <div className="flex flex-col gap-4 pe-12 md:pe-0 md:flex-row">
+        <div className="flex flex-col gap-4 md:pe-0 md:flex-row">
           <SearchTitle onTitleChange={onTitleChange} />
           <SearchLocation jobs={jobs} onLocationChange={onLocationChange}/>
           <Button radius="sm" className="text-white bg-blue" onPress={onSearch}>
