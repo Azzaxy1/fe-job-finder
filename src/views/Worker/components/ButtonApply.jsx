@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-const ButtonApply = ({ data, handleFileChange, cvSelected, handleApply, onOpen, onOpenChange, isOpen }) => {
+const ButtonApply = ({ data, handleApply, onOpen, onOpenChange, isOpen }) => {
   const user = useSelector((state) => state.authUser)
   const navigate = useNavigate()
   const applyJob = useSelector((state) => state.applyJob)
@@ -81,34 +81,19 @@ const ButtonApply = ({ data, handleFileChange, cvSelected, handleApply, onOpen, 
                     <div className="flex flex-col gap-2">
                       <label htmlFor="cv">CV</label>
                       <div className="relative">
-                        <input
-                          type="file"
-                          name="cv"
-                          id="cv"
-                          className="absolute inset-0 z-50 w-full h-full opacity-0 cursor-pointer"
-                          onChange={handleFileChange}
-                        />
-                        {user.file_url
-                          ? (
-                          <div className="px-4 py-2 text-sm text-center text-white bg-green-500 rounded cursor-pointer">
-                            CV telah dipilih
-                          </div>
-                            )
-                          : (
-                          <div className="px-4 py-2 text-sm text-center text-white bg-blue-500 rounded cursor-pointer">
-                            Upload CV
-                          </div>
-                            )}
+                        <div className={`px-4 py-2 text-sm text-center text-white rounded ${user.file_url ? 'bg-green-500' : 'bg-blue'}`}>
+                          {user.file_url ? 'CV telah dipilih' : 'CV tidak tersedia'}
+                        </div>
                       </div>
                     </div>
                   </div>
                 )}
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+                <Button color='danger' variant='light' radius='sm' onPress={onClose}>
                   Batal
                 </Button>
-                <Button color="primary" onPress={handleApply}>
+                <Button className='bg-blue text-white' radius='sm' onPress={handleApply}>
                   Kirim
                 </Button>
               </ModalFooter>
@@ -129,8 +114,6 @@ ButtonApply.propTypes = {
       phone: PropTypes.string.isRequired
     }).isRequired
   ),
-  handleFileChange: PropTypes.func.isRequired,
-  cvSelected: PropTypes.bool.isRequired,
   handleApply: PropTypes.func.isRequired,
   onOpen: PropTypes.func.isRequired,
   onOpenChange: PropTypes.func.isRequired,

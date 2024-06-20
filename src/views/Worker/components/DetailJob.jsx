@@ -26,7 +26,6 @@ const statusColorMap = {
 
 const DetailJob = ({ jobId }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const [cvSelected, setCvSelected] = useState(false)
   const [data, setData] = useState(null)
   const jobs = useSelector((state) => state.worker)
   const applyJob = useSelector((state) => state.applyJob)
@@ -37,10 +36,6 @@ const DetailJob = ({ jobId }) => {
     const jobData = jobs.find((job) => job.id === jobId)
     setData(jobData)
   }, [jobs, jobId])
-
-  const handleFileChange = (e) => {
-    e.target.files.length > 0 ? setCvSelected(true) : setCvSelected(false)
-  }
 
   const handleApply = () => {
     dispatch(asyncApplyJob({ id: data.id }))
@@ -83,7 +78,7 @@ const DetailJob = ({ jobId }) => {
                   {data.location} - <span className='font-semibold text-blue'>{data.type}</span>
                 </p>
               </div>
-              <ButtonApply data={data} onOpen={onOpen} onOpenChange={onOpenChange} isOpen={isOpen} handleApply={handleApply} handleFileChange={handleFileChange} cvSelected={cvSelected}/>
+              <ButtonApply data={data} onOpen={onOpen} onOpenChange={onOpenChange} isOpen={isOpen} handleApply={handleApply}/>
             </CardHeader>
             <CardBody className="flex flex-col border-t-2">
               <h2 className="text-base font-medium sm:text-xl text-blue">
