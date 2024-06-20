@@ -80,11 +80,11 @@ const HireLayout = ({ children }) => {
               <li>
                 <Link
                   to="/hire-dashboard"
-                  className={`flex items-center justify-start pl-8 p-2 text-white hover:bg-[#0284c7] group ${
+                  className={`flex items-center justify-start pl-4 md:pl-8 p-2 text-white hover:bg-[#0284c7] group ${
                     location.pathname === '/hire-dashboard' && 'bg-[#0284c7]'
                   }`}
                 >
-                  <span className="flex items-center gap-2 text-xl font-medium ms-3">
+                  <span className="flex items-center gap-2 text-lg md:text-xl font-medium ms-0 md:ms-3">
                     <IoHomeSharp />
                     Dashboard
                   </span>
@@ -93,11 +93,11 @@ const HireLayout = ({ children }) => {
               <li>
                 <Link
                   to="/manage-jobs"
-                  className={`flex items-center justify-start pl-8 p-2 text-white hover:bg-[#0284c7] group ${
+                  className={`flex items-center justify-start pl-4 md:pl-8 p-2 text-white hover:bg-[#0284c7] group ${
                     location.pathname === '/manage-jobs' && 'bg-[#0284c7]'
                   }`}
                 >
-                  <span className="flex items-center gap-2 text-xl font-medium ms-3">
+                  <span className="flex items-center gap-2 text-lg md:text-xl font-medium ms-0 md:ms-3">
                     <MdOutlineWork />
                     Kelola Pekerjaan
                   </span>
@@ -106,11 +106,11 @@ const HireLayout = ({ children }) => {
               <li>
                 <Link
                   to="/manage-applyer"
-                  className={`flex items-center justify-start pl-8 p-2 text-white hover:bg-[#0284c7] group ${
+                  className={`flex items-center justify-start pl-4 md:pl-8 p-2 text-white hover:bg-[#0284c7] group ${
                     location.pathname === '/manage-applyer' && 'bg-[#0284c7]'
                   }`}
                 >
-                  <span className="flex items-center gap-2 text-xl font-medium ms-3">
+                  <span className="flex items-center gap-2 text-lg md:text-xl font-medium ms-0 md:ms-3">
                     <FaUserTie />
                     Kelola Pelamar
                   </span>
@@ -121,10 +121,10 @@ const HireLayout = ({ children }) => {
         </aside>
         {/* Content */}
         <div className=" sm:ml-64">
-          <div className="flex flex-col items-center justify-end py-5 bg-white px-14 lg:flex-row">
+          <div className="flex items-center justify-end py-5 bg-white px-5 lg:px-14 flex-row">
             <DropdownProfile type="hire" authHire={authUser} onLogout={onLogoutHandler} />
           </div>
-          <div className="px-10 py-5 bg-[#f1f5f9] min-h-screen">
+          <div className="px-5 md:px-10 py-5 bg-[#f1f5f9] min-h-screen">
             <WelcomeBanner />
             <div className="flex justify-center">{children}</div>
           </div>

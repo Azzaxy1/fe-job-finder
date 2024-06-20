@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
       </section>
       <p className="w-[80%] md:w-[70%] mx-auto py-4 text-center text-white  border-t-1">
-        © 2024 JobFinder. All rights reserved.
+        © {new Date().getFullYear()} JobFinder. All rights reserved.
       </p>
     </footer>
   )

@@ -52,15 +52,15 @@ const DetailJobHire = () => {
             {job.title}
           </BreadcrumbItem>
         </Breadcrumbs>
-        <Card radius='sm' className='flex flex-col px-5 py-3'>
+        <Card radius='sm' className='flex flex-col px-2 md:px-5 py-3'>
           <CardHeader className='flex justify-between'>
             <BackButton/>
-            <div className='flex gap-3'>
-              <Button className='flex flex-row items-center font-semibold text-white bg-yellow-600' onClick={handleClickEdit}>
+            <div className='flex gap-1 md:gap-3'>
+              <Button className='flex flex-row items-center font-semibold text-white bg-yellow-600' size='sm' onClick={handleClickEdit}>
                 <FaPencilAlt/>
                 Edit
               </Button>
-              <Button className='flex flex-row items-center font-semibold text-white bg-red-600' onClick={handleClickDelete}>
+              <Button className='flex flex-row items-center font-semibold text-white bg-red-600' size='sm' onClick={handleClickDelete}>
                 <FaTrash/>
                 Hapus
               </Button>

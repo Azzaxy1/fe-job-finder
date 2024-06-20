@@ -78,9 +78,9 @@ const ProfileInput = ({ type }) => {
         <h2 className="pb-5 text-xl font-semibold">Profile Hire</h2>
         </div>
       )}
-      <Card radius="sm" className="px-8 py-5 h-[850px]">
+      <Card radius="sm" className="md:px-10 py-5 h-[850px]">
         <CardHeader>
-          <h2 className="text-xl font-semibold">
+          <h2 className="text-xl font-semibold text-center md:text-left w-full">
             Ubah Profil Anda sebagai {type === 'hire' ? 'Hire' : 'User'}
           </h2>
         </CardHeader>
