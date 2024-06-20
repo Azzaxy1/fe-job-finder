@@ -139,17 +139,9 @@ const ProfileInput = ({ type }) => {
                   className="absolute inset-0 bottom-0 z-50 w-full h-full opacity-0 cursor-pointer"
                   onChange={handleCVChange}
                 />
-                {cvSelected
-                  ? (
-                  <div className="px-4 py-2 text-sm text-center text-white bg-green-500 rounded cursor-pointer">
-                    CV telah dipilih
-                  </div>
-                    )
-                  : (
-                  <div className="px-4 py-2 text-sm text-center text-white rounded cursor-pointer bg-blue">
-                    Upload CV
-                  </div>
-                    )}
+                <div className={`px-4 py-2 text-sm text-center text-white rounded cursor-pointer ${authUser.file_url || cvSelected ? 'bg-green-500' : 'bg-blue'}`}>
+                  {authUser.file_url || cvSelected ? 'CV telah dipilih' : 'Upload CV'}
+                </div>
               </div>
             )}
             <label htmlFor="description">Deskripsi</label>
